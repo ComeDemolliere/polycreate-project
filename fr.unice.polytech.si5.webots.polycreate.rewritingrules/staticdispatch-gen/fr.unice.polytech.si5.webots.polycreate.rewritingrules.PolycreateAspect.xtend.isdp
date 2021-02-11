@@ -1,0 +1,15 @@
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.MoveActionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction){
+			fr.unice.polytech.si5.webots.polycreate.rewritingrules.MoveActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.MoveActionAspect
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction){
+			fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.SimpleConditionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.SimpleCondition){
+			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.SimpleConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.SimpleCondition)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.SimpleConditionAspect
