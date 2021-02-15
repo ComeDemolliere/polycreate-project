@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPolycreateParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'COLLISION_LEFT'", "'COLLISION_RIGHT'", "'VIRTUAL_WALL'", "'CLIFF_LEFT'", "'CLIFF_RIGHT'", "'CLIFF_FRONT'", "'FORWARD'", "'BACKWARD'", "'RobotProgram'", "'Transition'", "'{'", "'nextState'", "'}'", "'conditions'", "','", "'State'", "'actions'", "'transitions'", "'SimpleCondition'", "'detectionType'", "'MoveAction'", "'direction'", "'TurnAction'", "'angle'", "'-'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'COLLISION_LEFT'", "'COLLISION_RIGHT'", "'VIRTUAL_WALL'", "'CLIFF_LEFT'", "'CLIFF_RIGHT'", "'CLIFF_FRONT'", "'FORWARD'", "'BACKWARD'", "'RobotProgram'", "'Transition'", "'{'", "'nextState'", "'}'", "'conditions'", "','", "'State'", "'actions'", "'transitions'", "'SimpleCondition'", "'detectionType'", "'MoveAction'", "'duration'", "'direction'", "'TurnAction'", "'angle'", "'-'", "'.'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -32,6 +32,7 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
     public static final int T__16=16;
     public static final int T__38=38;
     public static final int T__17=17;
+    public static final int T__39=39;
     public static final int T__18=18;
     public static final int T__11=11;
     public static final int T__33=33;
@@ -1039,7 +1040,7 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
             if ( (LA2_0==33) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==35) ) {
+            else if ( (LA2_0==36) ) {
                 alt2=2;
             }
             else {
@@ -5575,17 +5576,22 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MoveAction__Group__4"
-    // InternalPolycreate.g:1840:1: rule__MoveAction__Group__4 : rule__MoveAction__Group__4__Impl ;
+    // InternalPolycreate.g:1840:1: rule__MoveAction__Group__4 : rule__MoveAction__Group__4__Impl rule__MoveAction__Group__5 ;
     public final void rule__MoveAction__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1844:1: ( rule__MoveAction__Group__4__Impl )
-            // InternalPolycreate.g:1845:2: rule__MoveAction__Group__4__Impl
+            // InternalPolycreate.g:1844:1: ( rule__MoveAction__Group__4__Impl rule__MoveAction__Group__5 )
+            // InternalPolycreate.g:1845:2: rule__MoveAction__Group__4__Impl rule__MoveAction__Group__5
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_21);
             rule__MoveAction__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__MoveAction__Group__5();
 
             state._fsp--;
 
@@ -5608,21 +5614,42 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MoveAction__Group__4__Impl"
-    // InternalPolycreate.g:1851:1: rule__MoveAction__Group__4__Impl : ( '}' ) ;
+    // InternalPolycreate.g:1852:1: rule__MoveAction__Group__4__Impl : ( ( rule__MoveAction__Group_4__0 )? ) ;
     public final void rule__MoveAction__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1855:1: ( ( '}' ) )
-            // InternalPolycreate.g:1856:1: ( '}' )
+            // InternalPolycreate.g:1856:1: ( ( ( rule__MoveAction__Group_4__0 )? ) )
+            // InternalPolycreate.g:1857:1: ( ( rule__MoveAction__Group_4__0 )? )
             {
-            // InternalPolycreate.g:1856:1: ( '}' )
-            // InternalPolycreate.g:1857:2: '}'
+            // InternalPolycreate.g:1857:1: ( ( rule__MoveAction__Group_4__0 )? )
+            // InternalPolycreate.g:1858:2: ( rule__MoveAction__Group_4__0 )?
             {
-             before(grammarAccess.getMoveActionAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,25,FOLLOW_2); 
-             after(grammarAccess.getMoveActionAccess().getRightCurlyBracketKeyword_4()); 
+             before(grammarAccess.getMoveActionAccess().getGroup_4()); 
+            // InternalPolycreate.g:1859:2: ( rule__MoveAction__Group_4__0 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
+
+            if ( (LA16_0==35) ) {
+                alt16=1;
+            }
+            switch (alt16) {
+                case 1 :
+                    // InternalPolycreate.g:1859:3: rule__MoveAction__Group_4__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__MoveAction__Group_4__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getMoveActionAccess().getGroup_4()); 
 
             }
 
@@ -5644,15 +5671,85 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__MoveAction__Group__4__Impl"
 
 
+    // $ANTLR start "rule__MoveAction__Group__5"
+    // InternalPolycreate.g:1867:1: rule__MoveAction__Group__5 : rule__MoveAction__Group__5__Impl ;
+    public final void rule__MoveAction__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:1871:1: ( rule__MoveAction__Group__5__Impl )
+            // InternalPolycreate.g:1872:2: rule__MoveAction__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__MoveAction__Group__5__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MoveAction__Group__5"
+
+
+    // $ANTLR start "rule__MoveAction__Group__5__Impl"
+    // InternalPolycreate.g:1878:1: rule__MoveAction__Group__5__Impl : ( '}' ) ;
+    public final void rule__MoveAction__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:1882:1: ( ( '}' ) )
+            // InternalPolycreate.g:1883:1: ( '}' )
+            {
+            // InternalPolycreate.g:1883:1: ( '}' )
+            // InternalPolycreate.g:1884:2: '}'
+            {
+             before(grammarAccess.getMoveActionAccess().getRightCurlyBracketKeyword_5()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getMoveActionAccess().getRightCurlyBracketKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MoveAction__Group__5__Impl"
+
+
     // $ANTLR start "rule__MoveAction__Group_3__0"
-    // InternalPolycreate.g:1867:1: rule__MoveAction__Group_3__0 : rule__MoveAction__Group_3__0__Impl rule__MoveAction__Group_3__1 ;
+    // InternalPolycreate.g:1894:1: rule__MoveAction__Group_3__0 : rule__MoveAction__Group_3__0__Impl rule__MoveAction__Group_3__1 ;
     public final void rule__MoveAction__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1871:1: ( rule__MoveAction__Group_3__0__Impl rule__MoveAction__Group_3__1 )
-            // InternalPolycreate.g:1872:2: rule__MoveAction__Group_3__0__Impl rule__MoveAction__Group_3__1
+            // InternalPolycreate.g:1898:1: ( rule__MoveAction__Group_3__0__Impl rule__MoveAction__Group_3__1 )
+            // InternalPolycreate.g:1899:2: rule__MoveAction__Group_3__0__Impl rule__MoveAction__Group_3__1
             {
             pushFollow(FOLLOW_22);
             rule__MoveAction__Group_3__0__Impl();
@@ -5683,21 +5780,21 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MoveAction__Group_3__0__Impl"
-    // InternalPolycreate.g:1879:1: rule__MoveAction__Group_3__0__Impl : ( 'direction' ) ;
+    // InternalPolycreate.g:1906:1: rule__MoveAction__Group_3__0__Impl : ( 'duration' ) ;
     public final void rule__MoveAction__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1883:1: ( ( 'direction' ) )
-            // InternalPolycreate.g:1884:1: ( 'direction' )
+            // InternalPolycreate.g:1910:1: ( ( 'duration' ) )
+            // InternalPolycreate.g:1911:1: ( 'duration' )
             {
-            // InternalPolycreate.g:1884:1: ( 'direction' )
-            // InternalPolycreate.g:1885:2: 'direction'
+            // InternalPolycreate.g:1911:1: ( 'duration' )
+            // InternalPolycreate.g:1912:2: 'duration'
             {
-             before(grammarAccess.getMoveActionAccess().getDirectionKeyword_3_0()); 
+             before(grammarAccess.getMoveActionAccess().getDurationKeyword_3_0()); 
             match(input,34,FOLLOW_2); 
-             after(grammarAccess.getMoveActionAccess().getDirectionKeyword_3_0()); 
+             after(grammarAccess.getMoveActionAccess().getDurationKeyword_3_0()); 
 
             }
 
@@ -5720,14 +5817,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MoveAction__Group_3__1"
-    // InternalPolycreate.g:1894:1: rule__MoveAction__Group_3__1 : rule__MoveAction__Group_3__1__Impl ;
+    // InternalPolycreate.g:1921:1: rule__MoveAction__Group_3__1 : rule__MoveAction__Group_3__1__Impl ;
     public final void rule__MoveAction__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1898:1: ( rule__MoveAction__Group_3__1__Impl )
-            // InternalPolycreate.g:1899:2: rule__MoveAction__Group_3__1__Impl
+            // InternalPolycreate.g:1925:1: ( rule__MoveAction__Group_3__1__Impl )
+            // InternalPolycreate.g:1926:2: rule__MoveAction__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MoveAction__Group_3__1__Impl();
@@ -5753,31 +5850,31 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MoveAction__Group_3__1__Impl"
-    // InternalPolycreate.g:1905:1: rule__MoveAction__Group_3__1__Impl : ( ( rule__MoveAction__DirectionAssignment_3_1 ) ) ;
+    // InternalPolycreate.g:1932:1: rule__MoveAction__Group_3__1__Impl : ( ( rule__MoveAction__DurationAssignment_3_1 ) ) ;
     public final void rule__MoveAction__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1909:1: ( ( ( rule__MoveAction__DirectionAssignment_3_1 ) ) )
-            // InternalPolycreate.g:1910:1: ( ( rule__MoveAction__DirectionAssignment_3_1 ) )
+            // InternalPolycreate.g:1936:1: ( ( ( rule__MoveAction__DurationAssignment_3_1 ) ) )
+            // InternalPolycreate.g:1937:1: ( ( rule__MoveAction__DurationAssignment_3_1 ) )
             {
-            // InternalPolycreate.g:1910:1: ( ( rule__MoveAction__DirectionAssignment_3_1 ) )
-            // InternalPolycreate.g:1911:2: ( rule__MoveAction__DirectionAssignment_3_1 )
+            // InternalPolycreate.g:1937:1: ( ( rule__MoveAction__DurationAssignment_3_1 ) )
+            // InternalPolycreate.g:1938:2: ( rule__MoveAction__DurationAssignment_3_1 )
             {
-             before(grammarAccess.getMoveActionAccess().getDirectionAssignment_3_1()); 
-            // InternalPolycreate.g:1912:2: ( rule__MoveAction__DirectionAssignment_3_1 )
-            // InternalPolycreate.g:1912:3: rule__MoveAction__DirectionAssignment_3_1
+             before(grammarAccess.getMoveActionAccess().getDurationAssignment_3_1()); 
+            // InternalPolycreate.g:1939:2: ( rule__MoveAction__DurationAssignment_3_1 )
+            // InternalPolycreate.g:1939:3: rule__MoveAction__DurationAssignment_3_1
             {
             pushFollow(FOLLOW_2);
-            rule__MoveAction__DirectionAssignment_3_1();
+            rule__MoveAction__DurationAssignment_3_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMoveActionAccess().getDirectionAssignment_3_1()); 
+             after(grammarAccess.getMoveActionAccess().getDurationAssignment_3_1()); 
 
             }
 
@@ -5799,15 +5896,170 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__MoveAction__Group_3__1__Impl"
 
 
+    // $ANTLR start "rule__MoveAction__Group_4__0"
+    // InternalPolycreate.g:1948:1: rule__MoveAction__Group_4__0 : rule__MoveAction__Group_4__0__Impl rule__MoveAction__Group_4__1 ;
+    public final void rule__MoveAction__Group_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:1952:1: ( rule__MoveAction__Group_4__0__Impl rule__MoveAction__Group_4__1 )
+            // InternalPolycreate.g:1953:2: rule__MoveAction__Group_4__0__Impl rule__MoveAction__Group_4__1
+            {
+            pushFollow(FOLLOW_23);
+            rule__MoveAction__Group_4__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__MoveAction__Group_4__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MoveAction__Group_4__0"
+
+
+    // $ANTLR start "rule__MoveAction__Group_4__0__Impl"
+    // InternalPolycreate.g:1960:1: rule__MoveAction__Group_4__0__Impl : ( 'direction' ) ;
+    public final void rule__MoveAction__Group_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:1964:1: ( ( 'direction' ) )
+            // InternalPolycreate.g:1965:1: ( 'direction' )
+            {
+            // InternalPolycreate.g:1965:1: ( 'direction' )
+            // InternalPolycreate.g:1966:2: 'direction'
+            {
+             before(grammarAccess.getMoveActionAccess().getDirectionKeyword_4_0()); 
+            match(input,35,FOLLOW_2); 
+             after(grammarAccess.getMoveActionAccess().getDirectionKeyword_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MoveAction__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__MoveAction__Group_4__1"
+    // InternalPolycreate.g:1975:1: rule__MoveAction__Group_4__1 : rule__MoveAction__Group_4__1__Impl ;
+    public final void rule__MoveAction__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:1979:1: ( rule__MoveAction__Group_4__1__Impl )
+            // InternalPolycreate.g:1980:2: rule__MoveAction__Group_4__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__MoveAction__Group_4__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MoveAction__Group_4__1"
+
+
+    // $ANTLR start "rule__MoveAction__Group_4__1__Impl"
+    // InternalPolycreate.g:1986:1: rule__MoveAction__Group_4__1__Impl : ( ( rule__MoveAction__DirectionAssignment_4_1 ) ) ;
+    public final void rule__MoveAction__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:1990:1: ( ( ( rule__MoveAction__DirectionAssignment_4_1 ) ) )
+            // InternalPolycreate.g:1991:1: ( ( rule__MoveAction__DirectionAssignment_4_1 ) )
+            {
+            // InternalPolycreate.g:1991:1: ( ( rule__MoveAction__DirectionAssignment_4_1 ) )
+            // InternalPolycreate.g:1992:2: ( rule__MoveAction__DirectionAssignment_4_1 )
+            {
+             before(grammarAccess.getMoveActionAccess().getDirectionAssignment_4_1()); 
+            // InternalPolycreate.g:1993:2: ( rule__MoveAction__DirectionAssignment_4_1 )
+            // InternalPolycreate.g:1993:3: rule__MoveAction__DirectionAssignment_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__MoveAction__DirectionAssignment_4_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getMoveActionAccess().getDirectionAssignment_4_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MoveAction__Group_4__1__Impl"
+
+
     // $ANTLR start "rule__TurnAction__Group__0"
-    // InternalPolycreate.g:1921:1: rule__TurnAction__Group__0 : rule__TurnAction__Group__0__Impl rule__TurnAction__Group__1 ;
+    // InternalPolycreate.g:2002:1: rule__TurnAction__Group__0 : rule__TurnAction__Group__0__Impl rule__TurnAction__Group__1 ;
     public final void rule__TurnAction__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1925:1: ( rule__TurnAction__Group__0__Impl rule__TurnAction__Group__1 )
-            // InternalPolycreate.g:1926:2: rule__TurnAction__Group__0__Impl rule__TurnAction__Group__1
+            // InternalPolycreate.g:2006:1: ( rule__TurnAction__Group__0__Impl rule__TurnAction__Group__1 )
+            // InternalPolycreate.g:2007:2: rule__TurnAction__Group__0__Impl rule__TurnAction__Group__1
             {
             pushFollow(FOLLOW_16);
             rule__TurnAction__Group__0__Impl();
@@ -5838,21 +6090,21 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__0__Impl"
-    // InternalPolycreate.g:1933:1: rule__TurnAction__Group__0__Impl : ( () ) ;
+    // InternalPolycreate.g:2014:1: rule__TurnAction__Group__0__Impl : ( () ) ;
     public final void rule__TurnAction__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1937:1: ( ( () ) )
-            // InternalPolycreate.g:1938:1: ( () )
+            // InternalPolycreate.g:2018:1: ( ( () ) )
+            // InternalPolycreate.g:2019:1: ( () )
             {
-            // InternalPolycreate.g:1938:1: ( () )
-            // InternalPolycreate.g:1939:2: ()
+            // InternalPolycreate.g:2019:1: ( () )
+            // InternalPolycreate.g:2020:2: ()
             {
              before(grammarAccess.getTurnActionAccess().getTurnActionAction_0()); 
-            // InternalPolycreate.g:1940:2: ()
-            // InternalPolycreate.g:1940:3: 
+            // InternalPolycreate.g:2021:2: ()
+            // InternalPolycreate.g:2021:3: 
             {
             }
 
@@ -5875,14 +6127,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__1"
-    // InternalPolycreate.g:1948:1: rule__TurnAction__Group__1 : rule__TurnAction__Group__1__Impl rule__TurnAction__Group__2 ;
+    // InternalPolycreate.g:2029:1: rule__TurnAction__Group__1 : rule__TurnAction__Group__1__Impl rule__TurnAction__Group__2 ;
     public final void rule__TurnAction__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1952:1: ( rule__TurnAction__Group__1__Impl rule__TurnAction__Group__2 )
-            // InternalPolycreate.g:1953:2: rule__TurnAction__Group__1__Impl rule__TurnAction__Group__2
+            // InternalPolycreate.g:2033:1: ( rule__TurnAction__Group__1__Impl rule__TurnAction__Group__2 )
+            // InternalPolycreate.g:2034:2: rule__TurnAction__Group__1__Impl rule__TurnAction__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__TurnAction__Group__1__Impl();
@@ -5913,20 +6165,20 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__1__Impl"
-    // InternalPolycreate.g:1960:1: rule__TurnAction__Group__1__Impl : ( 'TurnAction' ) ;
+    // InternalPolycreate.g:2041:1: rule__TurnAction__Group__1__Impl : ( 'TurnAction' ) ;
     public final void rule__TurnAction__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1964:1: ( ( 'TurnAction' ) )
-            // InternalPolycreate.g:1965:1: ( 'TurnAction' )
+            // InternalPolycreate.g:2045:1: ( ( 'TurnAction' ) )
+            // InternalPolycreate.g:2046:1: ( 'TurnAction' )
             {
-            // InternalPolycreate.g:1965:1: ( 'TurnAction' )
-            // InternalPolycreate.g:1966:2: 'TurnAction'
+            // InternalPolycreate.g:2046:1: ( 'TurnAction' )
+            // InternalPolycreate.g:2047:2: 'TurnAction'
             {
              before(grammarAccess.getTurnActionAccess().getTurnActionKeyword_1()); 
-            match(input,35,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getTurnActionAccess().getTurnActionKeyword_1()); 
 
             }
@@ -5950,16 +6202,16 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__2"
-    // InternalPolycreate.g:1975:1: rule__TurnAction__Group__2 : rule__TurnAction__Group__2__Impl rule__TurnAction__Group__3 ;
+    // InternalPolycreate.g:2056:1: rule__TurnAction__Group__2 : rule__TurnAction__Group__2__Impl rule__TurnAction__Group__3 ;
     public final void rule__TurnAction__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1979:1: ( rule__TurnAction__Group__2__Impl rule__TurnAction__Group__3 )
-            // InternalPolycreate.g:1980:2: rule__TurnAction__Group__2__Impl rule__TurnAction__Group__3
+            // InternalPolycreate.g:2060:1: ( rule__TurnAction__Group__2__Impl rule__TurnAction__Group__3 )
+            // InternalPolycreate.g:2061:2: rule__TurnAction__Group__2__Impl rule__TurnAction__Group__3
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_24);
             rule__TurnAction__Group__2__Impl();
 
             state._fsp--;
@@ -5988,17 +6240,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__2__Impl"
-    // InternalPolycreate.g:1987:1: rule__TurnAction__Group__2__Impl : ( '{' ) ;
+    // InternalPolycreate.g:2068:1: rule__TurnAction__Group__2__Impl : ( '{' ) ;
     public final void rule__TurnAction__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:1991:1: ( ( '{' ) )
-            // InternalPolycreate.g:1992:1: ( '{' )
+            // InternalPolycreate.g:2072:1: ( ( '{' ) )
+            // InternalPolycreate.g:2073:1: ( '{' )
             {
-            // InternalPolycreate.g:1992:1: ( '{' )
-            // InternalPolycreate.g:1993:2: '{'
+            // InternalPolycreate.g:2073:1: ( '{' )
+            // InternalPolycreate.g:2074:2: '{'
             {
              before(grammarAccess.getTurnActionAccess().getLeftCurlyBracketKeyword_2()); 
             match(input,23,FOLLOW_2); 
@@ -6025,16 +6277,16 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__3"
-    // InternalPolycreate.g:2002:1: rule__TurnAction__Group__3 : rule__TurnAction__Group__3__Impl rule__TurnAction__Group__4 ;
+    // InternalPolycreate.g:2083:1: rule__TurnAction__Group__3 : rule__TurnAction__Group__3__Impl rule__TurnAction__Group__4 ;
     public final void rule__TurnAction__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2006:1: ( rule__TurnAction__Group__3__Impl rule__TurnAction__Group__4 )
-            // InternalPolycreate.g:2007:2: rule__TurnAction__Group__3__Impl rule__TurnAction__Group__4
+            // InternalPolycreate.g:2087:1: ( rule__TurnAction__Group__3__Impl rule__TurnAction__Group__4 )
+            // InternalPolycreate.g:2088:2: rule__TurnAction__Group__3__Impl rule__TurnAction__Group__4
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_24);
             rule__TurnAction__Group__3__Impl();
 
             state._fsp--;
@@ -6063,29 +6315,29 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__3__Impl"
-    // InternalPolycreate.g:2014:1: rule__TurnAction__Group__3__Impl : ( ( rule__TurnAction__Group_3__0 )? ) ;
+    // InternalPolycreate.g:2095:1: rule__TurnAction__Group__3__Impl : ( ( rule__TurnAction__Group_3__0 )? ) ;
     public final void rule__TurnAction__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2018:1: ( ( ( rule__TurnAction__Group_3__0 )? ) )
-            // InternalPolycreate.g:2019:1: ( ( rule__TurnAction__Group_3__0 )? )
+            // InternalPolycreate.g:2099:1: ( ( ( rule__TurnAction__Group_3__0 )? ) )
+            // InternalPolycreate.g:2100:1: ( ( rule__TurnAction__Group_3__0 )? )
             {
-            // InternalPolycreate.g:2019:1: ( ( rule__TurnAction__Group_3__0 )? )
-            // InternalPolycreate.g:2020:2: ( rule__TurnAction__Group_3__0 )?
+            // InternalPolycreate.g:2100:1: ( ( rule__TurnAction__Group_3__0 )? )
+            // InternalPolycreate.g:2101:2: ( rule__TurnAction__Group_3__0 )?
             {
              before(grammarAccess.getTurnActionAccess().getGroup_3()); 
-            // InternalPolycreate.g:2021:2: ( rule__TurnAction__Group_3__0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalPolycreate.g:2102:2: ( rule__TurnAction__Group_3__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==36) ) {
-                alt16=1;
+            if ( (LA17_0==34) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // InternalPolycreate.g:2021:3: rule__TurnAction__Group_3__0
+                    // InternalPolycreate.g:2102:3: rule__TurnAction__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__TurnAction__Group_3__0();
@@ -6121,17 +6373,22 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__4"
-    // InternalPolycreate.g:2029:1: rule__TurnAction__Group__4 : rule__TurnAction__Group__4__Impl ;
+    // InternalPolycreate.g:2110:1: rule__TurnAction__Group__4 : rule__TurnAction__Group__4__Impl rule__TurnAction__Group__5 ;
     public final void rule__TurnAction__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2033:1: ( rule__TurnAction__Group__4__Impl )
-            // InternalPolycreate.g:2034:2: rule__TurnAction__Group__4__Impl
+            // InternalPolycreate.g:2114:1: ( rule__TurnAction__Group__4__Impl rule__TurnAction__Group__5 )
+            // InternalPolycreate.g:2115:2: rule__TurnAction__Group__4__Impl rule__TurnAction__Group__5
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_24);
             rule__TurnAction__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TurnAction__Group__5();
 
             state._fsp--;
 
@@ -6154,21 +6411,42 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group__4__Impl"
-    // InternalPolycreate.g:2040:1: rule__TurnAction__Group__4__Impl : ( '}' ) ;
+    // InternalPolycreate.g:2122:1: rule__TurnAction__Group__4__Impl : ( ( rule__TurnAction__Group_4__0 )? ) ;
     public final void rule__TurnAction__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2044:1: ( ( '}' ) )
-            // InternalPolycreate.g:2045:1: ( '}' )
+            // InternalPolycreate.g:2126:1: ( ( ( rule__TurnAction__Group_4__0 )? ) )
+            // InternalPolycreate.g:2127:1: ( ( rule__TurnAction__Group_4__0 )? )
             {
-            // InternalPolycreate.g:2045:1: ( '}' )
-            // InternalPolycreate.g:2046:2: '}'
+            // InternalPolycreate.g:2127:1: ( ( rule__TurnAction__Group_4__0 )? )
+            // InternalPolycreate.g:2128:2: ( rule__TurnAction__Group_4__0 )?
             {
-             before(grammarAccess.getTurnActionAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,25,FOLLOW_2); 
-             after(grammarAccess.getTurnActionAccess().getRightCurlyBracketKeyword_4()); 
+             before(grammarAccess.getTurnActionAccess().getGroup_4()); 
+            // InternalPolycreate.g:2129:2: ( rule__TurnAction__Group_4__0 )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
+
+            if ( (LA18_0==37) ) {
+                alt18=1;
+            }
+            switch (alt18) {
+                case 1 :
+                    // InternalPolycreate.g:2129:3: rule__TurnAction__Group_4__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__TurnAction__Group_4__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getTurnActionAccess().getGroup_4()); 
 
             }
 
@@ -6190,17 +6468,87 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__TurnAction__Group__4__Impl"
 
 
+    // $ANTLR start "rule__TurnAction__Group__5"
+    // InternalPolycreate.g:2137:1: rule__TurnAction__Group__5 : rule__TurnAction__Group__5__Impl ;
+    public final void rule__TurnAction__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2141:1: ( rule__TurnAction__Group__5__Impl )
+            // InternalPolycreate.g:2142:2: rule__TurnAction__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__TurnAction__Group__5__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__Group__5"
+
+
+    // $ANTLR start "rule__TurnAction__Group__5__Impl"
+    // InternalPolycreate.g:2148:1: rule__TurnAction__Group__5__Impl : ( '}' ) ;
+    public final void rule__TurnAction__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2152:1: ( ( '}' ) )
+            // InternalPolycreate.g:2153:1: ( '}' )
+            {
+            // InternalPolycreate.g:2153:1: ( '}' )
+            // InternalPolycreate.g:2154:2: '}'
+            {
+             before(grammarAccess.getTurnActionAccess().getRightCurlyBracketKeyword_5()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getTurnActionAccess().getRightCurlyBracketKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__Group__5__Impl"
+
+
     // $ANTLR start "rule__TurnAction__Group_3__0"
-    // InternalPolycreate.g:2056:1: rule__TurnAction__Group_3__0 : rule__TurnAction__Group_3__0__Impl rule__TurnAction__Group_3__1 ;
+    // InternalPolycreate.g:2164:1: rule__TurnAction__Group_3__0 : rule__TurnAction__Group_3__0__Impl rule__TurnAction__Group_3__1 ;
     public final void rule__TurnAction__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2060:1: ( rule__TurnAction__Group_3__0__Impl rule__TurnAction__Group_3__1 )
-            // InternalPolycreate.g:2061:2: rule__TurnAction__Group_3__0__Impl rule__TurnAction__Group_3__1
+            // InternalPolycreate.g:2168:1: ( rule__TurnAction__Group_3__0__Impl rule__TurnAction__Group_3__1 )
+            // InternalPolycreate.g:2169:2: rule__TurnAction__Group_3__0__Impl rule__TurnAction__Group_3__1
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_22);
             rule__TurnAction__Group_3__0__Impl();
 
             state._fsp--;
@@ -6229,21 +6577,21 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group_3__0__Impl"
-    // InternalPolycreate.g:2068:1: rule__TurnAction__Group_3__0__Impl : ( 'angle' ) ;
+    // InternalPolycreate.g:2176:1: rule__TurnAction__Group_3__0__Impl : ( 'duration' ) ;
     public final void rule__TurnAction__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2072:1: ( ( 'angle' ) )
-            // InternalPolycreate.g:2073:1: ( 'angle' )
+            // InternalPolycreate.g:2180:1: ( ( 'duration' ) )
+            // InternalPolycreate.g:2181:1: ( 'duration' )
             {
-            // InternalPolycreate.g:2073:1: ( 'angle' )
-            // InternalPolycreate.g:2074:2: 'angle'
+            // InternalPolycreate.g:2181:1: ( 'duration' )
+            // InternalPolycreate.g:2182:2: 'duration'
             {
-             before(grammarAccess.getTurnActionAccess().getAngleKeyword_3_0()); 
-            match(input,36,FOLLOW_2); 
-             after(grammarAccess.getTurnActionAccess().getAngleKeyword_3_0()); 
+             before(grammarAccess.getTurnActionAccess().getDurationKeyword_3_0()); 
+            match(input,34,FOLLOW_2); 
+             after(grammarAccess.getTurnActionAccess().getDurationKeyword_3_0()); 
 
             }
 
@@ -6266,14 +6614,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group_3__1"
-    // InternalPolycreate.g:2083:1: rule__TurnAction__Group_3__1 : rule__TurnAction__Group_3__1__Impl ;
+    // InternalPolycreate.g:2191:1: rule__TurnAction__Group_3__1 : rule__TurnAction__Group_3__1__Impl ;
     public final void rule__TurnAction__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2087:1: ( rule__TurnAction__Group_3__1__Impl )
-            // InternalPolycreate.g:2088:2: rule__TurnAction__Group_3__1__Impl
+            // InternalPolycreate.g:2195:1: ( rule__TurnAction__Group_3__1__Impl )
+            // InternalPolycreate.g:2196:2: rule__TurnAction__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TurnAction__Group_3__1__Impl();
@@ -6299,31 +6647,31 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__TurnAction__Group_3__1__Impl"
-    // InternalPolycreate.g:2094:1: rule__TurnAction__Group_3__1__Impl : ( ( rule__TurnAction__AngleAssignment_3_1 ) ) ;
+    // InternalPolycreate.g:2202:1: rule__TurnAction__Group_3__1__Impl : ( ( rule__TurnAction__DurationAssignment_3_1 ) ) ;
     public final void rule__TurnAction__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2098:1: ( ( ( rule__TurnAction__AngleAssignment_3_1 ) ) )
-            // InternalPolycreate.g:2099:1: ( ( rule__TurnAction__AngleAssignment_3_1 ) )
+            // InternalPolycreate.g:2206:1: ( ( ( rule__TurnAction__DurationAssignment_3_1 ) ) )
+            // InternalPolycreate.g:2207:1: ( ( rule__TurnAction__DurationAssignment_3_1 ) )
             {
-            // InternalPolycreate.g:2099:1: ( ( rule__TurnAction__AngleAssignment_3_1 ) )
-            // InternalPolycreate.g:2100:2: ( rule__TurnAction__AngleAssignment_3_1 )
+            // InternalPolycreate.g:2207:1: ( ( rule__TurnAction__DurationAssignment_3_1 ) )
+            // InternalPolycreate.g:2208:2: ( rule__TurnAction__DurationAssignment_3_1 )
             {
-             before(grammarAccess.getTurnActionAccess().getAngleAssignment_3_1()); 
-            // InternalPolycreate.g:2101:2: ( rule__TurnAction__AngleAssignment_3_1 )
-            // InternalPolycreate.g:2101:3: rule__TurnAction__AngleAssignment_3_1
+             before(grammarAccess.getTurnActionAccess().getDurationAssignment_3_1()); 
+            // InternalPolycreate.g:2209:2: ( rule__TurnAction__DurationAssignment_3_1 )
+            // InternalPolycreate.g:2209:3: rule__TurnAction__DurationAssignment_3_1
             {
             pushFollow(FOLLOW_2);
-            rule__TurnAction__AngleAssignment_3_1();
+            rule__TurnAction__DurationAssignment_3_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getTurnActionAccess().getAngleAssignment_3_1()); 
+             after(grammarAccess.getTurnActionAccess().getDurationAssignment_3_1()); 
 
             }
 
@@ -6345,17 +6693,172 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__TurnAction__Group_3__1__Impl"
 
 
+    // $ANTLR start "rule__TurnAction__Group_4__0"
+    // InternalPolycreate.g:2218:1: rule__TurnAction__Group_4__0 : rule__TurnAction__Group_4__0__Impl rule__TurnAction__Group_4__1 ;
+    public final void rule__TurnAction__Group_4__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2222:1: ( rule__TurnAction__Group_4__0__Impl rule__TurnAction__Group_4__1 )
+            // InternalPolycreate.g:2223:2: rule__TurnAction__Group_4__0__Impl rule__TurnAction__Group_4__1
+            {
+            pushFollow(FOLLOW_22);
+            rule__TurnAction__Group_4__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__TurnAction__Group_4__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__Group_4__0"
+
+
+    // $ANTLR start "rule__TurnAction__Group_4__0__Impl"
+    // InternalPolycreate.g:2230:1: rule__TurnAction__Group_4__0__Impl : ( 'angle' ) ;
+    public final void rule__TurnAction__Group_4__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2234:1: ( ( 'angle' ) )
+            // InternalPolycreate.g:2235:1: ( 'angle' )
+            {
+            // InternalPolycreate.g:2235:1: ( 'angle' )
+            // InternalPolycreate.g:2236:2: 'angle'
+            {
+             before(grammarAccess.getTurnActionAccess().getAngleKeyword_4_0()); 
+            match(input,37,FOLLOW_2); 
+             after(grammarAccess.getTurnActionAccess().getAngleKeyword_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__Group_4__0__Impl"
+
+
+    // $ANTLR start "rule__TurnAction__Group_4__1"
+    // InternalPolycreate.g:2245:1: rule__TurnAction__Group_4__1 : rule__TurnAction__Group_4__1__Impl ;
+    public final void rule__TurnAction__Group_4__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2249:1: ( rule__TurnAction__Group_4__1__Impl )
+            // InternalPolycreate.g:2250:2: rule__TurnAction__Group_4__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__TurnAction__Group_4__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__Group_4__1"
+
+
+    // $ANTLR start "rule__TurnAction__Group_4__1__Impl"
+    // InternalPolycreate.g:2256:1: rule__TurnAction__Group_4__1__Impl : ( ( rule__TurnAction__AngleAssignment_4_1 ) ) ;
+    public final void rule__TurnAction__Group_4__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2260:1: ( ( ( rule__TurnAction__AngleAssignment_4_1 ) ) )
+            // InternalPolycreate.g:2261:1: ( ( rule__TurnAction__AngleAssignment_4_1 ) )
+            {
+            // InternalPolycreate.g:2261:1: ( ( rule__TurnAction__AngleAssignment_4_1 ) )
+            // InternalPolycreate.g:2262:2: ( rule__TurnAction__AngleAssignment_4_1 )
+            {
+             before(grammarAccess.getTurnActionAccess().getAngleAssignment_4_1()); 
+            // InternalPolycreate.g:2263:2: ( rule__TurnAction__AngleAssignment_4_1 )
+            // InternalPolycreate.g:2263:3: rule__TurnAction__AngleAssignment_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__TurnAction__AngleAssignment_4_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTurnActionAccess().getAngleAssignment_4_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__Group_4__1__Impl"
+
+
     // $ANTLR start "rule__EDouble__Group__0"
-    // InternalPolycreate.g:2110:1: rule__EDouble__Group__0 : rule__EDouble__Group__0__Impl rule__EDouble__Group__1 ;
+    // InternalPolycreate.g:2272:1: rule__EDouble__Group__0 : rule__EDouble__Group__0__Impl rule__EDouble__Group__1 ;
     public final void rule__EDouble__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2114:1: ( rule__EDouble__Group__0__Impl rule__EDouble__Group__1 )
-            // InternalPolycreate.g:2115:2: rule__EDouble__Group__0__Impl rule__EDouble__Group__1
+            // InternalPolycreate.g:2276:1: ( rule__EDouble__Group__0__Impl rule__EDouble__Group__1 )
+            // InternalPolycreate.g:2277:2: rule__EDouble__Group__0__Impl rule__EDouble__Group__1
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_22);
             rule__EDouble__Group__0__Impl();
 
             state._fsp--;
@@ -6384,31 +6887,31 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__0__Impl"
-    // InternalPolycreate.g:2122:1: rule__EDouble__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalPolycreate.g:2284:1: rule__EDouble__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EDouble__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2126:1: ( ( ( '-' )? ) )
-            // InternalPolycreate.g:2127:1: ( ( '-' )? )
+            // InternalPolycreate.g:2288:1: ( ( ( '-' )? ) )
+            // InternalPolycreate.g:2289:1: ( ( '-' )? )
             {
-            // InternalPolycreate.g:2127:1: ( ( '-' )? )
-            // InternalPolycreate.g:2128:2: ( '-' )?
+            // InternalPolycreate.g:2289:1: ( ( '-' )? )
+            // InternalPolycreate.g:2290:2: ( '-' )?
             {
              before(grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_0()); 
-            // InternalPolycreate.g:2129:2: ( '-' )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalPolycreate.g:2291:2: ( '-' )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA17_0==37) ) {
-                alt17=1;
+            if ( (LA19_0==38) ) {
+                alt19=1;
             }
-            switch (alt17) {
+            switch (alt19) {
                 case 1 :
-                    // InternalPolycreate.g:2129:3: '-'
+                    // InternalPolycreate.g:2291:3: '-'
                     {
-                    match(input,37,FOLLOW_2); 
+                    match(input,38,FOLLOW_2); 
 
                     }
                     break;
@@ -6438,16 +6941,16 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__1"
-    // InternalPolycreate.g:2137:1: rule__EDouble__Group__1 : rule__EDouble__Group__1__Impl rule__EDouble__Group__2 ;
+    // InternalPolycreate.g:2299:1: rule__EDouble__Group__1 : rule__EDouble__Group__1__Impl rule__EDouble__Group__2 ;
     public final void rule__EDouble__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2141:1: ( rule__EDouble__Group__1__Impl rule__EDouble__Group__2 )
-            // InternalPolycreate.g:2142:2: rule__EDouble__Group__1__Impl rule__EDouble__Group__2
+            // InternalPolycreate.g:2303:1: ( rule__EDouble__Group__1__Impl rule__EDouble__Group__2 )
+            // InternalPolycreate.g:2304:2: rule__EDouble__Group__1__Impl rule__EDouble__Group__2
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_22);
             rule__EDouble__Group__1__Impl();
 
             state._fsp--;
@@ -6476,29 +6979,29 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__1__Impl"
-    // InternalPolycreate.g:2149:1: rule__EDouble__Group__1__Impl : ( ( RULE_INT )? ) ;
+    // InternalPolycreate.g:2311:1: rule__EDouble__Group__1__Impl : ( ( RULE_INT )? ) ;
     public final void rule__EDouble__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2153:1: ( ( ( RULE_INT )? ) )
-            // InternalPolycreate.g:2154:1: ( ( RULE_INT )? )
+            // InternalPolycreate.g:2315:1: ( ( ( RULE_INT )? ) )
+            // InternalPolycreate.g:2316:1: ( ( RULE_INT )? )
             {
-            // InternalPolycreate.g:2154:1: ( ( RULE_INT )? )
-            // InternalPolycreate.g:2155:2: ( RULE_INT )?
+            // InternalPolycreate.g:2316:1: ( ( RULE_INT )? )
+            // InternalPolycreate.g:2317:2: ( RULE_INT )?
             {
              before(grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_1()); 
-            // InternalPolycreate.g:2156:2: ( RULE_INT )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalPolycreate.g:2318:2: ( RULE_INT )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA18_0==RULE_INT) ) {
-                alt18=1;
+            if ( (LA20_0==RULE_INT) ) {
+                alt20=1;
             }
-            switch (alt18) {
+            switch (alt20) {
                 case 1 :
-                    // InternalPolycreate.g:2156:3: RULE_INT
+                    // InternalPolycreate.g:2318:3: RULE_INT
                     {
                     match(input,RULE_INT,FOLLOW_2); 
 
@@ -6530,14 +7033,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__2"
-    // InternalPolycreate.g:2164:1: rule__EDouble__Group__2 : rule__EDouble__Group__2__Impl rule__EDouble__Group__3 ;
+    // InternalPolycreate.g:2326:1: rule__EDouble__Group__2 : rule__EDouble__Group__2__Impl rule__EDouble__Group__3 ;
     public final void rule__EDouble__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2168:1: ( rule__EDouble__Group__2__Impl rule__EDouble__Group__3 )
-            // InternalPolycreate.g:2169:2: rule__EDouble__Group__2__Impl rule__EDouble__Group__3
+            // InternalPolycreate.g:2330:1: ( rule__EDouble__Group__2__Impl rule__EDouble__Group__3 )
+            // InternalPolycreate.g:2331:2: rule__EDouble__Group__2__Impl rule__EDouble__Group__3
             {
             pushFollow(FOLLOW_25);
             rule__EDouble__Group__2__Impl();
@@ -6568,20 +7071,20 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__2__Impl"
-    // InternalPolycreate.g:2176:1: rule__EDouble__Group__2__Impl : ( '.' ) ;
+    // InternalPolycreate.g:2338:1: rule__EDouble__Group__2__Impl : ( '.' ) ;
     public final void rule__EDouble__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2180:1: ( ( '.' ) )
-            // InternalPolycreate.g:2181:1: ( '.' )
+            // InternalPolycreate.g:2342:1: ( ( '.' ) )
+            // InternalPolycreate.g:2343:1: ( '.' )
             {
-            // InternalPolycreate.g:2181:1: ( '.' )
-            // InternalPolycreate.g:2182:2: '.'
+            // InternalPolycreate.g:2343:1: ( '.' )
+            // InternalPolycreate.g:2344:2: '.'
             {
              before(grammarAccess.getEDoubleAccess().getFullStopKeyword_2()); 
-            match(input,38,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getEDoubleAccess().getFullStopKeyword_2()); 
 
             }
@@ -6605,14 +7108,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__3"
-    // InternalPolycreate.g:2191:1: rule__EDouble__Group__3 : rule__EDouble__Group__3__Impl rule__EDouble__Group__4 ;
+    // InternalPolycreate.g:2353:1: rule__EDouble__Group__3 : rule__EDouble__Group__3__Impl rule__EDouble__Group__4 ;
     public final void rule__EDouble__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2195:1: ( rule__EDouble__Group__3__Impl rule__EDouble__Group__4 )
-            // InternalPolycreate.g:2196:2: rule__EDouble__Group__3__Impl rule__EDouble__Group__4
+            // InternalPolycreate.g:2357:1: ( rule__EDouble__Group__3__Impl rule__EDouble__Group__4 )
+            // InternalPolycreate.g:2358:2: rule__EDouble__Group__3__Impl rule__EDouble__Group__4
             {
             pushFollow(FOLLOW_26);
             rule__EDouble__Group__3__Impl();
@@ -6643,17 +7146,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__3__Impl"
-    // InternalPolycreate.g:2203:1: rule__EDouble__Group__3__Impl : ( RULE_INT ) ;
+    // InternalPolycreate.g:2365:1: rule__EDouble__Group__3__Impl : ( RULE_INT ) ;
     public final void rule__EDouble__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2207:1: ( ( RULE_INT ) )
-            // InternalPolycreate.g:2208:1: ( RULE_INT )
+            // InternalPolycreate.g:2369:1: ( ( RULE_INT ) )
+            // InternalPolycreate.g:2370:1: ( RULE_INT )
             {
-            // InternalPolycreate.g:2208:1: ( RULE_INT )
-            // InternalPolycreate.g:2209:2: RULE_INT
+            // InternalPolycreate.g:2370:1: ( RULE_INT )
+            // InternalPolycreate.g:2371:2: RULE_INT
             {
              before(grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_3()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -6680,14 +7183,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__4"
-    // InternalPolycreate.g:2218:1: rule__EDouble__Group__4 : rule__EDouble__Group__4__Impl ;
+    // InternalPolycreate.g:2380:1: rule__EDouble__Group__4 : rule__EDouble__Group__4__Impl ;
     public final void rule__EDouble__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2222:1: ( rule__EDouble__Group__4__Impl )
-            // InternalPolycreate.g:2223:2: rule__EDouble__Group__4__Impl
+            // InternalPolycreate.g:2384:1: ( rule__EDouble__Group__4__Impl )
+            // InternalPolycreate.g:2385:2: rule__EDouble__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EDouble__Group__4__Impl();
@@ -6713,29 +7216,29 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group__4__Impl"
-    // InternalPolycreate.g:2229:1: rule__EDouble__Group__4__Impl : ( ( rule__EDouble__Group_4__0 )? ) ;
+    // InternalPolycreate.g:2391:1: rule__EDouble__Group__4__Impl : ( ( rule__EDouble__Group_4__0 )? ) ;
     public final void rule__EDouble__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2233:1: ( ( ( rule__EDouble__Group_4__0 )? ) )
-            // InternalPolycreate.g:2234:1: ( ( rule__EDouble__Group_4__0 )? )
+            // InternalPolycreate.g:2395:1: ( ( ( rule__EDouble__Group_4__0 )? ) )
+            // InternalPolycreate.g:2396:1: ( ( rule__EDouble__Group_4__0 )? )
             {
-            // InternalPolycreate.g:2234:1: ( ( rule__EDouble__Group_4__0 )? )
-            // InternalPolycreate.g:2235:2: ( rule__EDouble__Group_4__0 )?
+            // InternalPolycreate.g:2396:1: ( ( rule__EDouble__Group_4__0 )? )
+            // InternalPolycreate.g:2397:2: ( rule__EDouble__Group_4__0 )?
             {
              before(grammarAccess.getEDoubleAccess().getGroup_4()); 
-            // InternalPolycreate.g:2236:2: ( rule__EDouble__Group_4__0 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalPolycreate.g:2398:2: ( rule__EDouble__Group_4__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( ((LA19_0>=11 && LA19_0<=12)) ) {
-                alt19=1;
+            if ( ((LA21_0>=11 && LA21_0<=12)) ) {
+                alt21=1;
             }
-            switch (alt19) {
+            switch (alt21) {
                 case 1 :
-                    // InternalPolycreate.g:2236:3: rule__EDouble__Group_4__0
+                    // InternalPolycreate.g:2398:3: rule__EDouble__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EDouble__Group_4__0();
@@ -6771,14 +7274,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group_4__0"
-    // InternalPolycreate.g:2245:1: rule__EDouble__Group_4__0 : rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 ;
+    // InternalPolycreate.g:2407:1: rule__EDouble__Group_4__0 : rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 ;
     public final void rule__EDouble__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2249:1: ( rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 )
-            // InternalPolycreate.g:2250:2: rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1
+            // InternalPolycreate.g:2411:1: ( rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 )
+            // InternalPolycreate.g:2412:2: rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1
             {
             pushFollow(FOLLOW_27);
             rule__EDouble__Group_4__0__Impl();
@@ -6809,21 +7312,21 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group_4__0__Impl"
-    // InternalPolycreate.g:2257:1: rule__EDouble__Group_4__0__Impl : ( ( rule__EDouble__Alternatives_4_0 ) ) ;
+    // InternalPolycreate.g:2419:1: rule__EDouble__Group_4__0__Impl : ( ( rule__EDouble__Alternatives_4_0 ) ) ;
     public final void rule__EDouble__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2261:1: ( ( ( rule__EDouble__Alternatives_4_0 ) ) )
-            // InternalPolycreate.g:2262:1: ( ( rule__EDouble__Alternatives_4_0 ) )
+            // InternalPolycreate.g:2423:1: ( ( ( rule__EDouble__Alternatives_4_0 ) ) )
+            // InternalPolycreate.g:2424:1: ( ( rule__EDouble__Alternatives_4_0 ) )
             {
-            // InternalPolycreate.g:2262:1: ( ( rule__EDouble__Alternatives_4_0 ) )
-            // InternalPolycreate.g:2263:2: ( rule__EDouble__Alternatives_4_0 )
+            // InternalPolycreate.g:2424:1: ( ( rule__EDouble__Alternatives_4_0 ) )
+            // InternalPolycreate.g:2425:2: ( rule__EDouble__Alternatives_4_0 )
             {
              before(grammarAccess.getEDoubleAccess().getAlternatives_4_0()); 
-            // InternalPolycreate.g:2264:2: ( rule__EDouble__Alternatives_4_0 )
-            // InternalPolycreate.g:2264:3: rule__EDouble__Alternatives_4_0
+            // InternalPolycreate.g:2426:2: ( rule__EDouble__Alternatives_4_0 )
+            // InternalPolycreate.g:2426:3: rule__EDouble__Alternatives_4_0
             {
             pushFollow(FOLLOW_2);
             rule__EDouble__Alternatives_4_0();
@@ -6856,14 +7359,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group_4__1"
-    // InternalPolycreate.g:2272:1: rule__EDouble__Group_4__1 : rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 ;
+    // InternalPolycreate.g:2434:1: rule__EDouble__Group_4__1 : rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 ;
     public final void rule__EDouble__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2276:1: ( rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 )
-            // InternalPolycreate.g:2277:2: rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2
+            // InternalPolycreate.g:2438:1: ( rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 )
+            // InternalPolycreate.g:2439:2: rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2
             {
             pushFollow(FOLLOW_27);
             rule__EDouble__Group_4__1__Impl();
@@ -6894,31 +7397,31 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group_4__1__Impl"
-    // InternalPolycreate.g:2284:1: rule__EDouble__Group_4__1__Impl : ( ( '-' )? ) ;
+    // InternalPolycreate.g:2446:1: rule__EDouble__Group_4__1__Impl : ( ( '-' )? ) ;
     public final void rule__EDouble__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2288:1: ( ( ( '-' )? ) )
-            // InternalPolycreate.g:2289:1: ( ( '-' )? )
+            // InternalPolycreate.g:2450:1: ( ( ( '-' )? ) )
+            // InternalPolycreate.g:2451:1: ( ( '-' )? )
             {
-            // InternalPolycreate.g:2289:1: ( ( '-' )? )
-            // InternalPolycreate.g:2290:2: ( '-' )?
+            // InternalPolycreate.g:2451:1: ( ( '-' )? )
+            // InternalPolycreate.g:2452:2: ( '-' )?
             {
              before(grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_4_1()); 
-            // InternalPolycreate.g:2291:2: ( '-' )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalPolycreate.g:2453:2: ( '-' )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA20_0==37) ) {
-                alt20=1;
+            if ( (LA22_0==38) ) {
+                alt22=1;
             }
-            switch (alt20) {
+            switch (alt22) {
                 case 1 :
-                    // InternalPolycreate.g:2291:3: '-'
+                    // InternalPolycreate.g:2453:3: '-'
                     {
-                    match(input,37,FOLLOW_2); 
+                    match(input,38,FOLLOW_2); 
 
                     }
                     break;
@@ -6948,14 +7451,14 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group_4__2"
-    // InternalPolycreate.g:2299:1: rule__EDouble__Group_4__2 : rule__EDouble__Group_4__2__Impl ;
+    // InternalPolycreate.g:2461:1: rule__EDouble__Group_4__2 : rule__EDouble__Group_4__2__Impl ;
     public final void rule__EDouble__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2303:1: ( rule__EDouble__Group_4__2__Impl )
-            // InternalPolycreate.g:2304:2: rule__EDouble__Group_4__2__Impl
+            // InternalPolycreate.g:2465:1: ( rule__EDouble__Group_4__2__Impl )
+            // InternalPolycreate.g:2466:2: rule__EDouble__Group_4__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EDouble__Group_4__2__Impl();
@@ -6981,17 +7484,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__EDouble__Group_4__2__Impl"
-    // InternalPolycreate.g:2310:1: rule__EDouble__Group_4__2__Impl : ( RULE_INT ) ;
+    // InternalPolycreate.g:2472:1: rule__EDouble__Group_4__2__Impl : ( RULE_INT ) ;
     public final void rule__EDouble__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2314:1: ( ( RULE_INT ) )
-            // InternalPolycreate.g:2315:1: ( RULE_INT )
+            // InternalPolycreate.g:2476:1: ( ( RULE_INT ) )
+            // InternalPolycreate.g:2477:1: ( RULE_INT )
             {
-            // InternalPolycreate.g:2315:1: ( RULE_INT )
-            // InternalPolycreate.g:2316:2: RULE_INT
+            // InternalPolycreate.g:2477:1: ( RULE_INT )
+            // InternalPolycreate.g:2478:2: RULE_INT
             {
              before(grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_4_2()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -7018,17 +7521,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotProgram__NameAssignment_2"
-    // InternalPolycreate.g:2326:1: rule__RobotProgram__NameAssignment_2 : ( ruleEString ) ;
+    // InternalPolycreate.g:2488:1: rule__RobotProgram__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__RobotProgram__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2330:1: ( ( ruleEString ) )
-            // InternalPolycreate.g:2331:2: ( ruleEString )
+            // InternalPolycreate.g:2492:1: ( ( ruleEString ) )
+            // InternalPolycreate.g:2493:2: ( ruleEString )
             {
-            // InternalPolycreate.g:2331:2: ( ruleEString )
-            // InternalPolycreate.g:2332:3: ruleEString
+            // InternalPolycreate.g:2493:2: ( ruleEString )
+            // InternalPolycreate.g:2494:3: ruleEString
             {
              before(grammarAccess.getRobotProgramAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7059,17 +7562,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotProgram__InitialStateAssignment_3"
-    // InternalPolycreate.g:2341:1: rule__RobotProgram__InitialStateAssignment_3 : ( ruleState ) ;
+    // InternalPolycreate.g:2503:1: rule__RobotProgram__InitialStateAssignment_3 : ( ruleState ) ;
     public final void rule__RobotProgram__InitialStateAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2345:1: ( ( ruleState ) )
-            // InternalPolycreate.g:2346:2: ( ruleState )
+            // InternalPolycreate.g:2507:1: ( ( ruleState ) )
+            // InternalPolycreate.g:2508:2: ( ruleState )
             {
-            // InternalPolycreate.g:2346:2: ( ruleState )
-            // InternalPolycreate.g:2347:3: ruleState
+            // InternalPolycreate.g:2508:2: ( ruleState )
+            // InternalPolycreate.g:2509:3: ruleState
             {
              before(grammarAccess.getRobotProgramAccess().getInitialStateStateParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -7100,17 +7603,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotProgram__OwnedStatesAssignment_4"
-    // InternalPolycreate.g:2356:1: rule__RobotProgram__OwnedStatesAssignment_4 : ( ruleState ) ;
+    // InternalPolycreate.g:2518:1: rule__RobotProgram__OwnedStatesAssignment_4 : ( ruleState ) ;
     public final void rule__RobotProgram__OwnedStatesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2360:1: ( ( ruleState ) )
-            // InternalPolycreate.g:2361:2: ( ruleState )
+            // InternalPolycreate.g:2522:1: ( ( ruleState ) )
+            // InternalPolycreate.g:2523:2: ( ruleState )
             {
-            // InternalPolycreate.g:2361:2: ( ruleState )
-            // InternalPolycreate.g:2362:3: ruleState
+            // InternalPolycreate.g:2523:2: ( ruleState )
+            // InternalPolycreate.g:2524:3: ruleState
             {
              before(grammarAccess.getRobotProgramAccess().getOwnedStatesStateParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -7141,17 +7644,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RobotProgram__GlobalTransitionsAssignment_5"
-    // InternalPolycreate.g:2371:1: rule__RobotProgram__GlobalTransitionsAssignment_5 : ( ruleTransition ) ;
+    // InternalPolycreate.g:2533:1: rule__RobotProgram__GlobalTransitionsAssignment_5 : ( ruleTransition ) ;
     public final void rule__RobotProgram__GlobalTransitionsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2375:1: ( ( ruleTransition ) )
-            // InternalPolycreate.g:2376:2: ( ruleTransition )
+            // InternalPolycreate.g:2537:1: ( ( ruleTransition ) )
+            // InternalPolycreate.g:2538:2: ( ruleTransition )
             {
-            // InternalPolycreate.g:2376:2: ( ruleTransition )
-            // InternalPolycreate.g:2377:3: ruleTransition
+            // InternalPolycreate.g:2538:2: ( ruleTransition )
+            // InternalPolycreate.g:2539:3: ruleTransition
             {
              before(grammarAccess.getRobotProgramAccess().getGlobalTransitionsTransitionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -7182,17 +7685,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__ConditionsAssignment_2_2"
-    // InternalPolycreate.g:2386:1: rule__Transition__ConditionsAssignment_2_2 : ( ruleCondition ) ;
+    // InternalPolycreate.g:2548:1: rule__Transition__ConditionsAssignment_2_2 : ( ruleCondition ) ;
     public final void rule__Transition__ConditionsAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2390:1: ( ( ruleCondition ) )
-            // InternalPolycreate.g:2391:2: ( ruleCondition )
+            // InternalPolycreate.g:2552:1: ( ( ruleCondition ) )
+            // InternalPolycreate.g:2553:2: ( ruleCondition )
             {
-            // InternalPolycreate.g:2391:2: ( ruleCondition )
-            // InternalPolycreate.g:2392:3: ruleCondition
+            // InternalPolycreate.g:2553:2: ( ruleCondition )
+            // InternalPolycreate.g:2554:3: ruleCondition
             {
              before(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_2_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7223,17 +7726,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__ConditionsAssignment_2_3_1"
-    // InternalPolycreate.g:2401:1: rule__Transition__ConditionsAssignment_2_3_1 : ( ruleCondition ) ;
+    // InternalPolycreate.g:2563:1: rule__Transition__ConditionsAssignment_2_3_1 : ( ruleCondition ) ;
     public final void rule__Transition__ConditionsAssignment_2_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2405:1: ( ( ruleCondition ) )
-            // InternalPolycreate.g:2406:2: ( ruleCondition )
+            // InternalPolycreate.g:2567:1: ( ( ruleCondition ) )
+            // InternalPolycreate.g:2568:2: ( ruleCondition )
             {
-            // InternalPolycreate.g:2406:2: ( ruleCondition )
-            // InternalPolycreate.g:2407:3: ruleCondition
+            // InternalPolycreate.g:2568:2: ( ruleCondition )
+            // InternalPolycreate.g:2569:3: ruleCondition
             {
              before(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_2_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7264,21 +7767,21 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Transition__NextStateAssignment_4"
-    // InternalPolycreate.g:2416:1: rule__Transition__NextStateAssignment_4 : ( ( ruleEString ) ) ;
+    // InternalPolycreate.g:2578:1: rule__Transition__NextStateAssignment_4 : ( ( ruleEString ) ) ;
     public final void rule__Transition__NextStateAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2420:1: ( ( ( ruleEString ) ) )
-            // InternalPolycreate.g:2421:2: ( ( ruleEString ) )
+            // InternalPolycreate.g:2582:1: ( ( ( ruleEString ) ) )
+            // InternalPolycreate.g:2583:2: ( ( ruleEString ) )
             {
-            // InternalPolycreate.g:2421:2: ( ( ruleEString ) )
-            // InternalPolycreate.g:2422:3: ( ruleEString )
+            // InternalPolycreate.g:2583:2: ( ( ruleEString ) )
+            // InternalPolycreate.g:2584:3: ( ruleEString )
             {
              before(grammarAccess.getTransitionAccess().getNextStateStateCrossReference_4_0()); 
-            // InternalPolycreate.g:2423:3: ( ruleEString )
-            // InternalPolycreate.g:2424:4: ruleEString
+            // InternalPolycreate.g:2585:3: ( ruleEString )
+            // InternalPolycreate.g:2586:4: ruleEString
             {
              before(grammarAccess.getTransitionAccess().getNextStateStateEStringParserRuleCall_4_0_1()); 
             pushFollow(FOLLOW_2);
@@ -7313,17 +7816,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__NameAssignment_2"
-    // InternalPolycreate.g:2435:1: rule__State__NameAssignment_2 : ( ruleEString ) ;
+    // InternalPolycreate.g:2597:1: rule__State__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__State__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2439:1: ( ( ruleEString ) )
-            // InternalPolycreate.g:2440:2: ( ruleEString )
+            // InternalPolycreate.g:2601:1: ( ( ruleEString ) )
+            // InternalPolycreate.g:2602:2: ( ruleEString )
             {
-            // InternalPolycreate.g:2440:2: ( ruleEString )
-            // InternalPolycreate.g:2441:3: ruleEString
+            // InternalPolycreate.g:2602:2: ( ruleEString )
+            // InternalPolycreate.g:2603:3: ruleEString
             {
              before(grammarAccess.getStateAccess().getNameEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7354,17 +7857,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__ActionsAssignment_4_2"
-    // InternalPolycreate.g:2450:1: rule__State__ActionsAssignment_4_2 : ( ruleAction ) ;
+    // InternalPolycreate.g:2612:1: rule__State__ActionsAssignment_4_2 : ( ruleAction ) ;
     public final void rule__State__ActionsAssignment_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2454:1: ( ( ruleAction ) )
-            // InternalPolycreate.g:2455:2: ( ruleAction )
+            // InternalPolycreate.g:2616:1: ( ( ruleAction ) )
+            // InternalPolycreate.g:2617:2: ( ruleAction )
             {
-            // InternalPolycreate.g:2455:2: ( ruleAction )
-            // InternalPolycreate.g:2456:3: ruleAction
+            // InternalPolycreate.g:2617:2: ( ruleAction )
+            // InternalPolycreate.g:2618:3: ruleAction
             {
              before(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7395,17 +7898,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__ActionsAssignment_4_3_1"
-    // InternalPolycreate.g:2465:1: rule__State__ActionsAssignment_4_3_1 : ( ruleAction ) ;
+    // InternalPolycreate.g:2627:1: rule__State__ActionsAssignment_4_3_1 : ( ruleAction ) ;
     public final void rule__State__ActionsAssignment_4_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2469:1: ( ( ruleAction ) )
-            // InternalPolycreate.g:2470:2: ( ruleAction )
+            // InternalPolycreate.g:2631:1: ( ( ruleAction ) )
+            // InternalPolycreate.g:2632:2: ( ruleAction )
             {
-            // InternalPolycreate.g:2470:2: ( ruleAction )
-            // InternalPolycreate.g:2471:3: ruleAction
+            // InternalPolycreate.g:2632:2: ( ruleAction )
+            // InternalPolycreate.g:2633:3: ruleAction
             {
              before(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7436,17 +7939,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__TransitionsAssignment_5_2"
-    // InternalPolycreate.g:2480:1: rule__State__TransitionsAssignment_5_2 : ( ruleTransition ) ;
+    // InternalPolycreate.g:2642:1: rule__State__TransitionsAssignment_5_2 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2484:1: ( ( ruleTransition ) )
-            // InternalPolycreate.g:2485:2: ( ruleTransition )
+            // InternalPolycreate.g:2646:1: ( ( ruleTransition ) )
+            // InternalPolycreate.g:2647:2: ( ruleTransition )
             {
-            // InternalPolycreate.g:2485:2: ( ruleTransition )
-            // InternalPolycreate.g:2486:3: ruleTransition
+            // InternalPolycreate.g:2647:2: ( ruleTransition )
+            // InternalPolycreate.g:2648:3: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_2_0()); 
             pushFollow(FOLLOW_2);
@@ -7477,17 +7980,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__State__TransitionsAssignment_5_3_1"
-    // InternalPolycreate.g:2495:1: rule__State__TransitionsAssignment_5_3_1 : ( ruleTransition ) ;
+    // InternalPolycreate.g:2657:1: rule__State__TransitionsAssignment_5_3_1 : ( ruleTransition ) ;
     public final void rule__State__TransitionsAssignment_5_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2499:1: ( ( ruleTransition ) )
-            // InternalPolycreate.g:2500:2: ( ruleTransition )
+            // InternalPolycreate.g:2661:1: ( ( ruleTransition ) )
+            // InternalPolycreate.g:2662:2: ( ruleTransition )
             {
-            // InternalPolycreate.g:2500:2: ( ruleTransition )
-            // InternalPolycreate.g:2501:3: ruleTransition
+            // InternalPolycreate.g:2662:2: ( ruleTransition )
+            // InternalPolycreate.g:2663:3: ruleTransition
             {
              before(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7518,17 +8021,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SimpleCondition__DetectionTypeAssignment_3_1"
-    // InternalPolycreate.g:2510:1: rule__SimpleCondition__DetectionTypeAssignment_3_1 : ( ruleDETECTION ) ;
+    // InternalPolycreate.g:2672:1: rule__SimpleCondition__DetectionTypeAssignment_3_1 : ( ruleDETECTION ) ;
     public final void rule__SimpleCondition__DetectionTypeAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2514:1: ( ( ruleDETECTION ) )
-            // InternalPolycreate.g:2515:2: ( ruleDETECTION )
+            // InternalPolycreate.g:2676:1: ( ( ruleDETECTION ) )
+            // InternalPolycreate.g:2677:2: ( ruleDETECTION )
             {
-            // InternalPolycreate.g:2515:2: ( ruleDETECTION )
-            // InternalPolycreate.g:2516:3: ruleDETECTION
+            // InternalPolycreate.g:2677:2: ( ruleDETECTION )
+            // InternalPolycreate.g:2678:3: ruleDETECTION
             {
              before(grammarAccess.getSimpleConditionAccess().getDetectionTypeDETECTIONEnumRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -7558,67 +8061,26 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__SimpleCondition__DetectionTypeAssignment_3_1"
 
 
-    // $ANTLR start "rule__MoveAction__DirectionAssignment_3_1"
-    // InternalPolycreate.g:2525:1: rule__MoveAction__DirectionAssignment_3_1 : ( ruleDIRECTION ) ;
-    public final void rule__MoveAction__DirectionAssignment_3_1() throws RecognitionException {
+    // $ANTLR start "rule__MoveAction__DurationAssignment_3_1"
+    // InternalPolycreate.g:2687:1: rule__MoveAction__DurationAssignment_3_1 : ( ruleEDouble ) ;
+    public final void rule__MoveAction__DurationAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPolycreate.g:2529:1: ( ( ruleDIRECTION ) )
-            // InternalPolycreate.g:2530:2: ( ruleDIRECTION )
+            // InternalPolycreate.g:2691:1: ( ( ruleEDouble ) )
+            // InternalPolycreate.g:2692:2: ( ruleEDouble )
             {
-            // InternalPolycreate.g:2530:2: ( ruleDIRECTION )
-            // InternalPolycreate.g:2531:3: ruleDIRECTION
+            // InternalPolycreate.g:2692:2: ( ruleEDouble )
+            // InternalPolycreate.g:2693:3: ruleEDouble
             {
-             before(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_3_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleDIRECTION();
-
-            state._fsp--;
-
-             after(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_3_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__MoveAction__DirectionAssignment_3_1"
-
-
-    // $ANTLR start "rule__TurnAction__AngleAssignment_3_1"
-    // InternalPolycreate.g:2540:1: rule__TurnAction__AngleAssignment_3_1 : ( ruleEDouble ) ;
-    public final void rule__TurnAction__AngleAssignment_3_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalPolycreate.g:2544:1: ( ( ruleEDouble ) )
-            // InternalPolycreate.g:2545:2: ( ruleEDouble )
-            {
-            // InternalPolycreate.g:2545:2: ( ruleEDouble )
-            // InternalPolycreate.g:2546:3: ruleEDouble
-            {
-             before(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_3_1_0()); 
+             before(grammarAccess.getMoveActionAccess().getDurationEDoubleParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEDouble();
 
             state._fsp--;
 
-             after(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_3_1_0()); 
+             after(grammarAccess.getMoveActionAccess().getDurationEDoubleParserRuleCall_3_1_0()); 
 
             }
 
@@ -7637,7 +8099,130 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__TurnAction__AngleAssignment_3_1"
+    // $ANTLR end "rule__MoveAction__DurationAssignment_3_1"
+
+
+    // $ANTLR start "rule__MoveAction__DirectionAssignment_4_1"
+    // InternalPolycreate.g:2702:1: rule__MoveAction__DirectionAssignment_4_1 : ( ruleDIRECTION ) ;
+    public final void rule__MoveAction__DirectionAssignment_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2706:1: ( ( ruleDIRECTION ) )
+            // InternalPolycreate.g:2707:2: ( ruleDIRECTION )
+            {
+            // InternalPolycreate.g:2707:2: ( ruleDIRECTION )
+            // InternalPolycreate.g:2708:3: ruleDIRECTION
+            {
+             before(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_4_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleDIRECTION();
+
+            state._fsp--;
+
+             after(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_4_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MoveAction__DirectionAssignment_4_1"
+
+
+    // $ANTLR start "rule__TurnAction__DurationAssignment_3_1"
+    // InternalPolycreate.g:2717:1: rule__TurnAction__DurationAssignment_3_1 : ( ruleEDouble ) ;
+    public final void rule__TurnAction__DurationAssignment_3_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2721:1: ( ( ruleEDouble ) )
+            // InternalPolycreate.g:2722:2: ( ruleEDouble )
+            {
+            // InternalPolycreate.g:2722:2: ( ruleEDouble )
+            // InternalPolycreate.g:2723:3: ruleEDouble
+            {
+             before(grammarAccess.getTurnActionAccess().getDurationEDoubleParserRuleCall_3_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEDouble();
+
+            state._fsp--;
+
+             after(grammarAccess.getTurnActionAccess().getDurationEDoubleParserRuleCall_3_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__DurationAssignment_3_1"
+
+
+    // $ANTLR start "rule__TurnAction__AngleAssignment_4_1"
+    // InternalPolycreate.g:2732:1: rule__TurnAction__AngleAssignment_4_1 : ( ruleEDouble ) ;
+    public final void rule__TurnAction__AngleAssignment_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPolycreate.g:2736:1: ( ( ruleEDouble ) )
+            // InternalPolycreate.g:2737:2: ( ruleEDouble )
+            {
+            // InternalPolycreate.g:2737:2: ( ruleEDouble )
+            // InternalPolycreate.g:2738:3: ruleEDouble
+            {
+             before(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_4_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEDouble();
+
+            state._fsp--;
+
+             after(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_4_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__TurnAction__AngleAssignment_4_1"
 
     // Delegated rules
 
@@ -7659,17 +8244,17 @@ public class InternalPolycreateParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000000000A000000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000062000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000A00000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000001200000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000102000000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x000000000007E000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000402000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000180000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000001002000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000006000000040L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000C02000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x000000C000000040L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000180000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000002402000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000002000000040L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000004000000040L});
 
 }

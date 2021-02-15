@@ -387,19 +387,23 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMoveActionKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDirectionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cDirectionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cDirectionDIRECTIONEnumRuleCall_3_1_0 = (RuleCall)cDirectionAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cDurationKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDurationAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cDurationEDoubleParserRuleCall_3_1_0 = (RuleCall)cDurationAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cDirectionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDirectionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDirectionDIRECTIONEnumRuleCall_4_1_0 = (RuleCall)cDirectionAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//MoveAction:
 		//	{MoveAction}
 		//	'MoveAction'
-		//	'{' ('direction' direction=DIRECTION)?
+		//	'{' ('duration' duration=EDouble)? ('direction' direction=DIRECTION)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MoveAction} 'MoveAction' '{' ('direction' direction=DIRECTION)? '}'
+		//{MoveAction} 'MoveAction' '{' ('duration' duration=EDouble)? ('direction' direction=DIRECTION)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{MoveAction}
@@ -411,20 +415,32 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('direction' direction=DIRECTION)?
+		//('duration' duration=EDouble)?
 		public Group getGroup_3() { return cGroup_3; }
 		
+		//'duration'
+		public Keyword getDurationKeyword_3_0() { return cDurationKeyword_3_0; }
+		
+		//duration=EDouble
+		public Assignment getDurationAssignment_3_1() { return cDurationAssignment_3_1; }
+		
+		//EDouble
+		public RuleCall getDurationEDoubleParserRuleCall_3_1_0() { return cDurationEDoubleParserRuleCall_3_1_0; }
+		
+		//('direction' direction=DIRECTION)?
+		public Group getGroup_4() { return cGroup_4; }
+		
 		//'direction'
-		public Keyword getDirectionKeyword_3_0() { return cDirectionKeyword_3_0; }
+		public Keyword getDirectionKeyword_4_0() { return cDirectionKeyword_4_0; }
 		
 		//direction=DIRECTION
-		public Assignment getDirectionAssignment_3_1() { return cDirectionAssignment_3_1; }
+		public Assignment getDirectionAssignment_4_1() { return cDirectionAssignment_4_1; }
 		
 		//DIRECTION
-		public RuleCall getDirectionDIRECTIONEnumRuleCall_3_1_0() { return cDirectionDIRECTIONEnumRuleCall_3_1_0; }
+		public RuleCall getDirectionDIRECTIONEnumRuleCall_4_1_0() { return cDirectionDIRECTIONEnumRuleCall_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class TurnActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.TurnAction");
@@ -433,19 +449,23 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTurnActionKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAngleKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAngleAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAngleEDoubleParserRuleCall_3_1_0 = (RuleCall)cAngleAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cDurationKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDurationAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cDurationEDoubleParserRuleCall_3_1_0 = (RuleCall)cDurationAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cAngleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cAngleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cAngleEDoubleParserRuleCall_4_1_0 = (RuleCall)cAngleAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//TurnAction:
 		//	{TurnAction}
 		//	'TurnAction'
-		//	'{' ('angle' angle=EDouble)?
+		//	'{' ('duration' duration=EDouble)? ('angle' angle=EDouble)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TurnAction} 'TurnAction' '{' ('angle' angle=EDouble)? '}'
+		//{TurnAction} 'TurnAction' '{' ('duration' duration=EDouble)? ('angle' angle=EDouble)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{TurnAction}
@@ -457,20 +477,32 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('angle' angle=EDouble)?
+		//('duration' duration=EDouble)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'angle'
-		public Keyword getAngleKeyword_3_0() { return cAngleKeyword_3_0; }
+		//'duration'
+		public Keyword getDurationKeyword_3_0() { return cDurationKeyword_3_0; }
 		
-		//angle=EDouble
-		public Assignment getAngleAssignment_3_1() { return cAngleAssignment_3_1; }
+		//duration=EDouble
+		public Assignment getDurationAssignment_3_1() { return cDurationAssignment_3_1; }
 		
 		//EDouble
-		public RuleCall getAngleEDoubleParserRuleCall_3_1_0() { return cAngleEDoubleParserRuleCall_3_1_0; }
+		public RuleCall getDurationEDoubleParserRuleCall_3_1_0() { return cDurationEDoubleParserRuleCall_3_1_0; }
+		
+		//('angle' angle=EDouble)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'angle'
+		public Keyword getAngleKeyword_4_0() { return cAngleKeyword_4_0; }
+		
+		//angle=EDouble
+		public Assignment getAngleAssignment_4_1() { return cAngleAssignment_4_1; }
+		
+		//EDouble
+		public RuleCall getAngleEDoubleParserRuleCall_4_1_0() { return cAngleEDoubleParserRuleCall_4_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class EDoubleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.EDouble");
@@ -771,7 +803,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	//MoveAction:
 	//	{MoveAction}
 	//	'MoveAction'
-	//	'{' ('direction' direction=DIRECTION)?
+	//	'{' ('duration' duration=EDouble)? ('direction' direction=DIRECTION)?
 	//	'}';
 	public MoveActionElements getMoveActionAccess() {
 		return pMoveAction;
@@ -784,7 +816,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	//TurnAction:
 	//	{TurnAction}
 	//	'TurnAction'
-	//	'{' ('angle' angle=EDouble)?
+	//	'{' ('duration' duration=EDouble)? ('angle' angle=EDouble)?
 	//	'}';
 	public TurnActionElements getTurnActionAccess() {
 		return pTurnAction;

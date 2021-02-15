@@ -40,7 +40,9 @@ public class TurnActionAspect extends ActionAspect {
   
   protected static void _privk3_execute(final TurnActionAspectTurnActionAspectProperties _self_, final TurnAction _self, final PolyCreateControler controler) {
     double _angle = _self.getAngle();
-    double _multiply = (Math.PI * _angle);
+    double _divide = (_angle / 180);
+    double _multiply = (Math.PI * _divide);
     controler.turn(_multiply);
+    controler.passiveWait(_self.getDuration());
   }
 }

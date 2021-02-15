@@ -51,6 +51,7 @@ MoveAction returns MoveAction:
 	{MoveAction}
 	'MoveAction'
 	'{'
+		('duration' duration=EDouble)?
 		('direction' direction=DIRECTION)?
 	'}';
 
@@ -58,6 +59,7 @@ TurnAction returns TurnAction:
 	{TurnAction}
 	'TurnAction'
 	'{'
+		('duration' duration=EDouble)?
 		('angle' angle=EDouble)?
 	'}';
 

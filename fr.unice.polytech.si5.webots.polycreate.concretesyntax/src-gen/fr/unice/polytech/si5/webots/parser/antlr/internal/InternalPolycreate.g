@@ -639,16 +639,41 @@ ruleMoveAction returns [EObject current=null]
 			newLeafNode(otherlv_2, grammarAccess.getMoveActionAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
-			otherlv_3='direction'
+			otherlv_3='duration'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getMoveActionAccess().getDirectionKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getMoveActionAccess().getDurationKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getMoveActionAccess().getDurationEDoubleParserRuleCall_3_1_0());
 					}
-					lv_direction_4_0=ruleDIRECTION
+					lv_duration_4_0=ruleEDouble
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMoveActionRule());
+						}
+						set(
+							$current,
+							"duration",
+							lv_duration_4_0,
+							"fr.unice.polytech.si5.webots.Polycreate.EDouble");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_5='direction'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getMoveActionAccess().getDirectionKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_4_1_0());
+					}
+					lv_direction_6_0=ruleDIRECTION
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getMoveActionRule());
@@ -656,16 +681,16 @@ ruleMoveAction returns [EObject current=null]
 						set(
 							$current,
 							"direction",
-							lv_direction_4_0,
+							lv_direction_6_0,
 							"fr.unice.polytech.si5.webots.Polycreate.DIRECTION");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_5='}'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getMoveActionAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_7, grammarAccess.getMoveActionAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -702,16 +727,41 @@ ruleTurnAction returns [EObject current=null]
 			newLeafNode(otherlv_2, grammarAccess.getTurnActionAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
-			otherlv_3='angle'
+			otherlv_3='duration'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getTurnActionAccess().getAngleKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getTurnActionAccess().getDurationKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getTurnActionAccess().getDurationEDoubleParserRuleCall_3_1_0());
 					}
-					lv_angle_4_0=ruleEDouble
+					lv_duration_4_0=ruleEDouble
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTurnActionRule());
+						}
+						set(
+							$current,
+							"duration",
+							lv_duration_4_0,
+							"fr.unice.polytech.si5.webots.Polycreate.EDouble");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_5='angle'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getTurnActionAccess().getAngleKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_4_1_0());
+					}
+					lv_angle_6_0=ruleEDouble
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTurnActionRule());
@@ -719,16 +769,16 @@ ruleTurnAction returns [EObject current=null]
 						set(
 							$current,
 							"angle",
-							lv_angle_4_0,
+							lv_angle_6_0,
 							"fr.unice.polytech.si5.webots.Polycreate.EDouble");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_5='}'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getTurnActionAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_7, grammarAccess.getTurnActionAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;

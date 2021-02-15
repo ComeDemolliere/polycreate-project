@@ -49,8 +49,10 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSimpleConditionAccess().getGroup_3(), "rule__SimpleCondition__Group_3__0");
 			builder.put(grammarAccess.getMoveActionAccess().getGroup(), "rule__MoveAction__Group__0");
 			builder.put(grammarAccess.getMoveActionAccess().getGroup_3(), "rule__MoveAction__Group_3__0");
+			builder.put(grammarAccess.getMoveActionAccess().getGroup_4(), "rule__MoveAction__Group_4__0");
 			builder.put(grammarAccess.getTurnActionAccess().getGroup(), "rule__TurnAction__Group__0");
 			builder.put(grammarAccess.getTurnActionAccess().getGroup_3(), "rule__TurnAction__Group_3__0");
+			builder.put(grammarAccess.getTurnActionAccess().getGroup_4(), "rule__TurnAction__Group_4__0");
 			builder.put(grammarAccess.getEDoubleAccess().getGroup(), "rule__EDouble__Group__0");
 			builder.put(grammarAccess.getEDoubleAccess().getGroup_4(), "rule__EDouble__Group_4__0");
 			builder.put(grammarAccess.getRobotProgramAccess().getNameAssignment_2(), "rule__RobotProgram__NameAssignment_2");
@@ -66,8 +68,10 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStateAccess().getTransitionsAssignment_5_2(), "rule__State__TransitionsAssignment_5_2");
 			builder.put(grammarAccess.getStateAccess().getTransitionsAssignment_5_3_1(), "rule__State__TransitionsAssignment_5_3_1");
 			builder.put(grammarAccess.getSimpleConditionAccess().getDetectionTypeAssignment_3_1(), "rule__SimpleCondition__DetectionTypeAssignment_3_1");
-			builder.put(grammarAccess.getMoveActionAccess().getDirectionAssignment_3_1(), "rule__MoveAction__DirectionAssignment_3_1");
-			builder.put(grammarAccess.getTurnActionAccess().getAngleAssignment_3_1(), "rule__TurnAction__AngleAssignment_3_1");
+			builder.put(grammarAccess.getMoveActionAccess().getDurationAssignment_3_1(), "rule__MoveAction__DurationAssignment_3_1");
+			builder.put(grammarAccess.getMoveActionAccess().getDirectionAssignment_4_1(), "rule__MoveAction__DirectionAssignment_4_1");
+			builder.put(grammarAccess.getTurnActionAccess().getDurationAssignment_3_1(), "rule__TurnAction__DurationAssignment_3_1");
+			builder.put(grammarAccess.getTurnActionAccess().getAngleAssignment_4_1(), "rule__TurnAction__AngleAssignment_4_1");
 		}
 	}
 	

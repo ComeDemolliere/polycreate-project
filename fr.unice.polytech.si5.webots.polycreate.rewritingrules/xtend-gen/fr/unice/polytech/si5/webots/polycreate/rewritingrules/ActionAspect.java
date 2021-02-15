@@ -5,6 +5,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspectActionAspectProperties;
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
+import java.util.Timer;
 
 @Aspect(className = Action.class)
 @SuppressWarnings("all")
@@ -40,6 +41,61 @@ public abstract class ActionAspect {
     };
   }
   
+  protected static Timer timer(final Action _self) {
+    final fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspectActionAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspectActionAspectContext.getSelf(_self);
+    Object result = null;
+    // #DispatchPointCut_before# Timer timer()
+    if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action){
+    	result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect._privk3_timer(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action)_self);
+    };
+    return (java.util.Timer)result;
+  }
+  
+  protected static void timer(final Action _self, final Timer timer) {
+    final fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspectActionAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspectActionAspectContext.getSelf(_self);
+    // #DispatchPointCut_before# void timer(Timer)
+    if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action){
+    	fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect._privk3_timer(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action)_self,timer);
+    };
+  }
+  
   protected static void _privk3_execute(final ActionAspectActionAspectProperties _self_, final Action _self, final PolyCreateControler controler) {
+  }
+  
+  protected static Timer _privk3_timer(final ActionAspectActionAspectProperties _self_, final Action _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getTimer") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (java.util.Timer) ret;
+    				} else {
+    					return null;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.timer;
+  }
+  
+  protected static void _privk3_timer(final ActionAspectActionAspectProperties _self_, final Action _self, final Timer timer) {
+    boolean setterCalled = false;
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setTimer")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, timer);
+    			setterCalled = true;
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.timer = timer;
+    }
   }
 }

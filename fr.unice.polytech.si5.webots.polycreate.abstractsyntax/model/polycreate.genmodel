@@ -38,7 +38,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//State/transitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//State/actions"/>
     </genClasses>
-    <genClasses ecoreClass="polycreate.ecore#//Action"/>
+    <genClasses ecoreClass="polycreate.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//Action/duration"/>
+    </genClasses>
     <genClasses ecoreClass="polycreate.ecore#//MoveAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//MoveAction/direction"/>
     </genClasses>

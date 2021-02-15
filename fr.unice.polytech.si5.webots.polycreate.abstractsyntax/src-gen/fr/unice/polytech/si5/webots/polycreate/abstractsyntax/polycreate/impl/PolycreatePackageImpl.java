@@ -284,6 +284,15 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAction_Duration() {
+		return (EAttribute) actionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMoveAction() {
 		return moveActionEClass;
 	}
@@ -422,6 +431,7 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 		createEReference(stateEClass, STATE__ACTIONS);
 
 		actionEClass = createEClass(ACTION);
+		createEAttribute(actionEClass, ACTION__DURATION);
 
 		moveActionEClass = createEClass(MOVE_ACTION);
 		createEAttribute(moveActionEClass, MOVE_ACTION__DIRECTION);
@@ -510,6 +520,8 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 				IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAction_Duration(), ecorePackage.getEDouble(), "duration", null, 0, 1, Action.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moveActionEClass, MoveAction.class, "MoveAction", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

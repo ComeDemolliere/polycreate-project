@@ -20,9 +20,13 @@ import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.SimpleC
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import org.eclipse.emf.common.util.EList
+import java.util.Date
+import java.util.Timer
 
 @Aspect(className=Action)
 abstract class ActionAspect {
+	protected Timer timer;
+	
 	@Step
 	def void execute(PolyCreateControler controler) {}
 }
@@ -39,6 +43,8 @@ class MoveActionAspect extends ActionAspect {
 		if (_self.direction == DIRECTION.FORWARD) {
 			controler.goForward();
 		}
+		
+		controler.passiveWait(_self.duration);
 	}
 }
 
@@ -48,7 +54,8 @@ class TurnActionAspect extends ActionAspect {
 	@Step
 	@OverrideAspectMethod
 	def void execute(PolyCreateControler controler) {
-		controler.turn(Math.PI * _self.angle);
+		controler.turn(Math.PI * (_self.angle / 180));
+		controler.passiveWait(_self.duration);
 	}
 }
 
@@ -103,10 +110,9 @@ class TransitionAspect {
 }
 
 @Aspect(className=State)
-class StateAspect {
-	
+class StateAspect {	
 	@Step
-	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {
+	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {	
 		for (Action c : _self.actions) {
 			c.execute(controler);
 			controler.passiveWait(0.5);

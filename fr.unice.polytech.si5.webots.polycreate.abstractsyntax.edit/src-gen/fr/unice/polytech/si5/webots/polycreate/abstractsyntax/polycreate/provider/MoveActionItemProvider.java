@@ -2,7 +2,6 @@
  */
 package fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.provider;
 
-import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DIRECTION;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.PolycreatePackage;
 
@@ -95,10 +94,8 @@ public class MoveActionItemProvider extends ActionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		DIRECTION labelValue = ((MoveAction) object).getDirection();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_MoveAction_type")
-				: getString("_UI_MoveAction_type") + " " + label;
+		MoveAction moveAction = (MoveAction) object;
+		return getString("_UI_MoveAction_type") + " " + moveAction.getDuration();
 	}
 
 	/**

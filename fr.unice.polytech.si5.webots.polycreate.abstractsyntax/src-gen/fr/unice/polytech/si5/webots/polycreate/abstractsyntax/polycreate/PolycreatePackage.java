@@ -281,13 +281,22 @@ public interface PolycreatePackage extends EPackage {
 	int ACTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DURATION = 0;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 0;
+	int ACTION_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -307,6 +316,15 @@ public interface PolycreatePackage extends EPackage {
 	 * @generated
 	 */
 	int MOVE_ACTION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVE_ACTION__DURATION = ACTION__DURATION;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -344,6 +362,15 @@ public interface PolycreatePackage extends EPackage {
 	 * @generated
 	 */
 	int TURN_ACTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TURN_ACTION__DURATION = ACTION__DURATION;
 
 	/**
 	 * The feature id for the '<em><b>Angle</b></em>' attribute.
@@ -585,6 +612,17 @@ public interface PolycreatePackage extends EPackage {
 	EClass getAction();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action#getDuration()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Duration();
+
+	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction <em>Move Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -824,6 +862,14 @@ public interface PolycreatePackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__DURATION = eINSTANCE.getAction_Duration();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.MoveActionImpl <em>Move Action</em>}' class.

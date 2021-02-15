@@ -95,7 +95,7 @@ public class TurnActionItemProvider extends ActionItemProvider {
 	@Override
 	public String getText(Object object) {
 		TurnAction turnAction = (TurnAction) object;
-		return getString("_UI_TurnAction_type") + " " + turnAction.getAngle();
+		return getString("_UI_TurnAction_type") + " " + turnAction.getDuration();
 	}
 
 	/**

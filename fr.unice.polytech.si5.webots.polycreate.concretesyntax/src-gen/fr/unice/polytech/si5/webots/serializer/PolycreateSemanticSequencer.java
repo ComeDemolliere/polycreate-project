@@ -64,7 +64,7 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     MoveAction returns MoveAction
 	 *
 	 * Constraint:
-	 *     direction=DIRECTION?
+	 *     (duration=EDouble? direction=DIRECTION?)
 	 */
 	protected void sequence_MoveAction(ISerializationContext context, MoveAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -126,7 +126,7 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TurnAction returns TurnAction
 	 *
 	 * Constraint:
-	 *     angle=EDouble?
+	 *     (duration=EDouble? angle=EDouble?)
 	 */
 	protected void sequence_TurnAction(ISerializationContext context, TurnAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

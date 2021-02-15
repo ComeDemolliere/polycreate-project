@@ -51,5 +51,6 @@ public class MoveActionAspect extends ActionAspect {
     if (_equals_1) {
       controler.goForward();
     }
+    controler.passiveWait(_self.getDuration());
   }
 }
