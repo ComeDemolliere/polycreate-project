@@ -9,6 +9,12 @@ import org.eclipse.gemoc.executionframework.engine.commons.K3DslHelper;
 
 
 public class PolycreateRTDAccessor {
+	public static java.util.Timer getTimer(fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action eObject) {
+		return (java.util.Timer)  getAspectProperty(eObject, "fr.unice.polytech.si5.webots.polycreate.Polycreate", "fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect", "timer");
+	}
+	public static boolean setTimer(fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action eObject, java.util.Timer newValue) {
+		return setAspectProperty(eObject, "fr.unice.polytech.si5.webots.polycreate.Polycreate", "fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect", "timer", newValue);
+	}
 	public static fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler getControler(fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram eObject) {
 		return (fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler)  getAspectProperty(eObject, "fr.unice.polytech.si5.webots.polycreate.Polycreate", "fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspect", "controler");
 	}

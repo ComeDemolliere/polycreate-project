@@ -49,6 +49,14 @@ public class PolycreateModelStateHelper implements IK3ModelStateHelper{
 			EObject elem = allContentIt.next();
 
 			Class<?> clazz =null;
+			clazz = K3DslHelper.getTarget(fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect.class);
+			if (clazz.isInstance(elem)) {
+				ElementState elemState = theFactory.createElementState();
+				elemState.setModelElement(elem);
+				res.getOwnedElementstates().add(elemState);
+				AttributeNameToValue n2v0 = new AttributeNameToValue("timer", PolycreateRTDAccessor.getTimer((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action)elem));
+				elemState.getSavedRTDs().add(n2v0);
+			}
 			clazz = K3DslHelper.getTarget(fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspect.class);
 			if (clazz.isInstance(elem)) {
 				ElementState elemState = theFactory.createElementState();
