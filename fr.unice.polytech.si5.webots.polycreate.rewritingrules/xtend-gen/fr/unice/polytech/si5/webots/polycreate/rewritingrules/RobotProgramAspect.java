@@ -2,6 +2,7 @@ package fr.unice.polytech.si5.webots.polycreate.rewritingrules;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspectRobotProgramAspectProperties;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspect;
@@ -10,12 +11,25 @@ import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 @Aspect(className = RobotProgram.class)
 @SuppressWarnings("all")
 public class RobotProgramAspect {
+  @Step
   @Main
   public static void start(final RobotProgram _self) {
     final fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspectRobotProgramAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspectRobotProgramAspectContext.getSelf(_self);
     // #DispatchPointCut_before# void start()
     if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram){
-    	fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspect._privk3_start(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram)_self);
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    		@Override
+    		public void execute() {
+    			fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspect._privk3_start(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram)_self);
+    		}
+    	};
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    	if (stepManager != null) {
+    		stepManager.executeStep(_self, new Object[] {_self}, command, "RobotProgram", "start");
+    	} else {
+    		command.execute();
+    	}
+    	;
     };
   }
   
@@ -39,7 +53,7 @@ public class RobotProgramAspect {
   
   protected static void _privk3_start(final RobotProgramAspectRobotProgramAspectProperties _self_, final RobotProgram _self) {
     RobotProgramAspect.controler(_self).openGripper();
-    StateAspect.doActions(_self.getInitialState(), RobotProgramAspect.controler(_self));
+    StateAspect.doActions(_self.getInitialState(), RobotProgramAspect.controler(_self), _self.getGlobalTransitions());
   }
   
   protected static PolyCreateControler _privk3_controler(final RobotProgramAspectRobotProgramAspectProperties _self_, final RobotProgram _self) {

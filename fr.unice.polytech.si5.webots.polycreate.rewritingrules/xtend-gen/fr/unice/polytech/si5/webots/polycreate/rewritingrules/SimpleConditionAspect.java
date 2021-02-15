@@ -59,10 +59,10 @@ public class SimpleConditionAspect extends ConditionAspect {
         case VIRTUAL_WALL:
           return controler.isThereVirtualwall();
         default:
-          return false;
+          return true;
       }
     } else {
-      return false;
+      return true;
     }
   }
 }

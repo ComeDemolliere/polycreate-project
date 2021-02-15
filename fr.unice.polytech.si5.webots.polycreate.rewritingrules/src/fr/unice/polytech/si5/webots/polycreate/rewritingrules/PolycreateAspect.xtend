@@ -19,8 +19,7 @@ import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Conditi
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.SimpleCondition
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition
 import fr.inria.diverse.k3.al.annotationprocessor.Main
-
-// class PolyCreateControler {}
+import org.eclipse.emf.common.util.EList
 
 @Aspect(className=Action)
 abstract class ActionAspect {
@@ -86,7 +85,7 @@ class SimpleConditionAspect extends ConditionAspect {
 			case VIRTUAL_WALL:
 				return controler.isThereVirtualwall()
 		
-			default: return false
+			default: return true
 		}
 	}
 }
@@ -105,18 +104,28 @@ class TransitionAspect {
 
 @Aspect(className=State)
 class StateAspect {
-	def void doActions(PolyCreateControler controler) {
+	
+	@Step
+	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {
 		for (Action c : _self.actions) {
 			c.execute(controler);
+			controler.passiveWait(0.5);
+		}
+		
+		for (Transition t : globalTransitions) {
+			if (t.canTransit(controler)) {
+				t.nextState.doActions(controler, globalTransitions);
+				return;
+			}
 		}
 			
 		for (Transition t : _self.transitions) {
 			if (t.canTransit(controler)) {
-				t.nextState.doActions(controler);
+				t.nextState.doActions(controler, globalTransitions);
 				return;
 			}
 		}
-		_self.doActions(controler);
+		_self.doActions(controler, globalTransitions);
 	}
 }
 
@@ -124,9 +133,10 @@ class StateAspect {
 class RobotProgramAspect {
 	PolyCreateControler controler = new PolyCreateControler();
 	
+	@Step
 	@Main
 	def void start() {
 		_self.controler.openGripper();
-		_self.initialState.doActions(_self.controler);
+		_self.initialState.doActions(_self.controler, _self.globalTransitions);
 	}
 }

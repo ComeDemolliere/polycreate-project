@@ -1,6 +1,7 @@
 package fr.unice.polytech.si5.webots.polycreate.rewritingrules;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition;
@@ -13,27 +14,50 @@ import org.eclipse.emf.common.util.EList;
 @Aspect(className = State.class)
 @SuppressWarnings("all")
 public class StateAspect {
-  public static void doActions(final State _self, final PolyCreateControler controler) {
+  @Step
+  public static void doActions(final State _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
     final fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspectStateAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspectStateAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void doActions(PolyCreateControler)
+    // #DispatchPointCut_before# void doActions(PolyCreateControler,EList<Transition>)
     if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State){
-    	fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspect._privk3_doActions(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State)_self,controler);
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    		@Override
+    		public void execute() {
+    			fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspect._privk3_doActions(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State)_self,controler,globalTransitions);
+    		}
+    	};
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    	if (stepManager != null) {
+    		stepManager.executeStep(_self, new Object[] {controler,globalTransitions}, command, "State", "doActions");
+    	} else {
+    		command.execute();
+    	}
+    	;
     };
   }
   
-  protected static void _privk3_doActions(final StateAspectStateAspectProperties _self_, final State _self, final PolyCreateControler controler) {
+  protected static void _privk3_doActions(final StateAspectStateAspectProperties _self_, final State _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
     EList<Action> _actions = _self.getActions();
     for (final Action c : _actions) {
-      ActionAspect.execute(c, controler);
+      {
+        ActionAspect.execute(c, controler);
+        controler.passiveWait(0.5);
+      }
     }
-    EList<Transition> _transitions = _self.getTransitions();
-    for (final Transition t : _transitions) {
+    for (final Transition t : globalTransitions) {
       boolean _canTransit = TransitionAspect.canTransit(t, controler);
       if (_canTransit) {
-        StateAspect.doActions(t.getNextState(), controler);
+        StateAspect.doActions(t.getNextState(), controler, globalTransitions);
         return;
       }
     }
-    StateAspect.doActions(_self, controler);
+    EList<Transition> _transitions = _self.getTransitions();
+    for (final Transition t_1 : _transitions) {
+      boolean _canTransit_1 = TransitionAspect.canTransit(t_1, controler);
+      if (_canTransit_1) {
+        StateAspect.doActions(t_1.getNextState(), controler, globalTransitions);
+        return;
+      }
+    }
+    StateAspect.doActions(_self, controler, globalTransitions);
   }
 }
