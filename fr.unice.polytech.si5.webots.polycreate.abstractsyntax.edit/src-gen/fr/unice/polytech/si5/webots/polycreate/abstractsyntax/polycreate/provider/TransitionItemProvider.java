@@ -152,6 +152,12 @@ public class TransitionItemProvider extends ItemProviderAdapter implements IEdit
 
 		newChildDescriptors.add(createChildParameter(PolycreatePackage.Literals.TRANSITION__CONDITIONS,
 				PolycreateFactory.eINSTANCE.createSimpleCondition()));
+
+		newChildDescriptors.add(createChildParameter(PolycreatePackage.Literals.TRANSITION__CONDITIONS,
+				PolycreateFactory.eINSTANCE.createDistanceCondition()));
+
+		newChildDescriptors.add(createChildParameter(PolycreatePackage.Literals.TRANSITION__CONDITIONS,
+				PolycreateFactory.eINSTANCE.createAngleCondition()));
 	}
 
 	/**

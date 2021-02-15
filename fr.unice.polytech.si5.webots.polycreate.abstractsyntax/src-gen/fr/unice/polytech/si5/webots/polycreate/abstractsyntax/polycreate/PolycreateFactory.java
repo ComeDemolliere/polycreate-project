@@ -77,6 +77,24 @@ public interface PolycreateFactory extends EFactory {
 	SimpleCondition createSimpleCondition();
 
 	/**
+	 * Returns a new object of class '<em>Distance Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Distance Condition</em>'.
+	 * @generated
+	 */
+	DistanceCondition createDistanceCondition();
+
+	/**
+	 * Returns a new object of class '<em>Angle Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Angle Condition</em>'.
+	 * @generated
+	 */
+	AngleCondition createAngleCondition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

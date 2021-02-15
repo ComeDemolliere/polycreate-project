@@ -465,6 +465,135 @@ public interface PolycreatePackage extends EPackage {
 	int SIMPLE_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.ObjectConditionImpl <em>Object Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.ObjectConditionImpl
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getObjectCondition()
+	 * @generated
+	 */
+	int OBJECT_CONDITION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Camera Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_CONDITION__CAMERA_TYPE = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Object Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Object Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.DistanceConditionImpl <em>Distance Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.DistanceConditionImpl
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getDistanceCondition()
+	 * @generated
+	 */
+	int DISTANCE_CONDITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Camera Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_CONDITION__CAMERA_TYPE = OBJECT_CONDITION__CAMERA_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Distance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_CONDITION__DISTANCE = OBJECT_CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Distance Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_CONDITION_FEATURE_COUNT = OBJECT_CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Distance Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_CONDITION_OPERATION_COUNT = OBJECT_CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.AngleConditionImpl <em>Angle Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.AngleConditionImpl
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getAngleCondition()
+	 * @generated
+	 */
+	int ANGLE_CONDITION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Camera Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE_CONDITION__CAMERA_TYPE = OBJECT_CONDITION__CAMERA_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Angle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE_CONDITION__ANGLE = OBJECT_CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Angle Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE_CONDITION_FEATURE_COUNT = OBJECT_CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Angle Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE_CONDITION_OPERATION_COUNT = OBJECT_CONDITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DETECTION <em>DETECTION</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,7 +601,7 @@ public interface PolycreatePackage extends EPackage {
 	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getDETECTION()
 	 * @generated
 	 */
-	int DETECTION = 9;
+	int DETECTION = 12;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DIRECTION <em>DIRECTION</em>}' enum.
@@ -482,7 +611,17 @@ public interface PolycreatePackage extends EPackage {
 	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getDIRECTION()
 	 * @generated
 	 */
-	int DIRECTION = 10;
+	int DIRECTION = 13;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE <em>CAMERATYPE</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getCAMERATYPE()
+	 * @generated
+	 */
+	int CAMERATYPE = 14;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram <em>Robot Program</em>}'.
@@ -717,6 +856,69 @@ public interface PolycreatePackage extends EPackage {
 	EAttribute getNamedElement_Name();
 
 	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition <em>Object Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object Condition</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition
+	 * @generated
+	 */
+	EClass getObjectCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition#getCameraType <em>Camera Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Camera Type</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition#getCameraType()
+	 * @see #getObjectCondition()
+	 * @generated
+	 */
+	EAttribute getObjectCondition_CameraType();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition <em>Distance Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Distance Condition</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition
+	 * @generated
+	 */
+	EClass getDistanceCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition#getDistance <em>Distance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Distance</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition#getDistance()
+	 * @see #getDistanceCondition()
+	 * @generated
+	 */
+	EAttribute getDistanceCondition_Distance();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition <em>Angle Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Angle Condition</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition
+	 * @generated
+	 */
+	EClass getAngleCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition#getAngle <em>Angle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Angle</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition#getAngle()
+	 * @see #getAngleCondition()
+	 * @generated
+	 */
+	EAttribute getAngleCondition_Angle();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DETECTION <em>DETECTION</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -735,6 +937,16 @@ public interface PolycreatePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getDIRECTION();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE <em>CAMERATYPE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>CAMERATYPE</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE
+	 * @generated
+	 */
+	EEnum getCAMERATYPE();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -954,6 +1166,60 @@ public interface PolycreatePackage extends EPackage {
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.ObjectConditionImpl <em>Object Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.ObjectConditionImpl
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getObjectCondition()
+		 * @generated
+		 */
+		EClass OBJECT_CONDITION = eINSTANCE.getObjectCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Camera Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBJECT_CONDITION__CAMERA_TYPE = eINSTANCE.getObjectCondition_CameraType();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.DistanceConditionImpl <em>Distance Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.DistanceConditionImpl
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getDistanceCondition()
+		 * @generated
+		 */
+		EClass DISTANCE_CONDITION = eINSTANCE.getDistanceCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISTANCE_CONDITION__DISTANCE = eINSTANCE.getDistanceCondition_Distance();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.AngleConditionImpl <em>Angle Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.AngleConditionImpl
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getAngleCondition()
+		 * @generated
+		 */
+		EClass ANGLE_CONDITION = eINSTANCE.getAngleCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Angle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANGLE_CONDITION__ANGLE = eINSTANCE.getAngleCondition_Angle();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DETECTION <em>DETECTION</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -972,6 +1238,16 @@ public interface PolycreatePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DIRECTION = eINSTANCE.getDIRECTION();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE <em>CAMERATYPE</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getCAMERATYPE()
+		 * @generated
+		 */
+		EEnum CAMERATYPE = eINSTANCE.getCAMERATYPE();
 
 	}
 

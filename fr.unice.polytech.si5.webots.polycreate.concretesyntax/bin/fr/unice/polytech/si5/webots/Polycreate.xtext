@@ -17,7 +17,7 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Condition returns Condition:
-	SimpleCondition;
+	SimpleCondition | ObjectCondition;
 
 Action returns Action:
 	MoveAction | TurnAction;
@@ -43,6 +43,26 @@ SimpleCondition returns SimpleCondition:
 	'{'
 		('detectionType' detectionType=DETECTION)?
 	'}';
+	
+ObjectCondition returns ObjectCondition:
+	DistanceCondition | AngleCondition
+;
+
+DistanceCondition returns DistanceCondition:
+	{DistanceCondition}
+	'DistanceCondition'
+	'{'
+		'cameraType' cameraType=CAMERATYPE
+		'distance' distance=EDouble
+	'}';
+	
+AngleCondition returns AngleCondition:
+	{AngleCondition}
+	'AngleCondition'
+	'{'
+		'cameraType' cameraType=CAMERATYPE
+		'angle' angle=EDouble
+	'}';
 
 enum DETECTION returns DETECTION:
 				COLLISION_LEFT = 'COLLISION_LEFT' | COLLISION_RIGHT = 'COLLISION_RIGHT' | VIRTUAL_WALL = 'VIRTUAL_WALL' | CLIFF_LEFT = 'CLIFF_LEFT' | CLIFF_RIGHT = 'CLIFF_RIGHT' | CLIFF_FRONT = 'CLIFF_FRONT';
@@ -65,6 +85,9 @@ TurnAction returns TurnAction:
 
 enum DIRECTION returns DIRECTION:
 				FORWARD = 'FORWARD' | BACKWARD = 'BACKWARD';
+				
+enum CAMERATYPE returns CAMERATYPE:
+				BACK = 'BACK' | FRONT = 'FRONT';
 
 EDouble returns ecore::EDouble:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;

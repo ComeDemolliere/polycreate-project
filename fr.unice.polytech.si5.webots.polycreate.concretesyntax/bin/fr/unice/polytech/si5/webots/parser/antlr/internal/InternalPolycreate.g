@@ -216,14 +216,25 @@ ruleCondition returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getConditionAccess().getSimpleConditionParserRuleCall());
-	}
-	this_SimpleCondition_0=ruleSimpleCondition
-	{
-		$current = $this_SimpleCondition_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		{
+			newCompositeNode(grammarAccess.getConditionAccess().getSimpleConditionParserRuleCall_0());
+		}
+		this_SimpleCondition_0=ruleSimpleCondition
+		{
+			$current = $this_SimpleCondition_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getConditionAccess().getObjectConditionParserRuleCall_1());
+		}
+		this_ObjectCondition_1=ruleObjectCondition
+		{
+			$current = $this_ObjectCondition_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
 // Entry rule entryRuleAction
@@ -607,6 +618,210 @@ ruleSimpleCondition returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleObjectCondition
+entryRuleObjectCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getObjectConditionRule()); }
+	iv_ruleObjectCondition=ruleObjectCondition
+	{ $current=$iv_ruleObjectCondition.current; }
+	EOF;
+
+// Rule ObjectCondition
+ruleObjectCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getObjectConditionAccess().getDistanceConditionParserRuleCall_0());
+		}
+		this_DistanceCondition_0=ruleDistanceCondition
+		{
+			$current = $this_DistanceCondition_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getObjectConditionAccess().getAngleConditionParserRuleCall_1());
+		}
+		this_AngleCondition_1=ruleAngleCondition
+		{
+			$current = $this_AngleCondition_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleDistanceCondition
+entryRuleDistanceCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDistanceConditionRule()); }
+	iv_ruleDistanceCondition=ruleDistanceCondition
+	{ $current=$iv_ruleDistanceCondition.current; }
+	EOF;
+
+// Rule DistanceCondition
+ruleDistanceCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getDistanceConditionAccess().getDistanceConditionAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='DistanceCondition'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDistanceConditionAccess().getDistanceConditionKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDistanceConditionAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='cameraType'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDistanceConditionAccess().getCameraTypeKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDistanceConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_4_0());
+				}
+				lv_cameraType_4_0=ruleCAMERATYPE
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDistanceConditionRule());
+					}
+					set(
+						$current,
+						"cameraType",
+						lv_cameraType_4_0,
+						"fr.unice.polytech.si5.webots.Polycreate.CAMERATYPE");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='distance'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDistanceConditionAccess().getDistanceKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDistanceConditionAccess().getDistanceEDoubleParserRuleCall_6_0());
+				}
+				lv_distance_6_0=ruleEDouble
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDistanceConditionRule());
+					}
+					set(
+						$current,
+						"distance",
+						lv_distance_6_0,
+						"fr.unice.polytech.si5.webots.Polycreate.EDouble");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_7='}'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getDistanceConditionAccess().getRightCurlyBracketKeyword_7());
+		}
+	)
+;
+
+// Entry rule entryRuleAngleCondition
+entryRuleAngleCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAngleConditionRule()); }
+	iv_ruleAngleCondition=ruleAngleCondition
+	{ $current=$iv_ruleAngleCondition.current; }
+	EOF;
+
+// Rule AngleCondition
+ruleAngleCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getAngleConditionAccess().getAngleConditionAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='AngleCondition'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getAngleConditionAccess().getAngleConditionKeyword_1());
+		}
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAngleConditionAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='cameraType'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAngleConditionAccess().getCameraTypeKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAngleConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_4_0());
+				}
+				lv_cameraType_4_0=ruleCAMERATYPE
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAngleConditionRule());
+					}
+					set(
+						$current,
+						"cameraType",
+						lv_cameraType_4_0,
+						"fr.unice.polytech.si5.webots.Polycreate.CAMERATYPE");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='angle'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getAngleConditionAccess().getAngleKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAngleConditionAccess().getAngleEDoubleParserRuleCall_6_0());
+				}
+				lv_angle_6_0=ruleEDouble
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAngleConditionRule());
+					}
+					set(
+						$current,
+						"angle",
+						lv_angle_6_0,
+						"fr.unice.polytech.si5.webots.Polycreate.EDouble");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_7='}'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getAngleConditionAccess().getRightCurlyBracketKeyword_7());
+		}
+	)
+;
+
 // Entry rule entryRuleMoveAction
 entryRuleMoveAction returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getMoveActionRule()); }
@@ -940,6 +1155,33 @@ ruleDIRECTION returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getDIRECTIONAccess().getBACKWARDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getDIRECTIONAccess().getBACKWARDEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule CAMERATYPE
+ruleCAMERATYPE returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='BACK'
+			{
+				$current = grammarAccess.getCAMERATYPEAccess().getBACKEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getCAMERATYPEAccess().getBACKEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='FRONT'
+			{
+				$current = grammarAccess.getCAMERATYPEAccess().getFRONTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getCAMERATYPEAccess().getFRONTEnumLiteralDeclaration_1());
 			}
 		)
 	)

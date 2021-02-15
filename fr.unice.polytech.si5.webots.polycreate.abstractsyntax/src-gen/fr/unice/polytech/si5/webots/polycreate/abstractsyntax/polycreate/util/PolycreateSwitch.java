@@ -139,6 +139,37 @@ public class PolycreateSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case PolycreatePackage.OBJECT_CONDITION: {
+			ObjectCondition objectCondition = (ObjectCondition) theEObject;
+			T result = caseObjectCondition(objectCondition);
+			if (result == null)
+				result = caseCondition(objectCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case PolycreatePackage.DISTANCE_CONDITION: {
+			DistanceCondition distanceCondition = (DistanceCondition) theEObject;
+			T result = caseDistanceCondition(distanceCondition);
+			if (result == null)
+				result = caseObjectCondition(distanceCondition);
+			if (result == null)
+				result = caseCondition(distanceCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case PolycreatePackage.ANGLE_CONDITION: {
+			AngleCondition angleCondition = (AngleCondition) theEObject;
+			T result = caseAngleCondition(angleCondition);
+			if (result == null)
+				result = caseObjectCondition(angleCondition);
+			if (result == null)
+				result = caseCondition(angleCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -276,6 +307,51 @@ public class PolycreateSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObjectCondition(ObjectCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Distance Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Distance Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDistanceCondition(DistanceCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Angle Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Angle Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAngleCondition(AngleCondition object) {
 		return null;
 	}
 

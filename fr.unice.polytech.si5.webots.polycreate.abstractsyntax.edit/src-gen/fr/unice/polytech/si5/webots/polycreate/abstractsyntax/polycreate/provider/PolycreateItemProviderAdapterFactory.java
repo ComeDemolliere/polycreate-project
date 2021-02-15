@@ -211,6 +211,52 @@ public class PolycreateItemProviderAdapterFactory extends PolycreateAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DistanceConditionItemProvider distanceConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDistanceConditionAdapter() {
+		if (distanceConditionItemProvider == null) {
+			distanceConditionItemProvider = new DistanceConditionItemProvider(this);
+		}
+
+		return distanceConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AngleConditionItemProvider angleConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAngleConditionAdapter() {
+		if (angleConditionItemProvider == null) {
+			angleConditionItemProvider = new AngleConditionItemProvider(this);
+		}
+
+		return angleConditionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -321,6 +367,10 @@ public class PolycreateItemProviderAdapterFactory extends PolycreateAdapterFacto
 			turnActionItemProvider.dispose();
 		if (simpleConditionItemProvider != null)
 			simpleConditionItemProvider.dispose();
+		if (distanceConditionItemProvider != null)
+			distanceConditionItemProvider.dispose();
+		if (angleConditionItemProvider != null)
+			angleConditionItemProvider.dispose();
 	}
 
 }

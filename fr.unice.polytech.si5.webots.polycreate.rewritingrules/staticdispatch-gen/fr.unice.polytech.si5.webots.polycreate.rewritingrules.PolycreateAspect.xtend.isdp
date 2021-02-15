@@ -1,8 +1,28 @@
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition){
+			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition){
+			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition){
+			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect
 	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.MoveActionAspect
 		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction){
 			fr.unice.polytech.si5.webots.polycreate.rewritingrules.MoveActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction)_self,controler);
 		} else
 		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.MoveActionAspect
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition){
+			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect
 	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect
 		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction){
 			fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction)_self,controler);
@@ -13,3 +33,8 @@
 			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.SimpleConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.SimpleCondition)_self,controler);
 		} else
 		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.SimpleConditionAspect
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition){
+			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect

@@ -69,6 +69,10 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 			return createTurnAction();
 		case PolycreatePackage.SIMPLE_CONDITION:
 			return createSimpleCondition();
+		case PolycreatePackage.DISTANCE_CONDITION:
+			return createDistanceCondition();
+		case PolycreatePackage.ANGLE_CONDITION:
+			return createAngleCondition();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +90,8 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 			return createDETECTIONFromString(eDataType, initialValue);
 		case PolycreatePackage.DIRECTION:
 			return createDIRECTIONFromString(eDataType, initialValue);
+		case PolycreatePackage.CAMERATYPE:
+			return createCAMERATYPEFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -103,6 +109,8 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 			return convertDETECTIONToString(eDataType, instanceValue);
 		case PolycreatePackage.DIRECTION:
 			return convertDIRECTIONToString(eDataType, instanceValue);
+		case PolycreatePackage.CAMERATYPE:
+			return convertCAMERATYPEToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -173,6 +181,26 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DistanceCondition createDistanceCondition() {
+		DistanceConditionImpl distanceCondition = new DistanceConditionImpl();
+		return distanceCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AngleCondition createAngleCondition() {
+		AngleConditionImpl angleCondition = new AngleConditionImpl();
+		return angleCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DETECTION createDETECTIONFromString(EDataType eDataType, String initialValue) {
 		DETECTION result = DETECTION.get(initialValue);
 		if (result == null)
@@ -209,6 +237,28 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 	 * @generated
 	 */
 	public String convertDIRECTIONToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CAMERATYPE createCAMERATYPEFromString(EDataType eDataType, String initialValue) {
+		CAMERATYPE result = CAMERATYPE.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCAMERATYPEToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -112,6 +112,21 @@ public class PolycreateAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseObjectCondition(ObjectCondition object) {
+			return createObjectConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseDistanceCondition(DistanceCondition object) {
+			return createDistanceConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseAngleCondition(AngleCondition object) {
+			return createAngleConditionAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -253,6 +268,48 @@ public class PolycreateAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition <em>Object Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition
+	 * @generated
+	 */
+	public Adapter createObjectConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition <em>Distance Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition
+	 * @generated
+	 */
+	public Adapter createDistanceConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition <em>Angle Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition
+	 * @generated
+	 */
+	public Adapter createAngleConditionAdapter() {
 		return null;
 	}
 

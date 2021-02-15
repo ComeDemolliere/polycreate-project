@@ -24,6 +24,10 @@
       <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//DIRECTION/FORWARD"/>
       <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//DIRECTION/BACKWARD"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="polycreate.ecore#//CAMERATYPE">
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//CAMERATYPE/FRONT"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//CAMERATYPE/BACK"/>
+    </genEnums>
     <genClasses ecoreClass="polycreate.ecore#//RobotProgram">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/globalTransitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/ownedStates"/>
@@ -53,6 +57,15 @@
     </genClasses>
     <genClasses ecoreClass="polycreate.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//ObjectCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//ObjectCondition/cameraType"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//DistanceCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//DistanceCondition/distance"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//AngleCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//AngleCondition/angle"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

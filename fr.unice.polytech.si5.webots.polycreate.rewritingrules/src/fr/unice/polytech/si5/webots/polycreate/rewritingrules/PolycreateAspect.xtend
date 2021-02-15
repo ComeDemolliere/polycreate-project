@@ -12,6 +12,7 @@ import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DIRECTION
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
@@ -22,6 +23,10 @@ import fr.inria.diverse.k3.al.annotationprocessor.Main
 import org.eclipse.emf.common.util.EList
 import java.util.Date
 import java.util.Timer
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition
+import com.cyberbotics.webots.controller.Camera
 
 @Aspect(className=Action)
 abstract class ActionAspect {
@@ -94,6 +99,91 @@ class SimpleConditionAspect extends ConditionAspect {
 		
 			default: return true
 		}
+	}
+}
+
+@Aspect(className=ObjectCondition)
+abstract class ObjectConditionAspect extends ConditionAspect {
+	protected Camera camera;
+	
+	@Step
+	@OverrideAspectMethod
+	def boolean checkCondition(PolyCreateControler controler) {
+		return false;
+	}
+}
+
+@Aspect(className=AngleCondition)
+class AngleConditionAspect extends ObjectConditionAspect {
+	
+	@Step
+	@OverrideAspectMethod
+	def boolean checkCondition(PolyCreateControler controler) {
+		if (_self.cameraType == CAMERATYPE.FRONT) {
+			_self.camera = controler.frontCamera;
+		} else {
+			_self.camera = controler.backCamera;
+		}
+		
+		
+		var backObjs = _self.camera.getCameraRecognitionObjects();
+		if (backObjs.length > 0) {
+			var obj = backObjs.get(0);
+			var backObjPos = obj.getPosition();
+			
+			System.out.println("latitude " + backObjPos.get(0) + " longitude " + backObjPos.get(1));
+			
+			/*var dLat = backObjPos.get(0) * (Math.PI/180);
+			var dLong = backObjPos.get(1) * (Math.PI/180);
+			
+			var angle = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(0) * Math.cos(dLat) * Math.sin(dLong/2) *
+			Math.sin(dLong/2); 
+			
+			System.out.println("angle " + angle); */
+			
+			var rad = Math.atan2(backObjPos.get(0), backObjPos.get(1));
+			var angle = rad * (180 / Math.PI);
+			System.out.println("angle "+ angle);
+			
+			var distance = 2 * Math.atan2(Math.sqrt(rad), Math.sqrt(1 - rad));
+			System.out.println("distance  "+ distance);
+			System.out.println("gripper " + controler.objectDistanceToGripper);
+			
+		}
+		
+		return false;
+	}
+}
+
+@Aspect(className=DistanceCondition)
+class DistanceConditionAspect extends ObjectConditionAspect {
+	
+	@Step
+	@OverrideAspectMethod
+	def boolean checkCondition(PolyCreateControler controler) {
+		
+		if (_self.cameraType == CAMERATYPE.FRONT) {
+			_self.camera = controler.frontCamera;
+		} else {
+			_self.camera = controler.backCamera;
+		}
+		
+		var backObjs = _self.camera.getCameraRecognitionObjects();
+		if (backObjs.length > 0) {
+			var obj = backObjs.get(0);
+			var backObjPos = obj.getPosition();
+			System.out.println("latitude " + backObjPos.get(0) + " longitude " + backObjPos.get(1));
+			
+			var dLat = backObjPos.get(0) * (Math.PI/180);
+			var dLong = backObjPos.get(1) * (Math.PI/180);
+			
+			var angle = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(0) * Math.cos(dLat) * Math.sin(dLong/2) *
+			Math.sin(dLong/2);
+			
+			System.out.println("angle " + angle);
+		}
+		
+		return false;
 	}
 }
 

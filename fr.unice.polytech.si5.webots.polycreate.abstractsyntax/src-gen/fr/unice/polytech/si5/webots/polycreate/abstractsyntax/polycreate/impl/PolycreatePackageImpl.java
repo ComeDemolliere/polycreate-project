@@ -3,9 +3,12 @@
 package fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl;
 
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Condition;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.NamedElement;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.PolycreateFactory;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.PolycreatePackage;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram;
@@ -98,6 +101,27 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass objectConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass distanceConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass angleConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum detectionEEnum = null;
 
 	/**
@@ -106,6 +130,13 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * @generated
 	 */
 	private EEnum directionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cameratypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -374,6 +405,60 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getObjectCondition() {
+		return objectConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getObjectCondition_CameraType() {
+		return (EAttribute) objectConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDistanceCondition() {
+		return distanceConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDistanceCondition_Distance() {
+		return (EAttribute) distanceConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAngleCondition() {
+		return angleConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAngleCondition_Angle() {
+		return (EAttribute) angleConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDETECTION() {
 		return detectionEEnum;
 	}
@@ -385,6 +470,15 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 */
 	public EEnum getDIRECTION() {
 		return directionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCAMERATYPE() {
+		return cameratypeEEnum;
 	}
 
 	/**
@@ -447,9 +541,19 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
+		objectConditionEClass = createEClass(OBJECT_CONDITION);
+		createEAttribute(objectConditionEClass, OBJECT_CONDITION__CAMERA_TYPE);
+
+		distanceConditionEClass = createEClass(DISTANCE_CONDITION);
+		createEAttribute(distanceConditionEClass, DISTANCE_CONDITION__DISTANCE);
+
+		angleConditionEClass = createEClass(ANGLE_CONDITION);
+		createEAttribute(angleConditionEClass, ANGLE_CONDITION__ANGLE);
+
 		// Create enums
 		detectionEEnum = createEEnum(DETECTION);
 		directionEEnum = createEEnum(DIRECTION);
+		cameratypeEEnum = createEEnum(CAMERATYPE);
 	}
 
 	/**
@@ -486,6 +590,9 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 		moveActionEClass.getESuperTypes().add(this.getAction());
 		turnActionEClass.getESuperTypes().add(this.getAction());
 		simpleConditionEClass.getESuperTypes().add(this.getCondition());
+		objectConditionEClass.getESuperTypes().add(this.getCondition());
+		distanceConditionEClass.getESuperTypes().add(this.getObjectCondition());
+		angleConditionEClass.getESuperTypes().add(this.getObjectCondition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(robotProgramEClass, RobotProgram.class, "RobotProgram", !IS_ABSTRACT, !IS_INTERFACE,
@@ -547,6 +654,23 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(objectConditionEClass, ObjectCondition.class, "ObjectCondition", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getObjectCondition_CameraType(), this.getCAMERATYPE(), "cameraType", null, 0, 1,
+				ObjectCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(distanceConditionEClass, DistanceCondition.class, "DistanceCondition", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDistanceCondition_Distance(), ecorePackage.getEDouble(), "distance", null, 0, 1,
+				DistanceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(angleConditionEClass, AngleCondition.class, "AngleCondition", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAngleCondition_Angle(), ecorePackage.getEDouble(), "angle", null, 0, 1, AngleCondition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(detectionEEnum, fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DETECTION.class,
 				"DETECTION");
@@ -569,6 +693,13 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DIRECTION.FORWARD);
 		addEEnumLiteral(directionEEnum,
 				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DIRECTION.BACKWARD);
+
+		initEEnum(cameratypeEEnum, fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE.class,
+				"CAMERATYPE");
+		addEEnumLiteral(cameratypeEEnum,
+				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE.FRONT);
+		addEEnumLiteral(cameratypeEEnum,
+				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE.BACK);
 
 		// Create resource
 		createResource(eNS_URI);
