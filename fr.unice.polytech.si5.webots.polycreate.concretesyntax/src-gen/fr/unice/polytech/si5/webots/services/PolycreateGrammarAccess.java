@@ -34,22 +34,24 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRobotProgramKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cInitialStateAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cInitialStateStateParserRuleCall_3_0 = (RuleCall)cInitialStateAssignment_3.eContents().get(0);
-		private final Assignment cOwnedStatesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOwnedStatesStateParserRuleCall_4_0 = (RuleCall)cOwnedStatesAssignment_4.eContents().get(0);
-		private final Assignment cGlobalTransitionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGlobalTransitionsTransitionParserRuleCall_5_0 = (RuleCall)cGlobalTransitionsAssignment_5.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cInitialStateAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInitialStateStateParserRuleCall_4_0 = (RuleCall)cInitialStateAssignment_4.eContents().get(0);
+		private final Assignment cOwnedStatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cOwnedStatesStateParserRuleCall_5_0 = (RuleCall)cOwnedStatesAssignment_5.eContents().get(0);
+		private final Assignment cGlobalTransitionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cGlobalTransitionsTransitionParserRuleCall_6_0 = (RuleCall)cGlobalTransitionsAssignment_6.eContents().get(0);
 		
 		//RobotProgram:
 		//	{RobotProgram}
 		//	'RobotProgram'
 		//	name=EString
-		//	initialState=State ownedStates+=State*
+		//	'->' initialState=State
+		//	ownedStates+=State*
 		//	globalTransitions+=Transition*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RobotProgram} 'RobotProgram' name=EString initialState=State ownedStates+=State* globalTransitions+=Transition*
+		//{RobotProgram} 'RobotProgram' name=EString '->' initialState=State ownedStates+=State* globalTransitions+=Transition*
 		public Group getGroup() { return cGroup; }
 		
 		//{RobotProgram}
@@ -64,23 +66,26 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_3() { return cHyphenMinusGreaterThanSignKeyword_3; }
+		
 		//initialState=State
-		public Assignment getInitialStateAssignment_3() { return cInitialStateAssignment_3; }
+		public Assignment getInitialStateAssignment_4() { return cInitialStateAssignment_4; }
 		
 		//State
-		public RuleCall getInitialStateStateParserRuleCall_3_0() { return cInitialStateStateParserRuleCall_3_0; }
+		public RuleCall getInitialStateStateParserRuleCall_4_0() { return cInitialStateStateParserRuleCall_4_0; }
 		
 		//ownedStates+=State*
-		public Assignment getOwnedStatesAssignment_4() { return cOwnedStatesAssignment_4; }
+		public Assignment getOwnedStatesAssignment_5() { return cOwnedStatesAssignment_5; }
 		
 		//State
-		public RuleCall getOwnedStatesStateParserRuleCall_4_0() { return cOwnedStatesStateParserRuleCall_4_0; }
+		public RuleCall getOwnedStatesStateParserRuleCall_5_0() { return cOwnedStatesStateParserRuleCall_5_0; }
 		
 		//globalTransitions+=Transition*
-		public Assignment getGlobalTransitionsAssignment_5() { return cGlobalTransitionsAssignment_5; }
+		public Assignment getGlobalTransitionsAssignment_6() { return cGlobalTransitionsAssignment_6; }
 		
 		//Transition
-		public RuleCall getGlobalTransitionsTransitionParserRuleCall_5_0() { return cGlobalTransitionsTransitionParserRuleCall_5_0; }
+		public RuleCall getGlobalTransitionsTransitionParserRuleCall_6_0() { return cGlobalTransitionsTransitionParserRuleCall_6_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.EString");
@@ -142,85 +147,61 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	public class TransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.Transition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTransitionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cConditionsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cConditionsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cConditionsConditionParserRuleCall_2_2_0 = (RuleCall)cConditionsAssignment_2_2.eContents().get(0);
-		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
-		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cConditionsAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final RuleCall cConditionsConditionParserRuleCall_2_3_1_0 = (RuleCall)cConditionsAssignment_2_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
-		private final Keyword cNextStateKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNextStateAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cNextStateStateCrossReference_4_0 = (CrossReference)cNextStateAssignment_4.eContents().get(0);
-		private final RuleCall cNextStateStateEStringParserRuleCall_4_0_1 = (RuleCall)cNextStateStateCrossReference_4_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Action cTransitionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cConditionsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cConditionsConditionParserRuleCall_1_0_0 = (RuleCall)cConditionsAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cAndKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cConditionsAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cConditionsConditionParserRuleCall_1_1_1_0 = (RuleCall)cConditionsAssignment_1_1_1.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cNextStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cNextStateStateCrossReference_2_0 = (CrossReference)cNextStateAssignment_2.eContents().get(0);
+		private final RuleCall cNextStateStateEStringParserRuleCall_2_0_1 = (RuleCall)cNextStateStateCrossReference_2_0.eContents().get(1);
 		
 		//Transition:
-		//	'Transition'
-		//	'{' ('conditions' '{' conditions+=Condition ("," conditions+=Condition)* '}')?
-		//	'nextState' nextState=[State|EString]
-		//	'}';
+		//	{Transition} (conditions+=Condition ('and' conditions+=Condition)* '=>')? nextState=[State|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Transition' '{' ('conditions' '{' conditions+=Condition ("," conditions+=Condition)* '}')? 'nextState'
-		//nextState=[State|EString] '}'
+		//{Transition} (conditions+=Condition ('and' conditions+=Condition)* '=>')? nextState=[State|EString]
 		public Group getGroup() { return cGroup; }
 		
-		//'Transition'
-		public Keyword getTransitionKeyword_0() { return cTransitionKeyword_0; }
+		//{Transition}
+		public Action getTransitionAction_0() { return cTransitionAction_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//('conditions' '{' conditions+=Condition ("," conditions+=Condition)* '}')?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'conditions'
-		public Keyword getConditionsKeyword_2_0() { return cConditionsKeyword_2_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
+		//(conditions+=Condition ('and' conditions+=Condition)* '=>')?
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//conditions+=Condition
-		public Assignment getConditionsAssignment_2_2() { return cConditionsAssignment_2_2; }
+		public Assignment getConditionsAssignment_1_0() { return cConditionsAssignment_1_0; }
 		
 		//Condition
-		public RuleCall getConditionsConditionParserRuleCall_2_2_0() { return cConditionsConditionParserRuleCall_2_2_0; }
+		public RuleCall getConditionsConditionParserRuleCall_1_0_0() { return cConditionsConditionParserRuleCall_1_0_0; }
 		
-		//("," conditions+=Condition)*
-		public Group getGroup_2_3() { return cGroup_2_3; }
+		//('and' conditions+=Condition)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//","
-		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
+		//'and'
+		public Keyword getAndKeyword_1_1_0() { return cAndKeyword_1_1_0; }
 		
 		//conditions+=Condition
-		public Assignment getConditionsAssignment_2_3_1() { return cConditionsAssignment_2_3_1; }
+		public Assignment getConditionsAssignment_1_1_1() { return cConditionsAssignment_1_1_1; }
 		
 		//Condition
-		public RuleCall getConditionsConditionParserRuleCall_2_3_1_0() { return cConditionsConditionParserRuleCall_2_3_1_0; }
+		public RuleCall getConditionsConditionParserRuleCall_1_1_1_0() { return cConditionsConditionParserRuleCall_1_1_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
-		
-		//'nextState'
-		public Keyword getNextStateKeyword_3() { return cNextStateKeyword_3; }
+		//'=>'
+		public Keyword getEqualsSignGreaterThanSignKeyword_1_2() { return cEqualsSignGreaterThanSignKeyword_1_2; }
 		
 		//nextState=[State|EString]
-		public Assignment getNextStateAssignment_4() { return cNextStateAssignment_4; }
+		public Assignment getNextStateAssignment_2() { return cNextStateAssignment_2; }
 		
 		//[State|EString]
-		public CrossReference getNextStateStateCrossReference_4_0() { return cNextStateStateCrossReference_4_0; }
+		public CrossReference getNextStateStateCrossReference_2_0() { return cNextStateStateCrossReference_2_0; }
 		
 		//EString
-		public RuleCall getNextStateStateEStringParserRuleCall_4_0_1() { return cNextStateStateEStringParserRuleCall_4_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public RuleCall getNextStateStateEStringParserRuleCall_2_0_1() { return cNextStateStateEStringParserRuleCall_2_0_1; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.State");
@@ -229,39 +210,39 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cStateKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cActionsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cActionsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cActionsActionParserRuleCall_4_2_0 = (RuleCall)cActionsAssignment_4_2.eContents().get(0);
-		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
-		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Assignment cActionsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final RuleCall cActionsActionParserRuleCall_4_3_1_0 = (RuleCall)cActionsAssignment_4_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
+		private final Keyword cEqualsSignKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cActionsAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cActionsActionParserRuleCall_4_3_0 = (RuleCall)cActionsAssignment_4_3.eContents().get(0);
+		private final Group cGroup_4_4 = (Group)cGroup_4.eContents().get(4);
+		private final Keyword cCommaKeyword_4_4_0 = (Keyword)cGroup_4_4.eContents().get(0);
+		private final Assignment cActionsAssignment_4_4_1 = (Assignment)cGroup_4_4.eContents().get(1);
+		private final RuleCall cActionsActionParserRuleCall_4_4_1_0 = (RuleCall)cActionsAssignment_4_4_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4_5 = (Keyword)cGroup_4.eContents().get(5);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cTransitionsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cTransitionsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cTransitionsTransitionParserRuleCall_5_2_0 = (RuleCall)cTransitionsAssignment_5_2.eContents().get(0);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cTransitionsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cTransitionsTransitionParserRuleCall_5_3_1_0 = (RuleCall)cTransitionsAssignment_5_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cEqualsSignKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Assignment cTransitionsAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cTransitionsTransitionParserRuleCall_5_3_0 = (RuleCall)cTransitionsAssignment_5_3.eContents().get(0);
+		private final Group cGroup_5_4 = (Group)cGroup_5.eContents().get(4);
+		private final Keyword cCommaKeyword_5_4_0 = (Keyword)cGroup_5_4.eContents().get(0);
+		private final Assignment cTransitionsAssignment_5_4_1 = (Assignment)cGroup_5_4.eContents().get(1);
+		private final RuleCall cTransitionsTransitionParserRuleCall_5_4_1_0 = (RuleCall)cTransitionsAssignment_5_4_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_5_5 = (Keyword)cGroup_5.eContents().get(5);
 		
 		//State:
 		//	{State}
 		//	'State' name=EString
-		//	'{' ('actions' '{' actions+=Action ("," actions+=Action)* '}')? ('transitions' '{' transitions+=Transition (","
-		//	transitions+=Transition)* '}')?
-		//	'}';
+		//	':' ('actions' '=' '[' actions+=Action (',' actions+=Action)* ']')? ('transitions' '=' '[' transitions+=Transition
+		//	("," transitions+=Transition)* ']')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{State} 'State' name=EString '{' ('actions' '{' actions+=Action ("," actions+=Action)* '}')? ('transitions' '{'
-		//transitions+=Transition ("," transitions+=Transition)* '}')? '}'
+		//{State} 'State' name=EString ':' ('actions' '=' '[' actions+=Action (',' actions+=Action)* ']')? ('transitions' '=' '['
+		//transitions+=Transition ("," transitions+=Transition)* ']')?
 		public Group getGroup() { return cGroup; }
 		
 		//{State}
@@ -276,117 +257,102 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
-		//('actions' '{' actions+=Action ("," actions+=Action)* '}')?
+		//('actions' '=' '[' actions+=Action (',' actions+=Action)* ']')?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'actions'
 		public Keyword getActionsKeyword_4_0() { return cActionsKeyword_4_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
+		//'='
+		public Keyword getEqualsSignKeyword_4_1() { return cEqualsSignKeyword_4_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_4_2() { return cLeftSquareBracketKeyword_4_2; }
 		
 		//actions+=Action
-		public Assignment getActionsAssignment_4_2() { return cActionsAssignment_4_2; }
+		public Assignment getActionsAssignment_4_3() { return cActionsAssignment_4_3; }
 		
 		//Action
-		public RuleCall getActionsActionParserRuleCall_4_2_0() { return cActionsActionParserRuleCall_4_2_0; }
+		public RuleCall getActionsActionParserRuleCall_4_3_0() { return cActionsActionParserRuleCall_4_3_0; }
 		
-		//("," actions+=Action)*
-		public Group getGroup_4_3() { return cGroup_4_3; }
+		//(',' actions+=Action)*
+		public Group getGroup_4_4() { return cGroup_4_4; }
 		
-		//","
-		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
+		//','
+		public Keyword getCommaKeyword_4_4_0() { return cCommaKeyword_4_4_0; }
 		
 		//actions+=Action
-		public Assignment getActionsAssignment_4_3_1() { return cActionsAssignment_4_3_1; }
+		public Assignment getActionsAssignment_4_4_1() { return cActionsAssignment_4_4_1; }
 		
 		//Action
-		public RuleCall getActionsActionParserRuleCall_4_3_1_0() { return cActionsActionParserRuleCall_4_3_1_0; }
+		public RuleCall getActionsActionParserRuleCall_4_4_1_0() { return cActionsActionParserRuleCall_4_4_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
+		//']'
+		public Keyword getRightSquareBracketKeyword_4_5() { return cRightSquareBracketKeyword_4_5; }
 		
-		//('transitions' '{' transitions+=Transition ("," transitions+=Transition)* '}')?
+		//('transitions' '=' '[' transitions+=Transition ("," transitions+=Transition)* ']')?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'transitions'
 		public Keyword getTransitionsKeyword_5_0() { return cTransitionsKeyword_5_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5_1() { return cLeftCurlyBracketKeyword_5_1; }
+		//'='
+		public Keyword getEqualsSignKeyword_5_1() { return cEqualsSignKeyword_5_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_5_2() { return cLeftSquareBracketKeyword_5_2; }
 		
 		//transitions+=Transition
-		public Assignment getTransitionsAssignment_5_2() { return cTransitionsAssignment_5_2; }
+		public Assignment getTransitionsAssignment_5_3() { return cTransitionsAssignment_5_3; }
 		
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_5_2_0() { return cTransitionsTransitionParserRuleCall_5_2_0; }
+		public RuleCall getTransitionsTransitionParserRuleCall_5_3_0() { return cTransitionsTransitionParserRuleCall_5_3_0; }
 		
 		//("," transitions+=Transition)*
-		public Group getGroup_5_3() { return cGroup_5_3; }
+		public Group getGroup_5_4() { return cGroup_5_4; }
 		
 		//","
-		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
+		public Keyword getCommaKeyword_5_4_0() { return cCommaKeyword_5_4_0; }
 		
 		//transitions+=Transition
-		public Assignment getTransitionsAssignment_5_3_1() { return cTransitionsAssignment_5_3_1; }
+		public Assignment getTransitionsAssignment_5_4_1() { return cTransitionsAssignment_5_4_1; }
 		
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_5_3_1_0() { return cTransitionsTransitionParserRuleCall_5_3_1_0; }
+		public RuleCall getTransitionsTransitionParserRuleCall_5_4_1_0() { return cTransitionsTransitionParserRuleCall_5_4_1_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5_4() { return cRightCurlyBracketKeyword_5_4; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		//']'
+		public Keyword getRightSquareBracketKeyword_5_5() { return cRightSquareBracketKeyword_5_5; }
 	}
 	public class SimpleConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.SimpleCondition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSimpleConditionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSimpleConditionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDetectionTypeKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cDetectionTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cDetectionTypeDETECTIONEnumRuleCall_3_1_0 = (RuleCall)cDetectionTypeAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cDetectKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDetectionTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDetectionTypeDETECTIONEnumRuleCall_2_0 = (RuleCall)cDetectionTypeAssignment_2.eContents().get(0);
 		
 		//SimpleCondition:
 		//	{SimpleCondition}
-		//	'SimpleCondition'
-		//	'{' ('detectionType' detectionType=DETECTION)?
-		//	'}';
+		//	'detect' detectionType=DETECTION;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SimpleCondition} 'SimpleCondition' '{' ('detectionType' detectionType=DETECTION)? '}'
+		//{SimpleCondition} 'detect' detectionType=DETECTION
 		public Group getGroup() { return cGroup; }
 		
 		//{SimpleCondition}
 		public Action getSimpleConditionAction_0() { return cSimpleConditionAction_0; }
 		
-		//'SimpleCondition'
-		public Keyword getSimpleConditionKeyword_1() { return cSimpleConditionKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//('detectionType' detectionType=DETECTION)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'detectionType'
-		public Keyword getDetectionTypeKeyword_3_0() { return cDetectionTypeKeyword_3_0; }
+		//'detect'
+		public Keyword getDetectKeyword_1() { return cDetectKeyword_1; }
 		
 		//detectionType=DETECTION
-		public Assignment getDetectionTypeAssignment_3_1() { return cDetectionTypeAssignment_3_1; }
+		public Assignment getDetectionTypeAssignment_2() { return cDetectionTypeAssignment_2; }
 		
 		//DETECTION
-		public RuleCall getDetectionTypeDETECTIONEnumRuleCall_3_1_0() { return cDetectionTypeDETECTIONEnumRuleCall_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public RuleCall getDetectionTypeDETECTIONEnumRuleCall_2_0() { return cDetectionTypeDETECTIONEnumRuleCall_2_0; }
 	}
 	public class ObjectConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.ObjectCondition");
@@ -411,237 +377,193 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.DistanceCondition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDistanceConditionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cDistanceConditionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cCameraTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cCameraTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cCameraTypeCAMERATYPEEnumRuleCall_4_0 = (RuleCall)cCameraTypeAssignment_4.eContents().get(0);
+		private final Keyword cDetectKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cObjectKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCameraTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCameraTypeCAMERATYPEEnumRuleCall_3_0 = (RuleCall)cCameraTypeAssignment_3.eContents().get(0);
+		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cDistanceKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cDistanceAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cDistanceEDoubleParserRuleCall_6_0 = (RuleCall)cDistanceAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cLessThanSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cDistanceAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cDistanceEDoubleParserRuleCall_7_0 = (RuleCall)cDistanceAssignment_7.eContents().get(0);
 		
 		//DistanceCondition:
 		//	{DistanceCondition}
-		//	'DistanceCondition'
-		//	'{'
-		//	'cameraType' cameraType=CAMERATYPE
-		//	'distance' distance=EDouble
-		//	'}';
+		//	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DistanceCondition} 'DistanceCondition' '{' 'cameraType' cameraType=CAMERATYPE 'distance' distance=EDouble '}'
+		//{DistanceCondition} 'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble
 		public Group getGroup() { return cGroup; }
 		
 		//{DistanceCondition}
 		public Action getDistanceConditionAction_0() { return cDistanceConditionAction_0; }
 		
-		//'DistanceCondition'
-		public Keyword getDistanceConditionKeyword_1() { return cDistanceConditionKeyword_1; }
+		//'detect'
+		public Keyword getDetectKeyword_1() { return cDetectKeyword_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//'cameraType'
-		public Keyword getCameraTypeKeyword_3() { return cCameraTypeKeyword_3; }
+		//'object'
+		public Keyword getObjectKeyword_2() { return cObjectKeyword_2; }
 		
 		//cameraType=CAMERATYPE
-		public Assignment getCameraTypeAssignment_4() { return cCameraTypeAssignment_4; }
+		public Assignment getCameraTypeAssignment_3() { return cCameraTypeAssignment_3; }
 		
 		//CAMERATYPE
-		public RuleCall getCameraTypeCAMERATYPEEnumRuleCall_4_0() { return cCameraTypeCAMERATYPEEnumRuleCall_4_0; }
+		public RuleCall getCameraTypeCAMERATYPEEnumRuleCall_3_0() { return cCameraTypeCAMERATYPEEnumRuleCall_3_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_4() { return cWithKeyword_4; }
 		
 		//'distance'
 		public Keyword getDistanceKeyword_5() { return cDistanceKeyword_5; }
 		
+		//'<'
+		public Keyword getLessThanSignKeyword_6() { return cLessThanSignKeyword_6; }
+		
 		//distance=EDouble
-		public Assignment getDistanceAssignment_6() { return cDistanceAssignment_6; }
+		public Assignment getDistanceAssignment_7() { return cDistanceAssignment_7; }
 		
 		//EDouble
-		public RuleCall getDistanceEDoubleParserRuleCall_6_0() { return cDistanceEDoubleParserRuleCall_6_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public RuleCall getDistanceEDoubleParserRuleCall_7_0() { return cDistanceEDoubleParserRuleCall_7_0; }
 	}
 	public class AngleConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.AngleCondition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAngleConditionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cAngleConditionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cCameraTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cCameraTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cCameraTypeCAMERATYPEEnumRuleCall_4_0 = (RuleCall)cCameraTypeAssignment_4.eContents().get(0);
+		private final Keyword cDetectKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cObjectKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCameraTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCameraTypeCAMERATYPEEnumRuleCall_3_0 = (RuleCall)cCameraTypeAssignment_3.eContents().get(0);
+		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cAngleKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cAngleAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cAngleEDoubleParserRuleCall_6_0 = (RuleCall)cAngleAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cLessThanSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cAngleAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cAngleEDoubleParserRuleCall_7_0 = (RuleCall)cAngleAssignment_7.eContents().get(0);
 		
 		//AngleCondition:
 		//	{AngleCondition}
-		//	'AngleCondition'
-		//	'{'
-		//	'cameraType' cameraType=CAMERATYPE
-		//	'angle' angle=EDouble
-		//	'}';
+		//	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AngleCondition} 'AngleCondition' '{' 'cameraType' cameraType=CAMERATYPE 'angle' angle=EDouble '}'
+		//{AngleCondition} 'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble
 		public Group getGroup() { return cGroup; }
 		
 		//{AngleCondition}
 		public Action getAngleConditionAction_0() { return cAngleConditionAction_0; }
 		
-		//'AngleCondition'
-		public Keyword getAngleConditionKeyword_1() { return cAngleConditionKeyword_1; }
+		//'detect'
+		public Keyword getDetectKeyword_1() { return cDetectKeyword_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//'cameraType'
-		public Keyword getCameraTypeKeyword_3() { return cCameraTypeKeyword_3; }
+		//'object'
+		public Keyword getObjectKeyword_2() { return cObjectKeyword_2; }
 		
 		//cameraType=CAMERATYPE
-		public Assignment getCameraTypeAssignment_4() { return cCameraTypeAssignment_4; }
+		public Assignment getCameraTypeAssignment_3() { return cCameraTypeAssignment_3; }
 		
 		//CAMERATYPE
-		public RuleCall getCameraTypeCAMERATYPEEnumRuleCall_4_0() { return cCameraTypeCAMERATYPEEnumRuleCall_4_0; }
+		public RuleCall getCameraTypeCAMERATYPEEnumRuleCall_3_0() { return cCameraTypeCAMERATYPEEnumRuleCall_3_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_4() { return cWithKeyword_4; }
 		
 		//'angle'
 		public Keyword getAngleKeyword_5() { return cAngleKeyword_5; }
 		
+		//'<'
+		public Keyword getLessThanSignKeyword_6() { return cLessThanSignKeyword_6; }
+		
 		//angle=EDouble
-		public Assignment getAngleAssignment_6() { return cAngleAssignment_6; }
+		public Assignment getAngleAssignment_7() { return cAngleAssignment_7; }
 		
 		//EDouble
-		public RuleCall getAngleEDoubleParserRuleCall_6_0() { return cAngleEDoubleParserRuleCall_6_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public RuleCall getAngleEDoubleParserRuleCall_7_0() { return cAngleEDoubleParserRuleCall_7_0; }
 	}
 	public class MoveActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.MoveAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cMoveActionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMoveActionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cMoveKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDirectionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDirectionDIRECTIONEnumRuleCall_2_0 = (RuleCall)cDirectionAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDurationKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cDuringKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cDurationAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cDurationEDoubleParserRuleCall_3_1_0 = (RuleCall)cDurationAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cDirectionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cDirectionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cDirectionDIRECTIONEnumRuleCall_4_1_0 = (RuleCall)cDirectionAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//MoveAction:
 		//	{MoveAction}
-		//	'MoveAction'
-		//	'{' ('duration' duration=EDouble)? ('direction' direction=DIRECTION)?
-		//	'}';
+		//	'move' direction=DIRECTION ('during' duration=EDouble)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MoveAction} 'MoveAction' '{' ('duration' duration=EDouble)? ('direction' direction=DIRECTION)? '}'
+		//{MoveAction} 'move' direction=DIRECTION ('during' duration=EDouble)?
 		public Group getGroup() { return cGroup; }
 		
 		//{MoveAction}
 		public Action getMoveActionAction_0() { return cMoveActionAction_0; }
 		
-		//'MoveAction'
-		public Keyword getMoveActionKeyword_1() { return cMoveActionKeyword_1; }
+		//'move'
+		public Keyword getMoveKeyword_1() { return cMoveKeyword_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//direction=DIRECTION
+		public Assignment getDirectionAssignment_2() { return cDirectionAssignment_2; }
 		
-		//('duration' duration=EDouble)?
+		//DIRECTION
+		public RuleCall getDirectionDIRECTIONEnumRuleCall_2_0() { return cDirectionDIRECTIONEnumRuleCall_2_0; }
+		
+		//('during' duration=EDouble)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'duration'
-		public Keyword getDurationKeyword_3_0() { return cDurationKeyword_3_0; }
+		//'during'
+		public Keyword getDuringKeyword_3_0() { return cDuringKeyword_3_0; }
 		
 		//duration=EDouble
 		public Assignment getDurationAssignment_3_1() { return cDurationAssignment_3_1; }
 		
 		//EDouble
 		public RuleCall getDurationEDoubleParserRuleCall_3_1_0() { return cDurationEDoubleParserRuleCall_3_1_0; }
-		
-		//('direction' direction=DIRECTION)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'direction'
-		public Keyword getDirectionKeyword_4_0() { return cDirectionKeyword_4_0; }
-		
-		//direction=DIRECTION
-		public Assignment getDirectionAssignment_4_1() { return cDirectionAssignment_4_1; }
-		
-		//DIRECTION
-		public RuleCall getDirectionDIRECTIONEnumRuleCall_4_1_0() { return cDirectionDIRECTIONEnumRuleCall_4_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class TurnActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.TurnAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTurnActionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cTurnActionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTurnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAngleAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAngleEDoubleParserRuleCall_2_0 = (RuleCall)cAngleAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDurationKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cDuringKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cDurationAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cDurationEDoubleParserRuleCall_3_1_0 = (RuleCall)cDurationAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cAngleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cAngleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cAngleEDoubleParserRuleCall_4_1_0 = (RuleCall)cAngleAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//TurnAction:
 		//	{TurnAction}
-		//	'TurnAction'
-		//	'{' ('duration' duration=EDouble)? ('angle' angle=EDouble)?
-		//	'}';
+		//	'turn' angle=EDouble ('during' duration=EDouble)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TurnAction} 'TurnAction' '{' ('duration' duration=EDouble)? ('angle' angle=EDouble)? '}'
+		//{TurnAction} 'turn' angle=EDouble ('during' duration=EDouble)?
 		public Group getGroup() { return cGroup; }
 		
 		//{TurnAction}
 		public Action getTurnActionAction_0() { return cTurnActionAction_0; }
 		
-		//'TurnAction'
-		public Keyword getTurnActionKeyword_1() { return cTurnActionKeyword_1; }
+		//'turn'
+		public Keyword getTurnKeyword_1() { return cTurnKeyword_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//angle=EDouble
+		public Assignment getAngleAssignment_2() { return cAngleAssignment_2; }
 		
-		//('duration' duration=EDouble)?
+		//EDouble
+		public RuleCall getAngleEDoubleParserRuleCall_2_0() { return cAngleEDoubleParserRuleCall_2_0; }
+		
+		//('during' duration=EDouble)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'duration'
-		public Keyword getDurationKeyword_3_0() { return cDurationKeyword_3_0; }
+		//'during'
+		public Keyword getDuringKeyword_3_0() { return cDuringKeyword_3_0; }
 		
 		//duration=EDouble
 		public Assignment getDurationAssignment_3_1() { return cDurationAssignment_3_1; }
 		
 		//EDouble
 		public RuleCall getDurationEDoubleParserRuleCall_3_1_0() { return cDurationEDoubleParserRuleCall_3_1_0; }
-		
-		//('angle' angle=EDouble)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'angle'
-		public Keyword getAngleKeyword_4_0() { return cAngleKeyword_4_0; }
-		
-		//angle=EDouble
-		public Assignment getAngleAssignment_4_1() { return cAngleAssignment_4_1; }
-		
-		//EDouble
-		public RuleCall getAngleEDoubleParserRuleCall_4_1_0() { return cAngleEDoubleParserRuleCall_4_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class EDoubleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.EDouble");
@@ -884,7 +806,8 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	//	{RobotProgram}
 	//	'RobotProgram'
 	//	name=EString
-	//	initialState=State ownedStates+=State*
+	//	'->' initialState=State
+	//	ownedStates+=State*
 	//	globalTransitions+=Transition*;
 	public RobotProgramElements getRobotProgramAccess() {
 		return pRobotProgram;
@@ -925,10 +848,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Transition:
-	//	'Transition'
-	//	'{' ('conditions' '{' conditions+=Condition ("," conditions+=Condition)* '}')?
-	//	'nextState' nextState=[State|EString]
-	//	'}';
+	//	{Transition} (conditions+=Condition ('and' conditions+=Condition)* '=>')? nextState=[State|EString];
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
@@ -940,9 +860,8 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	//State:
 	//	{State}
 	//	'State' name=EString
-	//	'{' ('actions' '{' actions+=Action ("," actions+=Action)* '}')? ('transitions' '{' transitions+=Transition (","
-	//	transitions+=Transition)* '}')?
-	//	'}';
+	//	':' ('actions' '=' '[' actions+=Action (',' actions+=Action)* ']')? ('transitions' '=' '[' transitions+=Transition
+	//	("," transitions+=Transition)* ']')?;
 	public StateElements getStateAccess() {
 		return pState;
 	}
@@ -953,9 +872,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//SimpleCondition:
 	//	{SimpleCondition}
-	//	'SimpleCondition'
-	//	'{' ('detectionType' detectionType=DETECTION)?
-	//	'}';
+	//	'detect' detectionType=DETECTION;
 	public SimpleConditionElements getSimpleConditionAccess() {
 		return pSimpleCondition;
 	}
@@ -976,11 +893,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DistanceCondition:
 	//	{DistanceCondition}
-	//	'DistanceCondition'
-	//	'{'
-	//	'cameraType' cameraType=CAMERATYPE
-	//	'distance' distance=EDouble
-	//	'}';
+	//	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble;
 	public DistanceConditionElements getDistanceConditionAccess() {
 		return pDistanceCondition;
 	}
@@ -991,11 +904,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AngleCondition:
 	//	{AngleCondition}
-	//	'AngleCondition'
-	//	'{'
-	//	'cameraType' cameraType=CAMERATYPE
-	//	'angle' angle=EDouble
-	//	'}';
+	//	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble;
 	public AngleConditionElements getAngleConditionAccess() {
 		return pAngleCondition;
 	}
@@ -1016,9 +925,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MoveAction:
 	//	{MoveAction}
-	//	'MoveAction'
-	//	'{' ('duration' duration=EDouble)? ('direction' direction=DIRECTION)?
-	//	'}';
+	//	'move' direction=DIRECTION ('during' duration=EDouble)?;
 	public MoveActionElements getMoveActionAccess() {
 		return pMoveAction;
 	}
@@ -1029,9 +936,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//TurnAction:
 	//	{TurnAction}
-	//	'TurnAction'
-	//	'{' ('duration' duration=EDouble)? ('angle' angle=EDouble)?
-	//	'}';
+	//	'turn' angle=EDouble ('during' duration=EDouble)?;
 	public TurnActionElements getTurnActionAccess() {
 		return pTurnAction;
 	}

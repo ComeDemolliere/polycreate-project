@@ -8,7 +8,7 @@ RobotProgram returns RobotProgram:
 	{RobotProgram}
 	'RobotProgram'
 	name=EString
-		(initialState=State)
+		'->' initialState=State
 		(ownedStates+=State)*
 		(globalTransitions+=Transition)*	
 	;
@@ -23,26 +23,21 @@ Action returns Action:
 	MoveAction | TurnAction;
 
 Transition returns Transition:
-	'Transition'
-	'{'
-		('conditions' '{' conditions+=Condition ( "," conditions+=Condition)* '}' )?
-		'nextState' nextState=[State|EString]
-	'}';
+	{Transition}
+	(conditions+=Condition ('and' conditions+=Condition)* '=>')? nextState=[State|EString]
+	;
 
 State returns State:
 	{State}
 	'State' name=EString
-	'{'
-		('actions' '{' actions+=Action ( "," actions+=Action)* '}' )?
-		('transitions' '{' transitions+=Transition ( "," transitions+=Transition)* '}' )?
-	'}';
+	':'
+		('actions' '=' '[' actions+=Action ( ',' actions+=Action)* ']' )?
+		('transitions' '=' '[' transitions+=Transition ( "," transitions+=Transition)* ']' )?
+	;
 
 SimpleCondition returns SimpleCondition:
 	{SimpleCondition}
-	'SimpleCondition'
-	'{'
-		('detectionType' detectionType=DETECTION)?
-	'}';
+	'detect' detectionType=DETECTION;
 	
 ObjectCondition returns ObjectCondition:
 	DistanceCondition | AngleCondition
@@ -50,38 +45,22 @@ ObjectCondition returns ObjectCondition:
 
 DistanceCondition returns DistanceCondition:
 	{DistanceCondition}
-	'DistanceCondition'
-	'{'
-		'cameraType' cameraType=CAMERATYPE
-		'distance' distance=EDouble
-	'}';
+	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble;
 	
 AngleCondition returns AngleCondition:
 	{AngleCondition}
-	'AngleCondition'
-	'{'
-		'cameraType' cameraType=CAMERATYPE
-		'angle' angle=EDouble
-	'}';
+	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble;
 
 enum DETECTION returns DETECTION:
 				COLLISION_LEFT = 'COLLISION_LEFT' | COLLISION_RIGHT = 'COLLISION_RIGHT' | VIRTUAL_WALL = 'VIRTUAL_WALL' | CLIFF_LEFT = 'CLIFF_LEFT' | CLIFF_RIGHT = 'CLIFF_RIGHT' | CLIFF_FRONT = 'CLIFF_FRONT';
 
 MoveAction returns MoveAction:
 	{MoveAction}
-	'MoveAction'
-	'{'
-		('duration' duration=EDouble)?
-		('direction' direction=DIRECTION)?
-	'}';
+	'move' direction=DIRECTION ('during' duration=EDouble)?;
 
 TurnAction returns TurnAction:
 	{TurnAction}
-	'TurnAction'
-	'{'
-		('duration' duration=EDouble)?
-		('angle' angle=EDouble)?
-	'}';
+	'turn' angle=EDouble ('during' duration=EDouble)?;
 
 enum DIRECTION returns DIRECTION:
 				FORWARD = 'FORWARD' | BACKWARD = 'BACKWARD';

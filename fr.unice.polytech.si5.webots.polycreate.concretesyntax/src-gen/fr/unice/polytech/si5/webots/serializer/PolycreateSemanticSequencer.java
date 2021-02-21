@@ -85,8 +85,8 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.ANGLE_CONDITION__ANGLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAngleConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_4_0(), semanticObject.getCameraType());
-		feeder.accept(grammarAccess.getAngleConditionAccess().getAngleEDoubleParserRuleCall_6_0(), semanticObject.getAngle());
+		feeder.accept(grammarAccess.getAngleConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0(), semanticObject.getCameraType());
+		feeder.accept(grammarAccess.getAngleConditionAccess().getAngleEDoubleParserRuleCall_7_0(), semanticObject.getAngle());
 		feeder.finish();
 	}
 	
@@ -108,8 +108,8 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.DISTANCE_CONDITION__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDistanceConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_4_0(), semanticObject.getCameraType());
-		feeder.accept(grammarAccess.getDistanceConditionAccess().getDistanceEDoubleParserRuleCall_6_0(), semanticObject.getDistance());
+		feeder.accept(grammarAccess.getDistanceConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0(), semanticObject.getCameraType());
+		feeder.accept(grammarAccess.getDistanceConditionAccess().getDistanceEDoubleParserRuleCall_7_0(), semanticObject.getDistance());
 		feeder.finish();
 	}
 	
@@ -120,7 +120,7 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     MoveAction returns MoveAction
 	 *
 	 * Constraint:
-	 *     (duration=EDouble? direction=DIRECTION?)
+	 *     (direction=DIRECTION duration=EDouble?)
 	 */
 	protected void sequence_MoveAction(ISerializationContext context, MoveAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -145,10 +145,16 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     SimpleCondition returns SimpleCondition
 	 *
 	 * Constraint:
-	 *     detectionType=DETECTION?
+	 *     detectionType=DETECTION
 	 */
 	protected void sequence_SimpleCondition(ISerializationContext context, SimpleCondition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.SIMPLE_CONDITION__DETECTION_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.SIMPLE_CONDITION__DETECTION_TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSimpleConditionAccess().getDetectionTypeDETECTIONEnumRuleCall_2_0(), semanticObject.getDetectionType());
+		feeder.finish();
 	}
 	
 	
@@ -182,7 +188,7 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     TurnAction returns TurnAction
 	 *
 	 * Constraint:
-	 *     (duration=EDouble? angle=EDouble?)
+	 *     (angle=EDouble duration=EDouble?)
 	 */
 	protected void sequence_TurnAction(ISerializationContext context, TurnAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

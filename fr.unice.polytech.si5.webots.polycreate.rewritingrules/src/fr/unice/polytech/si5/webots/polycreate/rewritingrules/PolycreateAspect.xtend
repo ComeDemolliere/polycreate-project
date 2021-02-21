@@ -145,9 +145,11 @@ class AngleConditionAspect extends ObjectConditionAspect {
 			var angle = rad * (180 / Math.PI);
 			System.out.println("angle "+ angle);
 			
-			var distance = 2 * Math.atan2(Math.sqrt(rad), Math.sqrt(1 - rad));
+			//return _self.angle < angle;
+			
+			/*var distance = 2 * Math.atan2(Math.sqrt(rad), Math.sqrt(1 - rad));
 			System.out.println("distance  "+ distance);
-			System.out.println("gripper " + controler.objectDistanceToGripper);
+			System.out.println("gripper " + controler.objectDistanceToGripper);*/
 			
 		}
 		

@@ -67,12 +67,6 @@ public class AngleConditionAspect extends ObjectConditionAspect {
       double rad = Math.atan2(backObjPos[0], backObjPos[1]);
       double angle = (rad * (180 / Math.PI));
       System.out.println(("angle " + Double.valueOf(angle)));
-      double _atan2 = Math.atan2(Math.sqrt(rad), Math.sqrt((1 - rad)));
-      double distance = (2 * _atan2);
-      System.out.println(("distance  " + Double.valueOf(distance)));
-      double _objectDistanceToGripper = controler.getObjectDistanceToGripper();
-      String _plus_3 = ("gripper " + Double.valueOf(_objectDistanceToGripper));
-      System.out.println(_plus_3);
     }
     return false;
   }

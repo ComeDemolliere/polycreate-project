@@ -107,12 +107,16 @@ ruleRobotProgram returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_3='->'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRobotProgramAccess().getHyphenMinusGreaterThanSignKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRobotProgramAccess().getInitialStateStateParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getRobotProgramAccess().getInitialStateStateParserRuleCall_4_0());
 				}
-				lv_initialState_3_0=ruleState
+				lv_initialState_4_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRobotProgramRule());
@@ -120,7 +124,7 @@ ruleRobotProgram returns [EObject current=null]
 					set(
 						$current,
 						"initialState",
-						lv_initialState_3_0,
+						lv_initialState_4_0,
 						"fr.unice.polytech.si5.webots.Polycreate.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -129,9 +133,9 @@ ruleRobotProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRobotProgramAccess().getOwnedStatesStateParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getRobotProgramAccess().getOwnedStatesStateParserRuleCall_5_0());
 				}
-				lv_ownedStates_4_0=ruleState
+				lv_ownedStates_5_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRobotProgramRule());
@@ -139,7 +143,7 @@ ruleRobotProgram returns [EObject current=null]
 					add(
 						$current,
 						"ownedStates",
-						lv_ownedStates_4_0,
+						lv_ownedStates_5_0,
 						"fr.unice.polytech.si5.webots.Polycreate.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -148,9 +152,9 @@ ruleRobotProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRobotProgramAccess().getGlobalTransitionsTransitionParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getRobotProgramAccess().getGlobalTransitionsTransitionParserRuleCall_6_0());
 				}
-				lv_globalTransitions_5_0=ruleTransition
+				lv_globalTransitions_6_0=ruleTransition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRobotProgramRule());
@@ -158,7 +162,7 @@ ruleRobotProgram returns [EObject current=null]
 					add(
 						$current,
 						"globalTransitions",
-						lv_globalTransitions_5_0,
+						lv_globalTransitions_6_0,
 						"fr.unice.polytech.si5.webots.Polycreate.Transition");
 					afterParserOrEnumRuleCall();
 				}
@@ -289,29 +293,20 @@ ruleTransition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Transition'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getTransitionKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getLeftCurlyBracketKeyword_1());
-		}
 		(
-			otherlv_2='conditions'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getConditionsKeyword_2_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getTransitionAccess().getTransitionAction_0(),
+					$current);
 			}
-			otherlv_3='{'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getTransitionAccess().getLeftCurlyBracketKeyword_2_1());
-			}
+		)
+		(
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_2_2_0());
+						newCompositeNode(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_1_0_0());
 					}
-					lv_conditions_4_0=ruleCondition
+					lv_conditions_1_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTransitionRule());
@@ -319,23 +314,23 @@ ruleTransition returns [EObject current=null]
 						add(
 							$current,
 							"conditions",
-							lv_conditions_4_0,
+							lv_conditions_1_0,
 							"fr.unice.polytech.si5.webots.Polycreate.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_5=','
+				otherlv_2='and'
 				{
-					newLeafNode(otherlv_5, grammarAccess.getTransitionAccess().getCommaKeyword_2_3_0());
+					newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getAndKeyword_1_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_2_3_1_0());
+							newCompositeNode(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_1_1_1_0());
 						}
-						lv_conditions_6_0=ruleCondition
+						lv_conditions_3_0=ruleCondition
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getTransitionRule());
@@ -343,22 +338,18 @@ ruleTransition returns [EObject current=null]
 							add(
 								$current,
 								"conditions",
-								lv_conditions_6_0,
+								lv_conditions_3_0,
 								"fr.unice.polytech.si5.webots.Polycreate.Condition");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_7='}'
+			otherlv_4='=>'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getTransitionAccess().getRightCurlyBracketKeyword_2_4());
+				newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getEqualsSignGreaterThanSignKeyword_1_2());
 			}
 		)?
-		otherlv_8='nextState'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getNextStateKeyword_3());
-		}
 		(
 			(
 				{
@@ -367,7 +358,7 @@ ruleTransition returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateStateCrossReference_4_0());
+					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateStateCrossReference_2_0());
 				}
 				ruleEString
 				{
@@ -375,10 +366,6 @@ ruleTransition returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_10='}'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getTransitionAccess().getRightCurlyBracketKeyword_5());
-		}
 	)
 ;
 
@@ -428,25 +415,29 @@ ruleState returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3='{'
+		otherlv_3=':'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getColonKeyword_3());
 		}
 		(
 			otherlv_4='actions'
 			{
 				newLeafNode(otherlv_4, grammarAccess.getStateAccess().getActionsKeyword_4_0());
 			}
-			otherlv_5='{'
+			otherlv_5='='
 			{
-				newLeafNode(otherlv_5, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4_1());
+				newLeafNode(otherlv_5, grammarAccess.getStateAccess().getEqualsSignKeyword_4_1());
+			}
+			otherlv_6='['
+			{
+				newLeafNode(otherlv_6, grammarAccess.getStateAccess().getLeftSquareBracketKeyword_4_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_2_0());
+						newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_3_0());
 					}
-					lv_actions_6_0=ruleAction
+					lv_actions_7_0=ruleAction
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStateRule());
@@ -454,23 +445,23 @@ ruleState returns [EObject current=null]
 						add(
 							$current,
 							"actions",
-							lv_actions_6_0,
+							lv_actions_7_0,
 							"fr.unice.polytech.si5.webots.Polycreate.Action");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_7=','
+				otherlv_8=','
 				{
-					newLeafNode(otherlv_7, grammarAccess.getStateAccess().getCommaKeyword_4_3_0());
+					newLeafNode(otherlv_8, grammarAccess.getStateAccess().getCommaKeyword_4_4_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_3_1_0());
+							newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_4_1_0());
 						}
-						lv_actions_8_0=ruleAction
+						lv_actions_9_0=ruleAction
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getStateRule());
@@ -478,33 +469,37 @@ ruleState returns [EObject current=null]
 							add(
 								$current,
 								"actions",
-								lv_actions_8_0,
+								lv_actions_9_0,
 								"fr.unice.polytech.si5.webots.Polycreate.Action");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_9='}'
+			otherlv_10=']'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_4_4());
+				newLeafNode(otherlv_10, grammarAccess.getStateAccess().getRightSquareBracketKeyword_4_5());
 			}
 		)?
 		(
-			otherlv_10='transitions'
+			otherlv_11='transitions'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getStateAccess().getTransitionsKeyword_5_0());
+				newLeafNode(otherlv_11, grammarAccess.getStateAccess().getTransitionsKeyword_5_0());
 			}
-			otherlv_11='{'
+			otherlv_12='='
 			{
-				newLeafNode(otherlv_11, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_5_1());
+				newLeafNode(otherlv_12, grammarAccess.getStateAccess().getEqualsSignKeyword_5_1());
+			}
+			otherlv_13='['
+			{
+				newLeafNode(otherlv_13, grammarAccess.getStateAccess().getLeftSquareBracketKeyword_5_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_3_0());
 					}
-					lv_transitions_12_0=ruleTransition
+					lv_transitions_14_0=ruleTransition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStateRule());
@@ -512,23 +507,23 @@ ruleState returns [EObject current=null]
 						add(
 							$current,
 							"transitions",
-							lv_transitions_12_0,
+							lv_transitions_14_0,
 							"fr.unice.polytech.si5.webots.Polycreate.Transition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_13=','
+				otherlv_15=','
 				{
-					newLeafNode(otherlv_13, grammarAccess.getStateAccess().getCommaKeyword_5_3_0());
+					newLeafNode(otherlv_15, grammarAccess.getStateAccess().getCommaKeyword_5_4_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_4_1_0());
 						}
-						lv_transitions_14_0=ruleTransition
+						lv_transitions_16_0=ruleTransition
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getStateRule());
@@ -536,22 +531,18 @@ ruleState returns [EObject current=null]
 							add(
 								$current,
 								"transitions",
-								lv_transitions_14_0,
+								lv_transitions_16_0,
 								"fr.unice.polytech.si5.webots.Polycreate.Transition");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_15='}'
+			otherlv_17=']'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_5_4());
+				newLeafNode(otherlv_17, grammarAccess.getStateAccess().getRightSquareBracketKeyword_5_5());
 			}
 		)?
-		otherlv_16='}'
-		{
-			newLeafNode(otherlv_16, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_6());
-		}
 	)
 ;
 
@@ -578,43 +569,29 @@ ruleSimpleCondition returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='SimpleCondition'
+		otherlv_1='detect'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getSimpleConditionAccess().getSimpleConditionKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getSimpleConditionAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getSimpleConditionAccess().getDetectKeyword_1());
 		}
 		(
-			otherlv_3='detectionType'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getSimpleConditionAccess().getDetectionTypeKeyword_3_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getSimpleConditionAccess().getDetectionTypeDETECTIONEnumRuleCall_3_1_0());
+				{
+					newCompositeNode(grammarAccess.getSimpleConditionAccess().getDetectionTypeDETECTIONEnumRuleCall_2_0());
+				}
+				lv_detectionType_2_0=ruleDETECTION
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSimpleConditionRule());
 					}
-					lv_detectionType_4_0=ruleDETECTION
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSimpleConditionRule());
-						}
-						set(
-							$current,
-							"detectionType",
-							lv_detectionType_4_0,
-							"fr.unice.polytech.si5.webots.Polycreate.DETECTION");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"detectionType",
+						lv_detectionType_2_0,
+						"fr.unice.polytech.si5.webots.Polycreate.DETECTION");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
-		otherlv_5='}'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getSimpleConditionAccess().getRightCurlyBracketKeyword_4());
-		}
+		)
 	)
 ;
 
@@ -677,24 +654,20 @@ ruleDistanceCondition returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='DistanceCondition'
+		otherlv_1='detect'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getDistanceConditionAccess().getDistanceConditionKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getDistanceConditionAccess().getDetectKeyword_1());
 		}
-		otherlv_2='{'
+		otherlv_2='object'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getDistanceConditionAccess().getLeftCurlyBracketKeyword_2());
-		}
-		otherlv_3='cameraType'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getDistanceConditionAccess().getCameraTypeKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDistanceConditionAccess().getObjectKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDistanceConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDistanceConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0());
 				}
-				lv_cameraType_4_0=ruleCAMERATYPE
+				lv_cameraType_3_0=ruleCAMERATYPE
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDistanceConditionRule());
@@ -702,22 +675,30 @@ ruleDistanceCondition returns [EObject current=null]
 					set(
 						$current,
 						"cameraType",
-						lv_cameraType_4_0,
+						lv_cameraType_3_0,
 						"fr.unice.polytech.si5.webots.Polycreate.CAMERATYPE");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_4='with'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getDistanceConditionAccess().getWithKeyword_4());
+		}
 		otherlv_5='distance'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getDistanceConditionAccess().getDistanceKeyword_5());
 		}
+		otherlv_6='<'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getDistanceConditionAccess().getLessThanSignKeyword_6());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDistanceConditionAccess().getDistanceEDoubleParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDistanceConditionAccess().getDistanceEDoubleParserRuleCall_7_0());
 				}
-				lv_distance_6_0=ruleEDouble
+				lv_distance_7_0=ruleEDouble
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDistanceConditionRule());
@@ -725,16 +706,12 @@ ruleDistanceCondition returns [EObject current=null]
 					set(
 						$current,
 						"distance",
-						lv_distance_6_0,
+						lv_distance_7_0,
 						"fr.unice.polytech.si5.webots.Polycreate.EDouble");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getDistanceConditionAccess().getRightCurlyBracketKeyword_7());
-		}
 	)
 ;
 
@@ -761,24 +738,20 @@ ruleAngleCondition returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='AngleCondition'
+		otherlv_1='detect'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getAngleConditionAccess().getAngleConditionKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getAngleConditionAccess().getDetectKeyword_1());
 		}
-		otherlv_2='{'
+		otherlv_2='object'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAngleConditionAccess().getLeftCurlyBracketKeyword_2());
-		}
-		otherlv_3='cameraType'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getAngleConditionAccess().getCameraTypeKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getAngleConditionAccess().getObjectKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAngleConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_4_0());
+					newCompositeNode(grammarAccess.getAngleConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0());
 				}
-				lv_cameraType_4_0=ruleCAMERATYPE
+				lv_cameraType_3_0=ruleCAMERATYPE
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAngleConditionRule());
@@ -786,22 +759,30 @@ ruleAngleCondition returns [EObject current=null]
 					set(
 						$current,
 						"cameraType",
-						lv_cameraType_4_0,
+						lv_cameraType_3_0,
 						"fr.unice.polytech.si5.webots.Polycreate.CAMERATYPE");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_4='with'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getAngleConditionAccess().getWithKeyword_4());
+		}
 		otherlv_5='angle'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getAngleConditionAccess().getAngleKeyword_5());
 		}
+		otherlv_6='<'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getAngleConditionAccess().getLessThanSignKeyword_6());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAngleConditionAccess().getAngleEDoubleParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getAngleConditionAccess().getAngleEDoubleParserRuleCall_7_0());
 				}
-				lv_angle_6_0=ruleEDouble
+				lv_angle_7_0=ruleEDouble
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAngleConditionRule());
@@ -809,16 +790,12 @@ ruleAngleCondition returns [EObject current=null]
 					set(
 						$current,
 						"angle",
-						lv_angle_6_0,
+						lv_angle_7_0,
 						"fr.unice.polytech.si5.webots.Polycreate.EDouble");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getAngleConditionAccess().getRightCurlyBracketKeyword_7());
-		}
 	)
 ;
 
@@ -845,18 +822,33 @@ ruleMoveAction returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='MoveAction'
+		otherlv_1='move'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getMoveActionAccess().getMoveActionKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getMoveActionAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getMoveActionAccess().getMoveKeyword_1());
 		}
 		(
-			otherlv_3='duration'
+			(
+				{
+					newCompositeNode(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_2_0());
+				}
+				lv_direction_2_0=ruleDIRECTION
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMoveActionRule());
+					}
+					set(
+						$current,
+						"direction",
+						lv_direction_2_0,
+						"fr.unice.polytech.si5.webots.Polycreate.DIRECTION");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3='during'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getMoveActionAccess().getDurationKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getMoveActionAccess().getDuringKeyword_3_0());
 			}
 			(
 				(
@@ -878,35 +870,6 @@ ruleMoveAction returns [EObject current=null]
 				)
 			)
 		)?
-		(
-			otherlv_5='direction'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getMoveActionAccess().getDirectionKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_4_1_0());
-					}
-					lv_direction_6_0=ruleDIRECTION
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMoveActionRule());
-						}
-						set(
-							$current,
-							"direction",
-							lv_direction_6_0,
-							"fr.unice.polytech.si5.webots.Polycreate.DIRECTION");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getMoveActionAccess().getRightCurlyBracketKeyword_5());
-		}
 	)
 ;
 
@@ -933,18 +896,33 @@ ruleTurnAction returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='TurnAction'
+		otherlv_1='turn'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getTurnActionAccess().getTurnActionKeyword_1());
-		}
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getTurnActionAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getTurnActionAccess().getTurnKeyword_1());
 		}
 		(
-			otherlv_3='duration'
+			(
+				{
+					newCompositeNode(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_2_0());
+				}
+				lv_angle_2_0=ruleEDouble
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTurnActionRule());
+					}
+					set(
+						$current,
+						"angle",
+						lv_angle_2_0,
+						"fr.unice.polytech.si5.webots.Polycreate.EDouble");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3='during'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getTurnActionAccess().getDurationKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getTurnActionAccess().getDuringKeyword_3_0());
 			}
 			(
 				(
@@ -966,35 +944,6 @@ ruleTurnAction returns [EObject current=null]
 				)
 			)
 		)?
-		(
-			otherlv_5='angle'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getTurnActionAccess().getAngleKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_4_1_0());
-					}
-					lv_angle_6_0=ruleEDouble
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTurnActionRule());
-						}
-						set(
-							$current,
-							"angle",
-							lv_angle_6_0,
-							"fr.unice.polytech.si5.webots.Polycreate.EDouble");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getTurnActionAccess().getRightCurlyBracketKeyword_5());
-		}
 	)
 ;
 
