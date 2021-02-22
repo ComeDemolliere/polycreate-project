@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#getGlobalTransitions <em>Global Transitions</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#getOwnedStates <em>Owned States</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#getInitialState <em>Initial State</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#getCurrentState <em>Current State</em>}</li>
  * </ul>
  *
  * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.PolycreatePackage#getRobotProgram()
@@ -80,6 +81,32 @@ public interface RobotProgram extends NamedElement {
 	 * @generated
 	 */
 	void setInitialState(State value);
+
+	/**
+	 * Returns the value of the '<em><b>Current State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current State</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current State</em>' reference.
+	 * @see #setCurrentState(State)
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.PolycreatePackage#getRobotProgram_CurrentState()
+	 * @model
+	 * @generated
+	 */
+	State getCurrentState();
+
+	/**
+	 * Sets the value of the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#getCurrentState <em>Current State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current State</em>' reference.
+	 * @see #getCurrentState()
+	 * @generated
+	 */
+	void setCurrentState(State value);
 
 	/**
 	 * <!-- begin-user-doc -->

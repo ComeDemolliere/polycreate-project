@@ -3,6 +3,7 @@ package fr.unice.polytech.si5.webots.polycreate.rewritingrules;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect;
@@ -10,6 +11,7 @@ import fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspectStateAs
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.TransitionAspect;
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 @Aspect(className = State.class)
 @SuppressWarnings("all")
@@ -36,6 +38,8 @@ public class StateAspect {
   }
   
   protected static void _privk3_doActions(final StateAspectStateAspectProperties _self_, final State _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
+    EObject _eContainer = _self.eContainer();
+    ((RobotProgram) _eContainer).setCurrentState(_self);
     EList<Action> _actions = _self.getActions();
     for (final Action c : _actions) {
       {

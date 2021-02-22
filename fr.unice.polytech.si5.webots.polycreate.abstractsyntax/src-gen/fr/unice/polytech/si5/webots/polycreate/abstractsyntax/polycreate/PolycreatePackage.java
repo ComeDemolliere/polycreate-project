@@ -143,13 +143,22 @@ public interface PolycreatePackage extends EPackage {
 	int ROBOT_PROGRAM__INITIAL_STATE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Current State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROBOT_PROGRAM__CURRENT_STATE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Robot Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROBOT_PROGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int ROBOT_PROGRAM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -751,6 +760,17 @@ public interface PolycreatePackage extends EPackage {
 	EReference getRobotProgram_InitialState();
 
 	/**
+	 * Returns the meta object for the reference '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#getCurrentState <em>Current State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Current State</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#getCurrentState()
+	 * @see #getRobotProgram()
+	 * @generated
+	 */
+	EReference getRobotProgram_CurrentState();
+
+	/**
 	 * Returns the meta object for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram#start() <em>Start</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1151,6 +1171,14 @@ public interface PolycreatePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROBOT_PROGRAM__INITIAL_STATE = eINSTANCE.getRobotProgram_InitialState();
+
+		/**
+		 * The meta object literal for the '<em><b>Current State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROBOT_PROGRAM__CURRENT_STATE = eINSTANCE.getRobotProgram_CurrentState();
 
 		/**
 		 * The meta object literal for the '<em><b>Start</b></em>' operation.

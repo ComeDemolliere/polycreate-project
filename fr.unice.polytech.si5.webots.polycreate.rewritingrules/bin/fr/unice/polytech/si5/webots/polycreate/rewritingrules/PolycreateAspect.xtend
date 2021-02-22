@@ -220,7 +220,9 @@ class TransitionAspect {
 @Aspect(className=State)
 class StateAspect {	
 	@Step
-	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {	
+	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {
+		(_self.eContainer() as RobotProgram).currentState = _self;
+		
 		for (Action c : _self.actions) {
 			c.execute(controler);
 			controler.passiveWait(0.2);
@@ -251,6 +253,7 @@ class RobotProgramAspect {
 	@Step
 	@Main
 	def void start() {
+		_self.currentState = _self.initialState;
 		_self.controler.openGripper();
 		_self.initialState.doActions(_self.controler, _self.globalTransitions);
 	}

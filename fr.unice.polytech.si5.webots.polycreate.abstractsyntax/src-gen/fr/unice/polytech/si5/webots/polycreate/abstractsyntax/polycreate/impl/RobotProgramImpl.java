@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.RobotProgramImpl#getGlobalTransitions <em>Global Transitions</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.RobotProgramImpl#getOwnedStates <em>Owned States</em>}</li>
  *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.RobotProgramImpl#getInitialState <em>Initial State</em>}</li>
+ *   <li>{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.RobotProgramImpl#getCurrentState <em>Current State</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,16 @@ public class RobotProgramImpl extends NamedElementImpl implements RobotProgram {
 	 * @ordered
 	 */
 	protected State initialState;
+
+	/**
+	 * The cached value of the '{@link #getCurrentState() <em>Current State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentState()
+	 * @generated
+	 * @ordered
+	 */
+	protected State currentState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,6 +178,46 @@ public class RobotProgramImpl extends NamedElementImpl implements RobotProgram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public State getCurrentState() {
+		if (currentState != null && currentState.eIsProxy()) {
+			InternalEObject oldCurrentState = (InternalEObject) currentState;
+			currentState = (State) eResolveProxy(oldCurrentState);
+			if (currentState != oldCurrentState) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							PolycreatePackage.ROBOT_PROGRAM__CURRENT_STATE, oldCurrentState, currentState));
+			}
+		}
+		return currentState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State basicGetCurrentState() {
+		return currentState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentState(State newCurrentState) {
+		State oldCurrentState = currentState;
+		currentState = newCurrentState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PolycreatePackage.ROBOT_PROGRAM__CURRENT_STATE,
+					oldCurrentState, currentState));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void start() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -205,6 +256,10 @@ public class RobotProgramImpl extends NamedElementImpl implements RobotProgram {
 			return getOwnedStates();
 		case PolycreatePackage.ROBOT_PROGRAM__INITIAL_STATE:
 			return getInitialState();
+		case PolycreatePackage.ROBOT_PROGRAM__CURRENT_STATE:
+			if (resolve)
+				return getCurrentState();
+			return basicGetCurrentState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,6 +284,9 @@ public class RobotProgramImpl extends NamedElementImpl implements RobotProgram {
 		case PolycreatePackage.ROBOT_PROGRAM__INITIAL_STATE:
 			setInitialState((State) newValue);
 			return;
+		case PolycreatePackage.ROBOT_PROGRAM__CURRENT_STATE:
+			setCurrentState((State) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -250,6 +308,9 @@ public class RobotProgramImpl extends NamedElementImpl implements RobotProgram {
 		case PolycreatePackage.ROBOT_PROGRAM__INITIAL_STATE:
 			setInitialState((State) null);
 			return;
+		case PolycreatePackage.ROBOT_PROGRAM__CURRENT_STATE:
+			setCurrentState((State) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -268,6 +329,8 @@ public class RobotProgramImpl extends NamedElementImpl implements RobotProgram {
 			return ownedStates != null && !ownedStates.isEmpty();
 		case PolycreatePackage.ROBOT_PROGRAM__INITIAL_STATE:
 			return initialState != null;
+		case PolycreatePackage.ROBOT_PROGRAM__CURRENT_STATE:
+			return currentState != null;
 		}
 		return super.eIsSet(featureID);
 	}

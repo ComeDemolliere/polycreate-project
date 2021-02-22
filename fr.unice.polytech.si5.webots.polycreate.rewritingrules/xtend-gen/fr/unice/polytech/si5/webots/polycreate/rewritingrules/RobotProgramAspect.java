@@ -52,6 +52,7 @@ public class RobotProgramAspect {
   }
   
   protected static void _privk3_start(final RobotProgramAspectRobotProgramAspectProperties _self_, final RobotProgram _self) {
+    _self.setCurrentState(_self.getInitialState());
     RobotProgramAspect.controler(_self).openGripper();
     StateAspect.doActions(_self.getInitialState(), RobotProgramAspect.controler(_self), _self.getGlobalTransitions());
   }

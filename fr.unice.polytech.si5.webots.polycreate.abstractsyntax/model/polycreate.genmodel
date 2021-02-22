@@ -40,6 +40,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/globalTransitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/ownedStates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/initialState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/currentState"/>
       <genOperations ecoreOperation="polycreate.ecore#//RobotProgram/start"/>
     </genClasses>
     <genClasses ecoreClass="polycreate.ecore#//Transition">

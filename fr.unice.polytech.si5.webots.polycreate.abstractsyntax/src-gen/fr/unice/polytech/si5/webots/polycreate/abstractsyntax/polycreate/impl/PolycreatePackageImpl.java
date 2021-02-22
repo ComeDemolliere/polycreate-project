@@ -265,6 +265,15 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRobotProgram_CurrentState() {
+		return (EReference) robotProgramEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getRobotProgram__Start() {
 		return robotProgramEClass.getEOperations().get(0);
 	}
@@ -590,6 +599,7 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 		createEReference(robotProgramEClass, ROBOT_PROGRAM__GLOBAL_TRANSITIONS);
 		createEReference(robotProgramEClass, ROBOT_PROGRAM__OWNED_STATES);
 		createEReference(robotProgramEClass, ROBOT_PROGRAM__INITIAL_STATE);
+		createEReference(robotProgramEClass, ROBOT_PROGRAM__CURRENT_STATE);
 		createEOperation(robotProgramEClass, ROBOT_PROGRAM___START);
 
 		transitionEClass = createEClass(TRANSITION);
@@ -689,6 +699,9 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRobotProgram_InitialState(), this.getState(), null, "initialState", null, 0, 1,
 				RobotProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRobotProgram_CurrentState(), this.getState(), null, "currentState", null, 0, 1,
+				RobotProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRobotProgram__Start(), null, "start", 0, 1, IS_UNIQUE, IS_ORDERED);
