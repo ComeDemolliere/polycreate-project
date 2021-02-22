@@ -40,7 +40,8 @@ public class StateAspect {
     for (final Action c : _actions) {
       {
         ActionAspect.execute(c, controler);
-        controler.passiveWait(0.5);
+        controler.passiveWait(0.2);
+        controler.step(controler.timestep);
       }
     }
     for (final Transition t : globalTransitions) {
