@@ -151,6 +151,9 @@ public class StateItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(PolycreatePackage.Literals.STATE__ACTIONS,
 				PolycreateFactory.eINSTANCE.createTurnAction()));
+
+		newChildDescriptors.add(createChildParameter(PolycreatePackage.Literals.STATE__ACTIONS,
+				PolycreateFactory.eINSTANCE.createGripAction()));
 	}
 
 }

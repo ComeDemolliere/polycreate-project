@@ -37,8 +37,10 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getObjectConditionAccess().getAlternatives(), "rule__ObjectCondition__Alternatives");
 			builder.put(grammarAccess.getEDoubleAccess().getAlternatives_4_0(), "rule__EDouble__Alternatives_4_0");
 			builder.put(grammarAccess.getDETECTIONAccess().getAlternatives(), "rule__DETECTION__Alternatives");
+			builder.put(grammarAccess.getOPERATORAccess().getAlternatives(), "rule__OPERATOR__Alternatives");
 			builder.put(grammarAccess.getDIRECTIONAccess().getAlternatives(), "rule__DIRECTION__Alternatives");
 			builder.put(grammarAccess.getCAMERATYPEAccess().getAlternatives(), "rule__CAMERATYPE__Alternatives");
+			builder.put(grammarAccess.getGRIPPER_STATEAccess().getAlternatives(), "rule__GRIPPER_STATE__Alternatives");
 			builder.put(grammarAccess.getRobotProgramAccess().getGroup(), "rule__RobotProgram__Group__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup_1(), "rule__Transition__Group_1__0");
@@ -55,6 +57,7 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMoveActionAccess().getGroup_3(), "rule__MoveAction__Group_3__0");
 			builder.put(grammarAccess.getTurnActionAccess().getGroup(), "rule__TurnAction__Group__0");
 			builder.put(grammarAccess.getTurnActionAccess().getGroup_3(), "rule__TurnAction__Group_3__0");
+			builder.put(grammarAccess.getGripActionAccess().getGroup(), "rule__GripAction__Group__0");
 			builder.put(grammarAccess.getEDoubleAccess().getGroup(), "rule__EDouble__Group__0");
 			builder.put(grammarAccess.getEDoubleAccess().getGroup_4(), "rule__EDouble__Group_4__0");
 			builder.put(grammarAccess.getRobotProgramAccess().getNameAssignment_2(), "rule__RobotProgram__NameAssignment_2");
@@ -71,13 +74,16 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStateAccess().getTransitionsAssignment_5_4_1(), "rule__State__TransitionsAssignment_5_4_1");
 			builder.put(grammarAccess.getSimpleConditionAccess().getDetectionTypeAssignment_2(), "rule__SimpleCondition__DetectionTypeAssignment_2");
 			builder.put(grammarAccess.getDistanceConditionAccess().getCameraTypeAssignment_3(), "rule__DistanceCondition__CameraTypeAssignment_3");
+			builder.put(grammarAccess.getDistanceConditionAccess().getOperatorAssignment_6(), "rule__DistanceCondition__OperatorAssignment_6");
 			builder.put(grammarAccess.getDistanceConditionAccess().getDistanceAssignment_7(), "rule__DistanceCondition__DistanceAssignment_7");
 			builder.put(grammarAccess.getAngleConditionAccess().getCameraTypeAssignment_3(), "rule__AngleCondition__CameraTypeAssignment_3");
+			builder.put(grammarAccess.getAngleConditionAccess().getOperatorAssignment_6(), "rule__AngleCondition__OperatorAssignment_6");
 			builder.put(grammarAccess.getAngleConditionAccess().getAngleAssignment_7(), "rule__AngleCondition__AngleAssignment_7");
 			builder.put(grammarAccess.getMoveActionAccess().getDirectionAssignment_2(), "rule__MoveAction__DirectionAssignment_2");
 			builder.put(grammarAccess.getMoveActionAccess().getDurationAssignment_3_1(), "rule__MoveAction__DurationAssignment_3_1");
 			builder.put(grammarAccess.getTurnActionAccess().getAngleAssignment_2(), "rule__TurnAction__AngleAssignment_2");
 			builder.put(grammarAccess.getTurnActionAccess().getDurationAssignment_3_1(), "rule__TurnAction__DurationAssignment_3_1");
+			builder.put(grammarAccess.getGripActionAccess().getStateAssignment_1(), "rule__GripAction__StateAssignment_1");
 		}
 	}
 	

@@ -46,6 +46,7 @@ public class AngleConditionItemProvider extends ObjectConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addAnglePropertyDescriptor(object);
+			addOperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,6 +65,22 @@ public class AngleConditionItemProvider extends ObjectConditionItemProvider {
 								"_UI_AngleCondition_type"),
 						PolycreatePackage.Literals.ANGLE_CONDITION__ANGLE, true, false, false,
 						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Operator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_AngleCondition_operator_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_AngleCondition_operator_feature",
+								"_UI_AngleCondition_type"),
+						PolycreatePackage.Literals.ANGLE_CONDITION__OPERATOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -114,6 +131,7 @@ public class AngleConditionItemProvider extends ObjectConditionItemProvider {
 
 		switch (notification.getFeatureID(AngleCondition.class)) {
 		case PolycreatePackage.ANGLE_CONDITION__ANGLE:
+		case PolycreatePackage.ANGLE_CONDITION__OPERATOR:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

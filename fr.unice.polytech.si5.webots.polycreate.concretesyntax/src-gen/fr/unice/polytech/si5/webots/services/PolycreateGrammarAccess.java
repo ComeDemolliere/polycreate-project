@@ -130,12 +130,13 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMoveActionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTurnActionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cGripActionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Action:
-		//	MoveAction | TurnAction;
+		//	MoveAction | TurnAction | GripAction;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MoveAction | TurnAction
+		//MoveAction | TurnAction | GripAction
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MoveAction
@@ -143,6 +144,9 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TurnAction
 		public RuleCall getTurnActionParserRuleCall_1() { return cTurnActionParserRuleCall_1; }
+		
+		//GripAction
+		public RuleCall getGripActionParserRuleCall_2() { return cGripActionParserRuleCall_2; }
 	}
 	public class TransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.Transition");
@@ -383,16 +387,17 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCameraTypeCAMERATYPEEnumRuleCall_3_0 = (RuleCall)cCameraTypeAssignment_3.eContents().get(0);
 		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cDistanceKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cLessThanSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cOperatorAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cOperatorOPERATOREnumRuleCall_6_0 = (RuleCall)cOperatorAssignment_6.eContents().get(0);
 		private final Assignment cDistanceAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cDistanceEDoubleParserRuleCall_7_0 = (RuleCall)cDistanceAssignment_7.eContents().get(0);
 		
 		//DistanceCondition:
 		//	{DistanceCondition}
-		//	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble;
+		//	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' operator=OPERATOR distance=EDouble;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DistanceCondition} 'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble
+		//{DistanceCondition} 'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' operator=OPERATOR distance=EDouble
 		public Group getGroup() { return cGroup; }
 		
 		//{DistanceCondition}
@@ -416,8 +421,11 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//'distance'
 		public Keyword getDistanceKeyword_5() { return cDistanceKeyword_5; }
 		
-		//'<'
-		public Keyword getLessThanSignKeyword_6() { return cLessThanSignKeyword_6; }
+		//operator=OPERATOR
+		public Assignment getOperatorAssignment_6() { return cOperatorAssignment_6; }
+		
+		//OPERATOR
+		public RuleCall getOperatorOPERATOREnumRuleCall_6_0() { return cOperatorOPERATOREnumRuleCall_6_0; }
 		
 		//distance=EDouble
 		public Assignment getDistanceAssignment_7() { return cDistanceAssignment_7; }
@@ -435,16 +443,17 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCameraTypeCAMERATYPEEnumRuleCall_3_0 = (RuleCall)cCameraTypeAssignment_3.eContents().get(0);
 		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cAngleKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cLessThanSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cOperatorAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cOperatorOPERATOREnumRuleCall_6_0 = (RuleCall)cOperatorAssignment_6.eContents().get(0);
 		private final Assignment cAngleAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cAngleEDoubleParserRuleCall_7_0 = (RuleCall)cAngleAssignment_7.eContents().get(0);
 		
 		//AngleCondition:
 		//	{AngleCondition}
-		//	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble;
+		//	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' operator=OPERATOR angle=EDouble;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AngleCondition} 'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble
+		//{AngleCondition} 'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' operator=OPERATOR angle=EDouble
 		public Group getGroup() { return cGroup; }
 		
 		//{AngleCondition}
@@ -468,8 +477,11 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//'angle'
 		public Keyword getAngleKeyword_5() { return cAngleKeyword_5; }
 		
-		//'<'
-		public Keyword getLessThanSignKeyword_6() { return cLessThanSignKeyword_6; }
+		//operator=OPERATOR
+		public Assignment getOperatorAssignment_6() { return cOperatorAssignment_6; }
+		
+		//OPERATOR
+		public RuleCall getOperatorOPERATOREnumRuleCall_6_0() { return cOperatorOPERATOREnumRuleCall_6_0; }
 		
 		//angle=EDouble
 		public Assignment getAngleAssignment_7() { return cAngleAssignment_7; }
@@ -564,6 +576,33 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EDouble
 		public RuleCall getDurationEDoubleParserRuleCall_3_1_0() { return cDurationEDoubleParserRuleCall_3_1_0; }
+	}
+	public class GripActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.GripAction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGripActionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cStateAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStateGRIPPER_STATEEnumRuleCall_1_0 = (RuleCall)cStateAssignment_1.eContents().get(0);
+		private final Keyword cGripperKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//GripAction:
+		//	{GripAction} state=GRIPPER_STATE 'gripper';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{GripAction} state=GRIPPER_STATE 'gripper'
+		public Group getGroup() { return cGroup; }
+		
+		//{GripAction}
+		public Action getGripActionAction_0() { return cGripActionAction_0; }
+		
+		//state=GRIPPER_STATE
+		public Assignment getStateAssignment_1() { return cStateAssignment_1; }
+		
+		//GRIPPER_STATE
+		public RuleCall getStateGRIPPER_STATEEnumRuleCall_1_0() { return cStateGRIPPER_STATEEnumRuleCall_1_0; }
+		
+		//'gripper'
+		public Keyword getGripperKeyword_2() { return cGripperKeyword_2; }
 	}
 	public class EDoubleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.EDouble");
@@ -676,6 +715,33 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//'CLIFF_FRONT'
 		public Keyword getCLIFF_FRONTCLIFF_FRONTKeyword_5_0() { return cCLIFF_FRONTCLIFF_FRONTKeyword_5_0; }
 	}
+	public class OPERATORElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.OPERATOR");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cINFERIOREnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cINFERIORLessThanSignKeyword_0_0 = (Keyword)cINFERIOREnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSUPERIOREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSUPERIORGreaterThanSignKeyword_1_0 = (Keyword)cSUPERIOREnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum OPERATOR:
+		//	INFERIOR='<' | SUPERIOR='>';
+		public EnumRule getRule() { return rule; }
+		
+		//INFERIOR='<' | SUPERIOR='>'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//INFERIOR='<'
+		public EnumLiteralDeclaration getINFERIOREnumLiteralDeclaration_0() { return cINFERIOREnumLiteralDeclaration_0; }
+		
+		//'<'
+		public Keyword getINFERIORLessThanSignKeyword_0_0() { return cINFERIORLessThanSignKeyword_0_0; }
+		
+		//SUPERIOR='>'
+		public EnumLiteralDeclaration getSUPERIOREnumLiteralDeclaration_1() { return cSUPERIOREnumLiteralDeclaration_1; }
+		
+		//'>'
+		public Keyword getSUPERIORGreaterThanSignKeyword_1_0() { return cSUPERIORGreaterThanSignKeyword_1_0; }
+	}
 	public class DIRECTIONElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.DIRECTION");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -730,6 +796,33 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//'FRONT'
 		public Keyword getFRONTFRONTKeyword_1_0() { return cFRONTFRONTKeyword_1_0; }
 	}
+	public class GRIPPER_STATEElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.GRIPPER_STATE");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cOPENEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cOPENOpenKeyword_0_0 = (Keyword)cOPENEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cCLOSEDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cCLOSEDClosedKeyword_1_0 = (Keyword)cCLOSEDEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum GRIPPER_STATE:
+		//	OPEN='Open' | CLOSED='Closed';
+		public EnumRule getRule() { return rule; }
+		
+		//OPEN='Open' | CLOSED='Closed'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//OPEN='Open'
+		public EnumLiteralDeclaration getOPENEnumLiteralDeclaration_0() { return cOPENEnumLiteralDeclaration_0; }
+		
+		//'Open'
+		public Keyword getOPENOpenKeyword_0_0() { return cOPENOpenKeyword_0_0; }
+		
+		//CLOSED='Closed'
+		public EnumLiteralDeclaration getCLOSEDEnumLiteralDeclaration_1() { return cCLOSEDEnumLiteralDeclaration_1; }
+		
+		//'Closed'
+		public Keyword getCLOSEDClosedKeyword_1_0() { return cCLOSEDClosedKeyword_1_0; }
+	}
 	
 	private final RobotProgramElements pRobotProgram;
 	private final EStringElements pEString;
@@ -744,8 +837,11 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	private final DETECTIONElements eDETECTION;
 	private final MoveActionElements pMoveAction;
 	private final TurnActionElements pTurnAction;
+	private final GripActionElements pGripAction;
+	private final OPERATORElements eOPERATOR;
 	private final DIRECTIONElements eDIRECTION;
 	private final CAMERATYPEElements eCAMERATYPE;
+	private final GRIPPER_STATEElements eGRIPPER_STATE;
 	private final EDoubleElements pEDouble;
 	
 	private final Grammar grammar;
@@ -770,8 +866,11 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		this.eDETECTION = new DETECTIONElements();
 		this.pMoveAction = new MoveActionElements();
 		this.pTurnAction = new TurnActionElements();
+		this.pGripAction = new GripActionElements();
+		this.eOPERATOR = new OPERATORElements();
 		this.eDIRECTION = new DIRECTIONElements();
 		this.eCAMERATYPE = new CAMERATYPEElements();
+		this.eGRIPPER_STATE = new GRIPPER_STATEElements();
 		this.pEDouble = new EDoubleElements();
 	}
 	
@@ -838,7 +937,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Action:
-	//	MoveAction | TurnAction;
+	//	MoveAction | TurnAction | GripAction;
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
@@ -893,7 +992,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DistanceCondition:
 	//	{DistanceCondition}
-	//	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble;
+	//	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' operator=OPERATOR distance=EDouble;
 	public DistanceConditionElements getDistanceConditionAccess() {
 		return pDistanceCondition;
 	}
@@ -904,7 +1003,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AngleCondition:
 	//	{AngleCondition}
-	//	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble;
+	//	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' operator=OPERATOR angle=EDouble;
 	public AngleConditionElements getAngleConditionAccess() {
 		return pAngleCondition;
 	}
@@ -945,6 +1044,26 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		return getTurnActionAccess().getRule();
 	}
 	
+	//GripAction:
+	//	{GripAction} state=GRIPPER_STATE 'gripper';
+	public GripActionElements getGripActionAccess() {
+		return pGripAction;
+	}
+	
+	public ParserRule getGripActionRule() {
+		return getGripActionAccess().getRule();
+	}
+	
+	//enum OPERATOR:
+	//	INFERIOR='<' | SUPERIOR='>';
+	public OPERATORElements getOPERATORAccess() {
+		return eOPERATOR;
+	}
+	
+	public EnumRule getOPERATORRule() {
+		return getOPERATORAccess().getRule();
+	}
+	
 	//enum DIRECTION:
 	//	FORWARD | BACKWARD;
 	public DIRECTIONElements getDIRECTIONAccess() {
@@ -963,6 +1082,16 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getCAMERATYPERule() {
 		return getCAMERATYPEAccess().getRule();
+	}
+	
+	//enum GRIPPER_STATE:
+	//	OPEN='Open' | CLOSED='Closed';
+	public GRIPPER_STATEElements getGRIPPER_STATEAccess() {
+		return eGRIPPER_STATE;
+	}
+	
+	public EnumRule getGRIPPER_STATERule() {
+		return getGRIPPER_STATEAccess().getRule();
 	}
 	
 	//EDouble ecore::EDouble:

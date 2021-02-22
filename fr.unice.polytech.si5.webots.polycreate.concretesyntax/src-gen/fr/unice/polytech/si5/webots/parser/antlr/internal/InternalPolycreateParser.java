@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPolycreateParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'RobotProgram'", "'->'", "'and'", "'=>'", "'State'", "':'", "'actions'", "'='", "'['", "','", "']'", "'transitions'", "'detect'", "'object'", "'with'", "'distance'", "'<'", "'angle'", "'move'", "'during'", "'turn'", "'-'", "'.'", "'E'", "'e'", "'COLLISION_LEFT'", "'COLLISION_RIGHT'", "'VIRTUAL_WALL'", "'CLIFF_LEFT'", "'CLIFF_RIGHT'", "'CLIFF_FRONT'", "'FORWARD'", "'BACKWARD'", "'BACK'", "'FRONT'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'RobotProgram'", "'->'", "'and'", "'=>'", "'State'", "':'", "'actions'", "'='", "'['", "','", "']'", "'transitions'", "'detect'", "'object'", "'with'", "'distance'", "'angle'", "'move'", "'during'", "'turn'", "'gripper'", "'-'", "'.'", "'E'", "'e'", "'COLLISION_LEFT'", "'COLLISION_RIGHT'", "'VIRTUAL_WALL'", "'CLIFF_LEFT'", "'CLIFF_RIGHT'", "'CLIFF_FRONT'", "'<'", "'>'", "'FORWARD'", "'BACKWARD'", "'BACK'", "'FRONT'", "'Open'", "'Closed'"
     };
     public static final int T__19=19;
     public static final int T__15=15;
@@ -61,8 +61,12 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
     public static final int T__32=32;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
+    public static final int T__48=48;
+    public static final int T__49=49;
     public static final int T__44=44;
     public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
     public static final int T__40=40;
     public static final int T__41=41;
     public static final int T__42=42;
@@ -546,11 +550,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             if ( (LA4_0==23) ) {
                 int LA4_1 = input.LA(2);
 
-                if ( ((LA4_1>=36 && LA4_1<=41)) ) {
-                    alt4=1;
-                }
-                else if ( (LA4_1==24) ) {
+                if ( (LA4_1==24) ) {
                     alt4=2;
+                }
+                else if ( ((LA4_1>=36 && LA4_1<=41)) ) {
+                    alt4=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -661,7 +665,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAction"
-    // InternalPolycreate.g:252:1: ruleAction returns [EObject current=null] : (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction ) ;
+    // InternalPolycreate.g:252:1: ruleAction returns [EObject current=null] : (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction | this_GripAction_2= ruleGripAction ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
@@ -669,30 +673,42 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
         EObject this_TurnAction_1 = null;
 
+        EObject this_GripAction_2 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalPolycreate.g:258:2: ( (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction ) )
-            // InternalPolycreate.g:259:2: (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction )
+            // InternalPolycreate.g:258:2: ( (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction | this_GripAction_2= ruleGripAction ) )
+            // InternalPolycreate.g:259:2: (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction | this_GripAction_2= ruleGripAction )
             {
-            // InternalPolycreate.g:259:2: (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
-
-            if ( (LA5_0==29) ) {
+            // InternalPolycreate.g:259:2: (this_MoveAction_0= ruleMoveAction | this_TurnAction_1= ruleTurnAction | this_GripAction_2= ruleGripAction )
+            int alt5=3;
+            switch ( input.LA(1) ) {
+            case 28:
+                {
                 alt5=1;
-            }
-            else if ( (LA5_0==31) ) {
+                }
+                break;
+            case 30:
+                {
                 alt5=2;
-            }
-            else {
+                }
+                break;
+            case 48:
+            case 49:
+                {
+                alt5=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
+
             switch (alt5) {
                 case 1 :
                     // InternalPolycreate.g:260:3: this_MoveAction_0= ruleMoveAction
@@ -730,6 +746,24 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 3 :
+                    // InternalPolycreate.g:278:3: this_GripAction_2= ruleGripAction
+                    {
+
+                    			newCompositeNode(grammarAccess.getActionAccess().getGripActionParserRuleCall_2());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_GripAction_2=ruleGripAction();
+
+                    state._fsp--;
+
+
+                    			current = this_GripAction_2;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
 
             }
 
@@ -753,7 +787,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTransition"
-    // InternalPolycreate.g:281:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // InternalPolycreate.g:290:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -761,8 +795,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:281:51: (iv_ruleTransition= ruleTransition EOF )
-            // InternalPolycreate.g:282:2: iv_ruleTransition= ruleTransition EOF
+            // InternalPolycreate.g:290:51: (iv_ruleTransition= ruleTransition EOF )
+            // InternalPolycreate.g:291:2: iv_ruleTransition= ruleTransition EOF
             {
              newCompositeNode(grammarAccess.getTransitionRule()); 
             pushFollow(FOLLOW_1);
@@ -789,7 +823,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTransition"
-    // InternalPolycreate.g:288:1: ruleTransition returns [EObject current=null] : ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) ) ;
+    // InternalPolycreate.g:297:1: ruleTransition returns [EObject current=null] : ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -804,14 +838,14 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:294:2: ( ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) ) )
-            // InternalPolycreate.g:295:2: ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) )
+            // InternalPolycreate.g:303:2: ( ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) ) )
+            // InternalPolycreate.g:304:2: ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) )
             {
-            // InternalPolycreate.g:295:2: ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) )
-            // InternalPolycreate.g:296:3: () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) )
+            // InternalPolycreate.g:304:2: ( () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) ) )
+            // InternalPolycreate.g:305:3: () ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )? ( ( ruleEString ) )
             {
-            // InternalPolycreate.g:296:3: ()
-            // InternalPolycreate.g:297:4: 
+            // InternalPolycreate.g:305:3: ()
+            // InternalPolycreate.g:306:4: 
             {
 
             				current = forceCreateModelElement(
@@ -821,7 +855,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPolycreate.g:303:3: ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )?
+            // InternalPolycreate.g:312:3: ( ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -830,13 +864,13 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalPolycreate.g:304:4: ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>'
+                    // InternalPolycreate.g:313:4: ( (lv_conditions_1_0= ruleCondition ) ) (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )* otherlv_4= '=>'
                     {
-                    // InternalPolycreate.g:304:4: ( (lv_conditions_1_0= ruleCondition ) )
-                    // InternalPolycreate.g:305:5: (lv_conditions_1_0= ruleCondition )
+                    // InternalPolycreate.g:313:4: ( (lv_conditions_1_0= ruleCondition ) )
+                    // InternalPolycreate.g:314:5: (lv_conditions_1_0= ruleCondition )
                     {
-                    // InternalPolycreate.g:305:5: (lv_conditions_1_0= ruleCondition )
-                    // InternalPolycreate.g:306:6: lv_conditions_1_0= ruleCondition
+                    // InternalPolycreate.g:314:5: (lv_conditions_1_0= ruleCondition )
+                    // InternalPolycreate.g:315:6: lv_conditions_1_0= ruleCondition
                     {
 
                     						newCompositeNode(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_1_0_0());
@@ -863,7 +897,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPolycreate.g:323:4: (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )*
+                    // InternalPolycreate.g:332:4: (otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) ) )*
                     loop6:
                     do {
                         int alt6=2;
@@ -876,17 +910,17 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalPolycreate.g:324:5: otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) )
+                    	    // InternalPolycreate.g:333:5: otherlv_2= 'and' ( (lv_conditions_3_0= ruleCondition ) )
                     	    {
                     	    otherlv_2=(Token)match(input,13,FOLLOW_9); 
 
                     	    					newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getAndKeyword_1_1_0());
                     	    				
-                    	    // InternalPolycreate.g:328:5: ( (lv_conditions_3_0= ruleCondition ) )
-                    	    // InternalPolycreate.g:329:6: (lv_conditions_3_0= ruleCondition )
+                    	    // InternalPolycreate.g:337:5: ( (lv_conditions_3_0= ruleCondition ) )
+                    	    // InternalPolycreate.g:338:6: (lv_conditions_3_0= ruleCondition )
                     	    {
-                    	    // InternalPolycreate.g:329:6: (lv_conditions_3_0= ruleCondition )
-                    	    // InternalPolycreate.g:330:7: lv_conditions_3_0= ruleCondition
+                    	    // InternalPolycreate.g:338:6: (lv_conditions_3_0= ruleCondition )
+                    	    // InternalPolycreate.g:339:7: lv_conditions_3_0= ruleCondition
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getTransitionAccess().getConditionsConditionParserRuleCall_1_1_1_0());
@@ -932,11 +966,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPolycreate.g:353:3: ( ( ruleEString ) )
-            // InternalPolycreate.g:354:4: ( ruleEString )
+            // InternalPolycreate.g:362:3: ( ( ruleEString ) )
+            // InternalPolycreate.g:363:4: ( ruleEString )
             {
-            // InternalPolycreate.g:354:4: ( ruleEString )
-            // InternalPolycreate.g:355:5: ruleEString
+            // InternalPolycreate.g:363:4: ( ruleEString )
+            // InternalPolycreate.g:364:5: ruleEString
             {
 
             					if (current==null) {
@@ -983,7 +1017,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // InternalPolycreate.g:373:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalPolycreate.g:382:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -991,8 +1025,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:373:46: (iv_ruleState= ruleState EOF )
-            // InternalPolycreate.g:374:2: iv_ruleState= ruleState EOF
+            // InternalPolycreate.g:382:46: (iv_ruleState= ruleState EOF )
+            // InternalPolycreate.g:383:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
             pushFollow(FOLLOW_1);
@@ -1019,7 +1053,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // InternalPolycreate.g:380:1: ruleState returns [EObject current=null] : ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? ) ;
+    // InternalPolycreate.g:389:1: ruleState returns [EObject current=null] : ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -1050,14 +1084,14 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:386:2: ( ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? ) )
-            // InternalPolycreate.g:387:2: ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? )
+            // InternalPolycreate.g:395:2: ( ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? ) )
+            // InternalPolycreate.g:396:2: ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? )
             {
-            // InternalPolycreate.g:387:2: ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? )
-            // InternalPolycreate.g:388:3: () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )?
+            // InternalPolycreate.g:396:2: ( () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )? )
+            // InternalPolycreate.g:397:3: () otherlv_1= 'State' ( (lv_name_2_0= ruleEString ) ) otherlv_3= ':' (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )? (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )?
             {
-            // InternalPolycreate.g:388:3: ()
-            // InternalPolycreate.g:389:4: 
+            // InternalPolycreate.g:397:3: ()
+            // InternalPolycreate.g:398:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1071,11 +1105,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getStateAccess().getStateKeyword_1());
             		
-            // InternalPolycreate.g:399:3: ( (lv_name_2_0= ruleEString ) )
-            // InternalPolycreate.g:400:4: (lv_name_2_0= ruleEString )
+            // InternalPolycreate.g:408:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalPolycreate.g:409:4: (lv_name_2_0= ruleEString )
             {
-            // InternalPolycreate.g:400:4: (lv_name_2_0= ruleEString )
-            // InternalPolycreate.g:401:5: lv_name_2_0= ruleEString
+            // InternalPolycreate.g:409:4: (lv_name_2_0= ruleEString )
+            // InternalPolycreate.g:410:5: lv_name_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getStateAccess().getNameEStringParserRuleCall_2_0());
@@ -1106,7 +1140,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getColonKeyword_3());
             		
-            // InternalPolycreate.g:422:3: (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )?
+            // InternalPolycreate.g:431:3: (otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1115,7 +1149,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalPolycreate.g:423:4: otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']'
+                    // InternalPolycreate.g:432:4: otherlv_4= 'actions' otherlv_5= '=' otherlv_6= '[' ( (lv_actions_7_0= ruleAction ) ) (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )* otherlv_10= ']'
                     {
                     otherlv_4=(Token)match(input,17,FOLLOW_12); 
 
@@ -1129,11 +1163,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_6, grammarAccess.getStateAccess().getLeftSquareBracketKeyword_4_2());
                     			
-                    // InternalPolycreate.g:435:4: ( (lv_actions_7_0= ruleAction ) )
-                    // InternalPolycreate.g:436:5: (lv_actions_7_0= ruleAction )
+                    // InternalPolycreate.g:444:4: ( (lv_actions_7_0= ruleAction ) )
+                    // InternalPolycreate.g:445:5: (lv_actions_7_0= ruleAction )
                     {
-                    // InternalPolycreate.g:436:5: (lv_actions_7_0= ruleAction )
-                    // InternalPolycreate.g:437:6: lv_actions_7_0= ruleAction
+                    // InternalPolycreate.g:445:5: (lv_actions_7_0= ruleAction )
+                    // InternalPolycreate.g:446:6: lv_actions_7_0= ruleAction
                     {
 
                     						newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_3_0());
@@ -1160,7 +1194,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPolycreate.g:454:4: (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )*
+                    // InternalPolycreate.g:463:4: (otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) ) )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1173,17 +1207,17 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalPolycreate.g:455:5: otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) )
+                    	    // InternalPolycreate.g:464:5: otherlv_8= ',' ( (lv_actions_9_0= ruleAction ) )
                     	    {
                     	    otherlv_8=(Token)match(input,20,FOLLOW_14); 
 
                     	    					newLeafNode(otherlv_8, grammarAccess.getStateAccess().getCommaKeyword_4_4_0());
                     	    				
-                    	    // InternalPolycreate.g:459:5: ( (lv_actions_9_0= ruleAction ) )
-                    	    // InternalPolycreate.g:460:6: (lv_actions_9_0= ruleAction )
+                    	    // InternalPolycreate.g:468:5: ( (lv_actions_9_0= ruleAction ) )
+                    	    // InternalPolycreate.g:469:6: (lv_actions_9_0= ruleAction )
                     	    {
-                    	    // InternalPolycreate.g:460:6: (lv_actions_9_0= ruleAction )
-                    	    // InternalPolycreate.g:461:7: lv_actions_9_0= ruleAction
+                    	    // InternalPolycreate.g:469:6: (lv_actions_9_0= ruleAction )
+                    	    // InternalPolycreate.g:470:7: lv_actions_9_0= ruleAction
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_4_1_0());
@@ -1229,7 +1263,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPolycreate.g:484:3: (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )?
+            // InternalPolycreate.g:493:3: (otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1238,7 +1272,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalPolycreate.g:485:4: otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']'
+                    // InternalPolycreate.g:494:4: otherlv_11= 'transitions' otherlv_12= '=' otherlv_13= '[' ( (lv_transitions_14_0= ruleTransition ) ) (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )* otherlv_17= ']'
                     {
                     otherlv_11=(Token)match(input,22,FOLLOW_12); 
 
@@ -1252,11 +1286,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_13, grammarAccess.getStateAccess().getLeftSquareBracketKeyword_5_2());
                     			
-                    // InternalPolycreate.g:497:4: ( (lv_transitions_14_0= ruleTransition ) )
-                    // InternalPolycreate.g:498:5: (lv_transitions_14_0= ruleTransition )
+                    // InternalPolycreate.g:506:4: ( (lv_transitions_14_0= ruleTransition ) )
+                    // InternalPolycreate.g:507:5: (lv_transitions_14_0= ruleTransition )
                     {
-                    // InternalPolycreate.g:498:5: (lv_transitions_14_0= ruleTransition )
-                    // InternalPolycreate.g:499:6: lv_transitions_14_0= ruleTransition
+                    // InternalPolycreate.g:507:5: (lv_transitions_14_0= ruleTransition )
+                    // InternalPolycreate.g:508:6: lv_transitions_14_0= ruleTransition
                     {
 
                     						newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_3_0());
@@ -1283,7 +1317,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPolycreate.g:516:4: (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )*
+                    // InternalPolycreate.g:525:4: (otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) ) )*
                     loop10:
                     do {
                         int alt10=2;
@@ -1296,17 +1330,17 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // InternalPolycreate.g:517:5: otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) )
+                    	    // InternalPolycreate.g:526:5: otherlv_15= ',' ( (lv_transitions_16_0= ruleTransition ) )
                     	    {
                     	    otherlv_15=(Token)match(input,20,FOLLOW_17); 
 
                     	    					newLeafNode(otherlv_15, grammarAccess.getStateAccess().getCommaKeyword_5_4_0());
                     	    				
-                    	    // InternalPolycreate.g:521:5: ( (lv_transitions_16_0= ruleTransition ) )
-                    	    // InternalPolycreate.g:522:6: (lv_transitions_16_0= ruleTransition )
+                    	    // InternalPolycreate.g:530:5: ( (lv_transitions_16_0= ruleTransition ) )
+                    	    // InternalPolycreate.g:531:6: (lv_transitions_16_0= ruleTransition )
                     	    {
-                    	    // InternalPolycreate.g:522:6: (lv_transitions_16_0= ruleTransition )
-                    	    // InternalPolycreate.g:523:7: lv_transitions_16_0= ruleTransition
+                    	    // InternalPolycreate.g:531:6: (lv_transitions_16_0= ruleTransition )
+                    	    // InternalPolycreate.g:532:7: lv_transitions_16_0= ruleTransition
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getStateAccess().getTransitionsTransitionParserRuleCall_5_4_1_0());
@@ -1375,7 +1409,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSimpleCondition"
-    // InternalPolycreate.g:550:1: entryRuleSimpleCondition returns [EObject current=null] : iv_ruleSimpleCondition= ruleSimpleCondition EOF ;
+    // InternalPolycreate.g:559:1: entryRuleSimpleCondition returns [EObject current=null] : iv_ruleSimpleCondition= ruleSimpleCondition EOF ;
     public final EObject entryRuleSimpleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1383,8 +1417,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:550:56: (iv_ruleSimpleCondition= ruleSimpleCondition EOF )
-            // InternalPolycreate.g:551:2: iv_ruleSimpleCondition= ruleSimpleCondition EOF
+            // InternalPolycreate.g:559:56: (iv_ruleSimpleCondition= ruleSimpleCondition EOF )
+            // InternalPolycreate.g:560:2: iv_ruleSimpleCondition= ruleSimpleCondition EOF
             {
              newCompositeNode(grammarAccess.getSimpleConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1411,7 +1445,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSimpleCondition"
-    // InternalPolycreate.g:557:1: ruleSimpleCondition returns [EObject current=null] : ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) ) ;
+    // InternalPolycreate.g:566:1: ruleSimpleCondition returns [EObject current=null] : ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) ) ;
     public final EObject ruleSimpleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1423,14 +1457,14 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:563:2: ( ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) ) )
-            // InternalPolycreate.g:564:2: ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) )
+            // InternalPolycreate.g:572:2: ( ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) ) )
+            // InternalPolycreate.g:573:2: ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) )
             {
-            // InternalPolycreate.g:564:2: ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) )
-            // InternalPolycreate.g:565:3: () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) )
+            // InternalPolycreate.g:573:2: ( () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) ) )
+            // InternalPolycreate.g:574:3: () otherlv_1= 'detect' ( (lv_detectionType_2_0= ruleDETECTION ) )
             {
-            // InternalPolycreate.g:565:3: ()
-            // InternalPolycreate.g:566:4: 
+            // InternalPolycreate.g:574:3: ()
+            // InternalPolycreate.g:575:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1444,11 +1478,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getSimpleConditionAccess().getDetectKeyword_1());
             		
-            // InternalPolycreate.g:576:3: ( (lv_detectionType_2_0= ruleDETECTION ) )
-            // InternalPolycreate.g:577:4: (lv_detectionType_2_0= ruleDETECTION )
+            // InternalPolycreate.g:585:3: ( (lv_detectionType_2_0= ruleDETECTION ) )
+            // InternalPolycreate.g:586:4: (lv_detectionType_2_0= ruleDETECTION )
             {
-            // InternalPolycreate.g:577:4: (lv_detectionType_2_0= ruleDETECTION )
-            // InternalPolycreate.g:578:5: lv_detectionType_2_0= ruleDETECTION
+            // InternalPolycreate.g:586:4: (lv_detectionType_2_0= ruleDETECTION )
+            // InternalPolycreate.g:587:5: lv_detectionType_2_0= ruleDETECTION
             {
 
             					newCompositeNode(grammarAccess.getSimpleConditionAccess().getDetectionTypeDETECTIONEnumRuleCall_2_0());
@@ -1498,7 +1532,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleObjectCondition"
-    // InternalPolycreate.g:599:1: entryRuleObjectCondition returns [EObject current=null] : iv_ruleObjectCondition= ruleObjectCondition EOF ;
+    // InternalPolycreate.g:608:1: entryRuleObjectCondition returns [EObject current=null] : iv_ruleObjectCondition= ruleObjectCondition EOF ;
     public final EObject entryRuleObjectCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1506,8 +1540,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:599:56: (iv_ruleObjectCondition= ruleObjectCondition EOF )
-            // InternalPolycreate.g:600:2: iv_ruleObjectCondition= ruleObjectCondition EOF
+            // InternalPolycreate.g:608:56: (iv_ruleObjectCondition= ruleObjectCondition EOF )
+            // InternalPolycreate.g:609:2: iv_ruleObjectCondition= ruleObjectCondition EOF
             {
              newCompositeNode(grammarAccess.getObjectConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1534,7 +1568,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleObjectCondition"
-    // InternalPolycreate.g:606:1: ruleObjectCondition returns [EObject current=null] : (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition ) ;
+    // InternalPolycreate.g:615:1: ruleObjectCondition returns [EObject current=null] : (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition ) ;
     public final EObject ruleObjectCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1547,10 +1581,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:612:2: ( (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition ) )
-            // InternalPolycreate.g:613:2: (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition )
+            // InternalPolycreate.g:621:2: ( (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition ) )
+            // InternalPolycreate.g:622:2: (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition )
             {
-            // InternalPolycreate.g:613:2: (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition )
+            // InternalPolycreate.g:622:2: (this_DistanceCondition_0= ruleDistanceCondition | this_AngleCondition_1= ruleAngleCondition )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1560,13 +1594,13 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                 if ( (LA12_1==24) ) {
                     int LA12_2 = input.LA(3);
 
-                    if ( (LA12_2==44) ) {
+                    if ( (LA12_2==46) ) {
                         int LA12_3 = input.LA(4);
 
                         if ( (LA12_3==25) ) {
                             int LA12_5 = input.LA(5);
 
-                            if ( (LA12_5==28) ) {
+                            if ( (LA12_5==27) ) {
                                 alt12=2;
                             }
                             else if ( (LA12_5==26) ) {
@@ -1586,13 +1620,13 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                             throw nvae;
                         }
                     }
-                    else if ( (LA12_2==45) ) {
+                    else if ( (LA12_2==47) ) {
                         int LA12_4 = input.LA(4);
 
                         if ( (LA12_4==25) ) {
                             int LA12_5 = input.LA(5);
 
-                            if ( (LA12_5==28) ) {
+                            if ( (LA12_5==27) ) {
                                 alt12=2;
                             }
                             else if ( (LA12_5==26) ) {
@@ -1634,7 +1668,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalPolycreate.g:614:3: this_DistanceCondition_0= ruleDistanceCondition
+                    // InternalPolycreate.g:623:3: this_DistanceCondition_0= ruleDistanceCondition
                     {
 
                     			newCompositeNode(grammarAccess.getObjectConditionAccess().getDistanceConditionParserRuleCall_0());
@@ -1652,7 +1686,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPolycreate.g:623:3: this_AngleCondition_1= ruleAngleCondition
+                    // InternalPolycreate.g:632:3: this_AngleCondition_1= ruleAngleCondition
                     {
 
                     			newCompositeNode(grammarAccess.getObjectConditionAccess().getAngleConditionParserRuleCall_1());
@@ -1692,7 +1726,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDistanceCondition"
-    // InternalPolycreate.g:635:1: entryRuleDistanceCondition returns [EObject current=null] : iv_ruleDistanceCondition= ruleDistanceCondition EOF ;
+    // InternalPolycreate.g:644:1: entryRuleDistanceCondition returns [EObject current=null] : iv_ruleDistanceCondition= ruleDistanceCondition EOF ;
     public final EObject entryRuleDistanceCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1700,8 +1734,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:635:58: (iv_ruleDistanceCondition= ruleDistanceCondition EOF )
-            // InternalPolycreate.g:636:2: iv_ruleDistanceCondition= ruleDistanceCondition EOF
+            // InternalPolycreate.g:644:58: (iv_ruleDistanceCondition= ruleDistanceCondition EOF )
+            // InternalPolycreate.g:645:2: iv_ruleDistanceCondition= ruleDistanceCondition EOF
             {
              newCompositeNode(grammarAccess.getDistanceConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1728,7 +1762,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDistanceCondition"
-    // InternalPolycreate.g:642:1: ruleDistanceCondition returns [EObject current=null] : ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' otherlv_6= '<' ( (lv_distance_7_0= ruleEDouble ) ) ) ;
+    // InternalPolycreate.g:651:1: ruleDistanceCondition returns [EObject current=null] : ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_distance_7_0= ruleEDouble ) ) ) ;
     public final EObject ruleDistanceCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1736,8 +1770,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         Token otherlv_2=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
         Enumerator lv_cameraType_3_0 = null;
+
+        Enumerator lv_operator_6_0 = null;
 
         AntlrDatatypeRuleToken lv_distance_7_0 = null;
 
@@ -1746,14 +1781,14 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:648:2: ( ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' otherlv_6= '<' ( (lv_distance_7_0= ruleEDouble ) ) ) )
-            // InternalPolycreate.g:649:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' otherlv_6= '<' ( (lv_distance_7_0= ruleEDouble ) ) )
+            // InternalPolycreate.g:657:2: ( ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_distance_7_0= ruleEDouble ) ) ) )
+            // InternalPolycreate.g:658:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_distance_7_0= ruleEDouble ) ) )
             {
-            // InternalPolycreate.g:649:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' otherlv_6= '<' ( (lv_distance_7_0= ruleEDouble ) ) )
-            // InternalPolycreate.g:650:3: () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' otherlv_6= '<' ( (lv_distance_7_0= ruleEDouble ) )
+            // InternalPolycreate.g:658:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_distance_7_0= ruleEDouble ) ) )
+            // InternalPolycreate.g:659:3: () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'distance' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_distance_7_0= ruleEDouble ) )
             {
-            // InternalPolycreate.g:650:3: ()
-            // InternalPolycreate.g:651:4: 
+            // InternalPolycreate.g:659:3: ()
+            // InternalPolycreate.g:660:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1771,11 +1806,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getDistanceConditionAccess().getObjectKeyword_2());
             		
-            // InternalPolycreate.g:665:3: ( (lv_cameraType_3_0= ruleCAMERATYPE ) )
-            // InternalPolycreate.g:666:4: (lv_cameraType_3_0= ruleCAMERATYPE )
+            // InternalPolycreate.g:674:3: ( (lv_cameraType_3_0= ruleCAMERATYPE ) )
+            // InternalPolycreate.g:675:4: (lv_cameraType_3_0= ruleCAMERATYPE )
             {
-            // InternalPolycreate.g:666:4: (lv_cameraType_3_0= ruleCAMERATYPE )
-            // InternalPolycreate.g:667:5: lv_cameraType_3_0= ruleCAMERATYPE
+            // InternalPolycreate.g:675:4: (lv_cameraType_3_0= ruleCAMERATYPE )
+            // InternalPolycreate.g:676:5: lv_cameraType_3_0= ruleCAMERATYPE
             {
 
             					newCompositeNode(grammarAccess.getDistanceConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0());
@@ -1810,15 +1845,42 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getDistanceConditionAccess().getDistanceKeyword_5());
             		
-            otherlv_6=(Token)match(input,27,FOLLOW_24); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getDistanceConditionAccess().getLessThanSignKeyword_6());
-            		
-            // InternalPolycreate.g:696:3: ( (lv_distance_7_0= ruleEDouble ) )
-            // InternalPolycreate.g:697:4: (lv_distance_7_0= ruleEDouble )
+            // InternalPolycreate.g:701:3: ( (lv_operator_6_0= ruleOPERATOR ) )
+            // InternalPolycreate.g:702:4: (lv_operator_6_0= ruleOPERATOR )
             {
-            // InternalPolycreate.g:697:4: (lv_distance_7_0= ruleEDouble )
-            // InternalPolycreate.g:698:5: lv_distance_7_0= ruleEDouble
+            // InternalPolycreate.g:702:4: (lv_operator_6_0= ruleOPERATOR )
+            // InternalPolycreate.g:703:5: lv_operator_6_0= ruleOPERATOR
+            {
+
+            					newCompositeNode(grammarAccess.getDistanceConditionAccess().getOperatorOPERATOREnumRuleCall_6_0());
+            				
+            pushFollow(FOLLOW_24);
+            lv_operator_6_0=ruleOPERATOR();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getDistanceConditionRule());
+            					}
+            					set(
+            						current,
+            						"operator",
+            						lv_operator_6_0,
+            						"fr.unice.polytech.si5.webots.Polycreate.OPERATOR");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalPolycreate.g:720:3: ( (lv_distance_7_0= ruleEDouble ) )
+            // InternalPolycreate.g:721:4: (lv_distance_7_0= ruleEDouble )
+            {
+            // InternalPolycreate.g:721:4: (lv_distance_7_0= ruleEDouble )
+            // InternalPolycreate.g:722:5: lv_distance_7_0= ruleEDouble
             {
 
             					newCompositeNode(grammarAccess.getDistanceConditionAccess().getDistanceEDoubleParserRuleCall_7_0());
@@ -1868,7 +1930,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAngleCondition"
-    // InternalPolycreate.g:719:1: entryRuleAngleCondition returns [EObject current=null] : iv_ruleAngleCondition= ruleAngleCondition EOF ;
+    // InternalPolycreate.g:743:1: entryRuleAngleCondition returns [EObject current=null] : iv_ruleAngleCondition= ruleAngleCondition EOF ;
     public final EObject entryRuleAngleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1876,8 +1938,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:719:55: (iv_ruleAngleCondition= ruleAngleCondition EOF )
-            // InternalPolycreate.g:720:2: iv_ruleAngleCondition= ruleAngleCondition EOF
+            // InternalPolycreate.g:743:55: (iv_ruleAngleCondition= ruleAngleCondition EOF )
+            // InternalPolycreate.g:744:2: iv_ruleAngleCondition= ruleAngleCondition EOF
             {
              newCompositeNode(grammarAccess.getAngleConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1904,7 +1966,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAngleCondition"
-    // InternalPolycreate.g:726:1: ruleAngleCondition returns [EObject current=null] : ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' otherlv_6= '<' ( (lv_angle_7_0= ruleEDouble ) ) ) ;
+    // InternalPolycreate.g:750:1: ruleAngleCondition returns [EObject current=null] : ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_angle_7_0= ruleEDouble ) ) ) ;
     public final EObject ruleAngleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1912,8 +1974,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         Token otherlv_2=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
         Enumerator lv_cameraType_3_0 = null;
+
+        Enumerator lv_operator_6_0 = null;
 
         AntlrDatatypeRuleToken lv_angle_7_0 = null;
 
@@ -1922,14 +1985,14 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:732:2: ( ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' otherlv_6= '<' ( (lv_angle_7_0= ruleEDouble ) ) ) )
-            // InternalPolycreate.g:733:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' otherlv_6= '<' ( (lv_angle_7_0= ruleEDouble ) ) )
+            // InternalPolycreate.g:756:2: ( ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_angle_7_0= ruleEDouble ) ) ) )
+            // InternalPolycreate.g:757:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_angle_7_0= ruleEDouble ) ) )
             {
-            // InternalPolycreate.g:733:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' otherlv_6= '<' ( (lv_angle_7_0= ruleEDouble ) ) )
-            // InternalPolycreate.g:734:3: () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' otherlv_6= '<' ( (lv_angle_7_0= ruleEDouble ) )
+            // InternalPolycreate.g:757:2: ( () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_angle_7_0= ruleEDouble ) ) )
+            // InternalPolycreate.g:758:3: () otherlv_1= 'detect' otherlv_2= 'object' ( (lv_cameraType_3_0= ruleCAMERATYPE ) ) otherlv_4= 'with' otherlv_5= 'angle' ( (lv_operator_6_0= ruleOPERATOR ) ) ( (lv_angle_7_0= ruleEDouble ) )
             {
-            // InternalPolycreate.g:734:3: ()
-            // InternalPolycreate.g:735:4: 
+            // InternalPolycreate.g:758:3: ()
+            // InternalPolycreate.g:759:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1947,11 +2010,11 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getAngleConditionAccess().getObjectKeyword_2());
             		
-            // InternalPolycreate.g:749:3: ( (lv_cameraType_3_0= ruleCAMERATYPE ) )
-            // InternalPolycreate.g:750:4: (lv_cameraType_3_0= ruleCAMERATYPE )
+            // InternalPolycreate.g:773:3: ( (lv_cameraType_3_0= ruleCAMERATYPE ) )
+            // InternalPolycreate.g:774:4: (lv_cameraType_3_0= ruleCAMERATYPE )
             {
-            // InternalPolycreate.g:750:4: (lv_cameraType_3_0= ruleCAMERATYPE )
-            // InternalPolycreate.g:751:5: lv_cameraType_3_0= ruleCAMERATYPE
+            // InternalPolycreate.g:774:4: (lv_cameraType_3_0= ruleCAMERATYPE )
+            // InternalPolycreate.g:775:5: lv_cameraType_3_0= ruleCAMERATYPE
             {
 
             					newCompositeNode(grammarAccess.getAngleConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0());
@@ -1982,19 +2045,46 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getAngleConditionAccess().getWithKeyword_4());
             		
-            otherlv_5=(Token)match(input,28,FOLLOW_23); 
+            otherlv_5=(Token)match(input,27,FOLLOW_23); 
 
             			newLeafNode(otherlv_5, grammarAccess.getAngleConditionAccess().getAngleKeyword_5());
             		
-            otherlv_6=(Token)match(input,27,FOLLOW_24); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getAngleConditionAccess().getLessThanSignKeyword_6());
-            		
-            // InternalPolycreate.g:780:3: ( (lv_angle_7_0= ruleEDouble ) )
-            // InternalPolycreate.g:781:4: (lv_angle_7_0= ruleEDouble )
+            // InternalPolycreate.g:800:3: ( (lv_operator_6_0= ruleOPERATOR ) )
+            // InternalPolycreate.g:801:4: (lv_operator_6_0= ruleOPERATOR )
             {
-            // InternalPolycreate.g:781:4: (lv_angle_7_0= ruleEDouble )
-            // InternalPolycreate.g:782:5: lv_angle_7_0= ruleEDouble
+            // InternalPolycreate.g:801:4: (lv_operator_6_0= ruleOPERATOR )
+            // InternalPolycreate.g:802:5: lv_operator_6_0= ruleOPERATOR
+            {
+
+            					newCompositeNode(grammarAccess.getAngleConditionAccess().getOperatorOPERATOREnumRuleCall_6_0());
+            				
+            pushFollow(FOLLOW_24);
+            lv_operator_6_0=ruleOPERATOR();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getAngleConditionRule());
+            					}
+            					set(
+            						current,
+            						"operator",
+            						lv_operator_6_0,
+            						"fr.unice.polytech.si5.webots.Polycreate.OPERATOR");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalPolycreate.g:819:3: ( (lv_angle_7_0= ruleEDouble ) )
+            // InternalPolycreate.g:820:4: (lv_angle_7_0= ruleEDouble )
+            {
+            // InternalPolycreate.g:820:4: (lv_angle_7_0= ruleEDouble )
+            // InternalPolycreate.g:821:5: lv_angle_7_0= ruleEDouble
             {
 
             					newCompositeNode(grammarAccess.getAngleConditionAccess().getAngleEDoubleParserRuleCall_7_0());
@@ -2044,7 +2134,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMoveAction"
-    // InternalPolycreate.g:803:1: entryRuleMoveAction returns [EObject current=null] : iv_ruleMoveAction= ruleMoveAction EOF ;
+    // InternalPolycreate.g:842:1: entryRuleMoveAction returns [EObject current=null] : iv_ruleMoveAction= ruleMoveAction EOF ;
     public final EObject entryRuleMoveAction() throws RecognitionException {
         EObject current = null;
 
@@ -2052,8 +2142,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:803:51: (iv_ruleMoveAction= ruleMoveAction EOF )
-            // InternalPolycreate.g:804:2: iv_ruleMoveAction= ruleMoveAction EOF
+            // InternalPolycreate.g:842:51: (iv_ruleMoveAction= ruleMoveAction EOF )
+            // InternalPolycreate.g:843:2: iv_ruleMoveAction= ruleMoveAction EOF
             {
              newCompositeNode(grammarAccess.getMoveActionRule()); 
             pushFollow(FOLLOW_1);
@@ -2080,7 +2170,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMoveAction"
-    // InternalPolycreate.g:810:1: ruleMoveAction returns [EObject current=null] : ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) ;
+    // InternalPolycreate.g:849:1: ruleMoveAction returns [EObject current=null] : ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) ;
     public final EObject ruleMoveAction() throws RecognitionException {
         EObject current = null;
 
@@ -2095,14 +2185,14 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:816:2: ( ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) )
-            // InternalPolycreate.g:817:2: ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
+            // InternalPolycreate.g:855:2: ( ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) )
+            // InternalPolycreate.g:856:2: ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
             {
-            // InternalPolycreate.g:817:2: ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
-            // InternalPolycreate.g:818:3: () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
+            // InternalPolycreate.g:856:2: ( () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
+            // InternalPolycreate.g:857:3: () otherlv_1= 'move' ( (lv_direction_2_0= ruleDIRECTION ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
             {
-            // InternalPolycreate.g:818:3: ()
-            // InternalPolycreate.g:819:4: 
+            // InternalPolycreate.g:857:3: ()
+            // InternalPolycreate.g:858:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2112,15 +2202,15 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,29,FOLLOW_26); 
+            otherlv_1=(Token)match(input,28,FOLLOW_26); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMoveActionAccess().getMoveKeyword_1());
             		
-            // InternalPolycreate.g:829:3: ( (lv_direction_2_0= ruleDIRECTION ) )
-            // InternalPolycreate.g:830:4: (lv_direction_2_0= ruleDIRECTION )
+            // InternalPolycreate.g:868:3: ( (lv_direction_2_0= ruleDIRECTION ) )
+            // InternalPolycreate.g:869:4: (lv_direction_2_0= ruleDIRECTION )
             {
-            // InternalPolycreate.g:830:4: (lv_direction_2_0= ruleDIRECTION )
-            // InternalPolycreate.g:831:5: lv_direction_2_0= ruleDIRECTION
+            // InternalPolycreate.g:869:4: (lv_direction_2_0= ruleDIRECTION )
+            // InternalPolycreate.g:870:5: lv_direction_2_0= ruleDIRECTION
             {
 
             					newCompositeNode(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_2_0());
@@ -2147,26 +2237,26 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPolycreate.g:848:3: (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
+            // InternalPolycreate.g:887:3: (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( (LA13_0==30) ) {
+            if ( (LA13_0==29) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // InternalPolycreate.g:849:4: otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) )
+                    // InternalPolycreate.g:888:4: otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) )
                     {
-                    otherlv_3=(Token)match(input,30,FOLLOW_24); 
+                    otherlv_3=(Token)match(input,29,FOLLOW_24); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getMoveActionAccess().getDuringKeyword_3_0());
                     			
-                    // InternalPolycreate.g:853:4: ( (lv_duration_4_0= ruleEDouble ) )
-                    // InternalPolycreate.g:854:5: (lv_duration_4_0= ruleEDouble )
+                    // InternalPolycreate.g:892:4: ( (lv_duration_4_0= ruleEDouble ) )
+                    // InternalPolycreate.g:893:5: (lv_duration_4_0= ruleEDouble )
                     {
-                    // InternalPolycreate.g:854:5: (lv_duration_4_0= ruleEDouble )
-                    // InternalPolycreate.g:855:6: lv_duration_4_0= ruleEDouble
+                    // InternalPolycreate.g:893:5: (lv_duration_4_0= ruleEDouble )
+                    // InternalPolycreate.g:894:6: lv_duration_4_0= ruleEDouble
                     {
 
                     						newCompositeNode(grammarAccess.getMoveActionAccess().getDurationEDoubleParserRuleCall_3_1_0());
@@ -2222,7 +2312,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTurnAction"
-    // InternalPolycreate.g:877:1: entryRuleTurnAction returns [EObject current=null] : iv_ruleTurnAction= ruleTurnAction EOF ;
+    // InternalPolycreate.g:916:1: entryRuleTurnAction returns [EObject current=null] : iv_ruleTurnAction= ruleTurnAction EOF ;
     public final EObject entryRuleTurnAction() throws RecognitionException {
         EObject current = null;
 
@@ -2230,8 +2320,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:877:51: (iv_ruleTurnAction= ruleTurnAction EOF )
-            // InternalPolycreate.g:878:2: iv_ruleTurnAction= ruleTurnAction EOF
+            // InternalPolycreate.g:916:51: (iv_ruleTurnAction= ruleTurnAction EOF )
+            // InternalPolycreate.g:917:2: iv_ruleTurnAction= ruleTurnAction EOF
             {
              newCompositeNode(grammarAccess.getTurnActionRule()); 
             pushFollow(FOLLOW_1);
@@ -2258,7 +2348,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTurnAction"
-    // InternalPolycreate.g:884:1: ruleTurnAction returns [EObject current=null] : ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) ;
+    // InternalPolycreate.g:923:1: ruleTurnAction returns [EObject current=null] : ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) ;
     public final EObject ruleTurnAction() throws RecognitionException {
         EObject current = null;
 
@@ -2273,14 +2363,14 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:890:2: ( ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) )
-            // InternalPolycreate.g:891:2: ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
+            // InternalPolycreate.g:929:2: ( ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? ) )
+            // InternalPolycreate.g:930:2: ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
             {
-            // InternalPolycreate.g:891:2: ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
-            // InternalPolycreate.g:892:3: () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
+            // InternalPolycreate.g:930:2: ( () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )? )
+            // InternalPolycreate.g:931:3: () otherlv_1= 'turn' ( (lv_angle_2_0= ruleEDouble ) ) (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
             {
-            // InternalPolycreate.g:892:3: ()
-            // InternalPolycreate.g:893:4: 
+            // InternalPolycreate.g:931:3: ()
+            // InternalPolycreate.g:932:4: 
             {
 
             				current = forceCreateModelElement(
@@ -2290,15 +2380,15 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_24); 
+            otherlv_1=(Token)match(input,30,FOLLOW_24); 
 
             			newLeafNode(otherlv_1, grammarAccess.getTurnActionAccess().getTurnKeyword_1());
             		
-            // InternalPolycreate.g:903:3: ( (lv_angle_2_0= ruleEDouble ) )
-            // InternalPolycreate.g:904:4: (lv_angle_2_0= ruleEDouble )
+            // InternalPolycreate.g:942:3: ( (lv_angle_2_0= ruleEDouble ) )
+            // InternalPolycreate.g:943:4: (lv_angle_2_0= ruleEDouble )
             {
-            // InternalPolycreate.g:904:4: (lv_angle_2_0= ruleEDouble )
-            // InternalPolycreate.g:905:5: lv_angle_2_0= ruleEDouble
+            // InternalPolycreate.g:943:4: (lv_angle_2_0= ruleEDouble )
+            // InternalPolycreate.g:944:5: lv_angle_2_0= ruleEDouble
             {
 
             					newCompositeNode(grammarAccess.getTurnActionAccess().getAngleEDoubleParserRuleCall_2_0());
@@ -2325,26 +2415,26 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPolycreate.g:922:3: (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
+            // InternalPolycreate.g:961:3: (otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) ) )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==30) ) {
+            if ( (LA14_0==29) ) {
                 alt14=1;
             }
             switch (alt14) {
                 case 1 :
-                    // InternalPolycreate.g:923:4: otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) )
+                    // InternalPolycreate.g:962:4: otherlv_3= 'during' ( (lv_duration_4_0= ruleEDouble ) )
                     {
-                    otherlv_3=(Token)match(input,30,FOLLOW_24); 
+                    otherlv_3=(Token)match(input,29,FOLLOW_24); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getTurnActionAccess().getDuringKeyword_3_0());
                     			
-                    // InternalPolycreate.g:927:4: ( (lv_duration_4_0= ruleEDouble ) )
-                    // InternalPolycreate.g:928:5: (lv_duration_4_0= ruleEDouble )
+                    // InternalPolycreate.g:966:4: ( (lv_duration_4_0= ruleEDouble ) )
+                    // InternalPolycreate.g:967:5: (lv_duration_4_0= ruleEDouble )
                     {
-                    // InternalPolycreate.g:928:5: (lv_duration_4_0= ruleEDouble )
-                    // InternalPolycreate.g:929:6: lv_duration_4_0= ruleEDouble
+                    // InternalPolycreate.g:967:5: (lv_duration_4_0= ruleEDouble )
+                    // InternalPolycreate.g:968:6: lv_duration_4_0= ruleEDouble
                     {
 
                     						newCompositeNode(grammarAccess.getTurnActionAccess().getDurationEDoubleParserRuleCall_3_1_0());
@@ -2399,8 +2489,131 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleTurnAction"
 
 
+    // $ANTLR start "entryRuleGripAction"
+    // InternalPolycreate.g:990:1: entryRuleGripAction returns [EObject current=null] : iv_ruleGripAction= ruleGripAction EOF ;
+    public final EObject entryRuleGripAction() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleGripAction = null;
+
+
+        try {
+            // InternalPolycreate.g:990:51: (iv_ruleGripAction= ruleGripAction EOF )
+            // InternalPolycreate.g:991:2: iv_ruleGripAction= ruleGripAction EOF
+            {
+             newCompositeNode(grammarAccess.getGripActionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleGripAction=ruleGripAction();
+
+            state._fsp--;
+
+             current =iv_ruleGripAction; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleGripAction"
+
+
+    // $ANTLR start "ruleGripAction"
+    // InternalPolycreate.g:997:1: ruleGripAction returns [EObject current=null] : ( () ( (lv_state_1_0= ruleGRIPPER_STATE ) ) otherlv_2= 'gripper' ) ;
+    public final EObject ruleGripAction() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Enumerator lv_state_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalPolycreate.g:1003:2: ( ( () ( (lv_state_1_0= ruleGRIPPER_STATE ) ) otherlv_2= 'gripper' ) )
+            // InternalPolycreate.g:1004:2: ( () ( (lv_state_1_0= ruleGRIPPER_STATE ) ) otherlv_2= 'gripper' )
+            {
+            // InternalPolycreate.g:1004:2: ( () ( (lv_state_1_0= ruleGRIPPER_STATE ) ) otherlv_2= 'gripper' )
+            // InternalPolycreate.g:1005:3: () ( (lv_state_1_0= ruleGRIPPER_STATE ) ) otherlv_2= 'gripper'
+            {
+            // InternalPolycreate.g:1005:3: ()
+            // InternalPolycreate.g:1006:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getGripActionAccess().getGripActionAction_0(),
+            					current);
+            			
+
+            }
+
+            // InternalPolycreate.g:1012:3: ( (lv_state_1_0= ruleGRIPPER_STATE ) )
+            // InternalPolycreate.g:1013:4: (lv_state_1_0= ruleGRIPPER_STATE )
+            {
+            // InternalPolycreate.g:1013:4: (lv_state_1_0= ruleGRIPPER_STATE )
+            // InternalPolycreate.g:1014:5: lv_state_1_0= ruleGRIPPER_STATE
+            {
+
+            					newCompositeNode(grammarAccess.getGripActionAccess().getStateGRIPPER_STATEEnumRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_28);
+            lv_state_1_0=ruleGRIPPER_STATE();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getGripActionRule());
+            					}
+            					set(
+            						current,
+            						"state",
+            						lv_state_1_0,
+            						"fr.unice.polytech.si5.webots.Polycreate.GRIPPER_STATE");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,31,FOLLOW_2); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getGripActionAccess().getGripperKeyword_2());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleGripAction"
+
+
     // $ANTLR start "entryRuleEDouble"
-    // InternalPolycreate.g:951:1: entryRuleEDouble returns [String current=null] : iv_ruleEDouble= ruleEDouble EOF ;
+    // InternalPolycreate.g:1039:1: entryRuleEDouble returns [String current=null] : iv_ruleEDouble= ruleEDouble EOF ;
     public final String entryRuleEDouble() throws RecognitionException {
         String current = null;
 
@@ -2408,8 +2621,8 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalPolycreate.g:951:47: (iv_ruleEDouble= ruleEDouble EOF )
-            // InternalPolycreate.g:952:2: iv_ruleEDouble= ruleEDouble EOF
+            // InternalPolycreate.g:1039:47: (iv_ruleEDouble= ruleEDouble EOF )
+            // InternalPolycreate.g:1040:2: iv_ruleEDouble= ruleEDouble EOF
             {
              newCompositeNode(grammarAccess.getEDoubleRule()); 
             pushFollow(FOLLOW_1);
@@ -2436,7 +2649,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEDouble"
-    // InternalPolycreate.g:958:1: ruleEDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) ;
+    // InternalPolycreate.g:1046:1: ruleEDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) ;
     public final AntlrDatatypeRuleToken ruleEDouble() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2449,13 +2662,13 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:964:2: ( ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) )
-            // InternalPolycreate.g:965:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
+            // InternalPolycreate.g:1052:2: ( ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? ) )
+            // InternalPolycreate.g:1053:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
             {
-            // InternalPolycreate.g:965:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
-            // InternalPolycreate.g:966:3: (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
+            // InternalPolycreate.g:1053:2: ( (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )? )
+            // InternalPolycreate.g:1054:3: (kw= '-' )? (this_INT_1= RULE_INT )? kw= '.' this_INT_3= RULE_INT ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
             {
-            // InternalPolycreate.g:966:3: (kw= '-' )?
+            // InternalPolycreate.g:1054:3: (kw= '-' )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -2464,9 +2677,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt15) {
                 case 1 :
-                    // InternalPolycreate.g:967:4: kw= '-'
+                    // InternalPolycreate.g:1055:4: kw= '-'
                     {
-                    kw=(Token)match(input,32,FOLLOW_28); 
+                    kw=(Token)match(input,32,FOLLOW_29); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_0());
@@ -2477,7 +2690,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalPolycreate.g:973:3: (this_INT_1= RULE_INT )?
+            // InternalPolycreate.g:1061:3: (this_INT_1= RULE_INT )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -2486,9 +2699,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt16) {
                 case 1 :
-                    // InternalPolycreate.g:974:4: this_INT_1= RULE_INT
+                    // InternalPolycreate.g:1062:4: this_INT_1= RULE_INT
                     {
-                    this_INT_1=(Token)match(input,RULE_INT,FOLLOW_29); 
+                    this_INT_1=(Token)match(input,RULE_INT,FOLLOW_30); 
 
                     				current.merge(this_INT_1);
                     			
@@ -2501,19 +2714,19 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             }
 
-            kw=(Token)match(input,33,FOLLOW_30); 
+            kw=(Token)match(input,33,FOLLOW_31); 
 
             			current.merge(kw);
             			newLeafNode(kw, grammarAccess.getEDoubleAccess().getFullStopKeyword_2());
             		
-            this_INT_3=(Token)match(input,RULE_INT,FOLLOW_31); 
+            this_INT_3=(Token)match(input,RULE_INT,FOLLOW_32); 
 
             			current.merge(this_INT_3);
             		
 
             			newLeafNode(this_INT_3, grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_3());
             		
-            // InternalPolycreate.g:994:3: ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
+            // InternalPolycreate.g:1082:3: ( (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -2522,9 +2735,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt19) {
                 case 1 :
-                    // InternalPolycreate.g:995:4: (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT
+                    // InternalPolycreate.g:1083:4: (kw= 'E' | kw= 'e' ) (kw= '-' )? this_INT_7= RULE_INT
                     {
-                    // InternalPolycreate.g:995:4: (kw= 'E' | kw= 'e' )
+                    // InternalPolycreate.g:1083:4: (kw= 'E' | kw= 'e' )
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -2542,9 +2755,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt17) {
                         case 1 :
-                            // InternalPolycreate.g:996:5: kw= 'E'
+                            // InternalPolycreate.g:1084:5: kw= 'E'
                             {
-                            kw=(Token)match(input,34,FOLLOW_32); 
+                            kw=(Token)match(input,34,FOLLOW_33); 
 
                             					current.merge(kw);
                             					newLeafNode(kw, grammarAccess.getEDoubleAccess().getEKeyword_4_0_0());
@@ -2553,9 +2766,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalPolycreate.g:1002:5: kw= 'e'
+                            // InternalPolycreate.g:1090:5: kw= 'e'
                             {
-                            kw=(Token)match(input,35,FOLLOW_32); 
+                            kw=(Token)match(input,35,FOLLOW_33); 
 
                             					current.merge(kw);
                             					newLeafNode(kw, grammarAccess.getEDoubleAccess().getEKeyword_4_0_1());
@@ -2566,7 +2779,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalPolycreate.g:1008:4: (kw= '-' )?
+                    // InternalPolycreate.g:1096:4: (kw= '-' )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -2575,9 +2788,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt18) {
                         case 1 :
-                            // InternalPolycreate.g:1009:5: kw= '-'
+                            // InternalPolycreate.g:1097:5: kw= '-'
                             {
-                            kw=(Token)match(input,32,FOLLOW_30); 
+                            kw=(Token)match(input,32,FOLLOW_31); 
 
                             					current.merge(kw);
                             					newLeafNode(kw, grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_4_1());
@@ -2624,7 +2837,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDETECTION"
-    // InternalPolycreate.g:1027:1: ruleDETECTION returns [Enumerator current=null] : ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) ) ;
+    // InternalPolycreate.g:1115:1: ruleDETECTION returns [Enumerator current=null] : ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) ) ;
     public final Enumerator ruleDETECTION() throws RecognitionException {
         Enumerator current = null;
 
@@ -2639,10 +2852,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:1033:2: ( ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) ) )
-            // InternalPolycreate.g:1034:2: ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) )
+            // InternalPolycreate.g:1121:2: ( ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) ) )
+            // InternalPolycreate.g:1122:2: ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) )
             {
-            // InternalPolycreate.g:1034:2: ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) )
+            // InternalPolycreate.g:1122:2: ( (enumLiteral_0= 'COLLISION_LEFT' ) | (enumLiteral_1= 'COLLISION_RIGHT' ) | (enumLiteral_2= 'VIRTUAL_WALL' ) | (enumLiteral_3= 'CLIFF_LEFT' ) | (enumLiteral_4= 'CLIFF_RIGHT' ) | (enumLiteral_5= 'CLIFF_FRONT' ) )
             int alt20=6;
             switch ( input.LA(1) ) {
             case 36:
@@ -2684,10 +2897,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
             switch (alt20) {
                 case 1 :
-                    // InternalPolycreate.g:1035:3: (enumLiteral_0= 'COLLISION_LEFT' )
+                    // InternalPolycreate.g:1123:3: (enumLiteral_0= 'COLLISION_LEFT' )
                     {
-                    // InternalPolycreate.g:1035:3: (enumLiteral_0= 'COLLISION_LEFT' )
-                    // InternalPolycreate.g:1036:4: enumLiteral_0= 'COLLISION_LEFT'
+                    // InternalPolycreate.g:1123:3: (enumLiteral_0= 'COLLISION_LEFT' )
+                    // InternalPolycreate.g:1124:4: enumLiteral_0= 'COLLISION_LEFT'
                     {
                     enumLiteral_0=(Token)match(input,36,FOLLOW_2); 
 
@@ -2701,10 +2914,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPolycreate.g:1043:3: (enumLiteral_1= 'COLLISION_RIGHT' )
+                    // InternalPolycreate.g:1131:3: (enumLiteral_1= 'COLLISION_RIGHT' )
                     {
-                    // InternalPolycreate.g:1043:3: (enumLiteral_1= 'COLLISION_RIGHT' )
-                    // InternalPolycreate.g:1044:4: enumLiteral_1= 'COLLISION_RIGHT'
+                    // InternalPolycreate.g:1131:3: (enumLiteral_1= 'COLLISION_RIGHT' )
+                    // InternalPolycreate.g:1132:4: enumLiteral_1= 'COLLISION_RIGHT'
                     {
                     enumLiteral_1=(Token)match(input,37,FOLLOW_2); 
 
@@ -2718,10 +2931,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalPolycreate.g:1051:3: (enumLiteral_2= 'VIRTUAL_WALL' )
+                    // InternalPolycreate.g:1139:3: (enumLiteral_2= 'VIRTUAL_WALL' )
                     {
-                    // InternalPolycreate.g:1051:3: (enumLiteral_2= 'VIRTUAL_WALL' )
-                    // InternalPolycreate.g:1052:4: enumLiteral_2= 'VIRTUAL_WALL'
+                    // InternalPolycreate.g:1139:3: (enumLiteral_2= 'VIRTUAL_WALL' )
+                    // InternalPolycreate.g:1140:4: enumLiteral_2= 'VIRTUAL_WALL'
                     {
                     enumLiteral_2=(Token)match(input,38,FOLLOW_2); 
 
@@ -2735,10 +2948,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalPolycreate.g:1059:3: (enumLiteral_3= 'CLIFF_LEFT' )
+                    // InternalPolycreate.g:1147:3: (enumLiteral_3= 'CLIFF_LEFT' )
                     {
-                    // InternalPolycreate.g:1059:3: (enumLiteral_3= 'CLIFF_LEFT' )
-                    // InternalPolycreate.g:1060:4: enumLiteral_3= 'CLIFF_LEFT'
+                    // InternalPolycreate.g:1147:3: (enumLiteral_3= 'CLIFF_LEFT' )
+                    // InternalPolycreate.g:1148:4: enumLiteral_3= 'CLIFF_LEFT'
                     {
                     enumLiteral_3=(Token)match(input,39,FOLLOW_2); 
 
@@ -2752,10 +2965,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalPolycreate.g:1067:3: (enumLiteral_4= 'CLIFF_RIGHT' )
+                    // InternalPolycreate.g:1155:3: (enumLiteral_4= 'CLIFF_RIGHT' )
                     {
-                    // InternalPolycreate.g:1067:3: (enumLiteral_4= 'CLIFF_RIGHT' )
-                    // InternalPolycreate.g:1068:4: enumLiteral_4= 'CLIFF_RIGHT'
+                    // InternalPolycreate.g:1155:3: (enumLiteral_4= 'CLIFF_RIGHT' )
+                    // InternalPolycreate.g:1156:4: enumLiteral_4= 'CLIFF_RIGHT'
                     {
                     enumLiteral_4=(Token)match(input,40,FOLLOW_2); 
 
@@ -2769,10 +2982,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalPolycreate.g:1075:3: (enumLiteral_5= 'CLIFF_FRONT' )
+                    // InternalPolycreate.g:1163:3: (enumLiteral_5= 'CLIFF_FRONT' )
                     {
-                    // InternalPolycreate.g:1075:3: (enumLiteral_5= 'CLIFF_FRONT' )
-                    // InternalPolycreate.g:1076:4: enumLiteral_5= 'CLIFF_FRONT'
+                    // InternalPolycreate.g:1163:3: (enumLiteral_5= 'CLIFF_FRONT' )
+                    // InternalPolycreate.g:1164:4: enumLiteral_5= 'CLIFF_FRONT'
                     {
                     enumLiteral_5=(Token)match(input,41,FOLLOW_2); 
 
@@ -2807,9 +3020,9 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDETECTION"
 
 
-    // $ANTLR start "ruleDIRECTION"
-    // InternalPolycreate.g:1086:1: ruleDIRECTION returns [Enumerator current=null] : ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) ) ;
-    public final Enumerator ruleDIRECTION() throws RecognitionException {
+    // $ANTLR start "ruleOPERATOR"
+    // InternalPolycreate.g:1174:1: ruleOPERATOR returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) ) ;
+    public final Enumerator ruleOPERATOR() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
@@ -2819,10 +3032,10 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:1092:2: ( ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) ) )
-            // InternalPolycreate.g:1093:2: ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) )
+            // InternalPolycreate.g:1180:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) ) )
+            // InternalPolycreate.g:1181:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) )
             {
-            // InternalPolycreate.g:1093:2: ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) )
+            // InternalPolycreate.g:1181:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) )
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -2840,12 +3053,100 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
             }
             switch (alt21) {
                 case 1 :
-                    // InternalPolycreate.g:1094:3: (enumLiteral_0= 'FORWARD' )
+                    // InternalPolycreate.g:1182:3: (enumLiteral_0= '<' )
                     {
-                    // InternalPolycreate.g:1094:3: (enumLiteral_0= 'FORWARD' )
-                    // InternalPolycreate.g:1095:4: enumLiteral_0= 'FORWARD'
+                    // InternalPolycreate.g:1182:3: (enumLiteral_0= '<' )
+                    // InternalPolycreate.g:1183:4: enumLiteral_0= '<'
                     {
                     enumLiteral_0=(Token)match(input,42,FOLLOW_2); 
+
+                    				current = grammarAccess.getOPERATORAccess().getINFERIOREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getOPERATORAccess().getINFERIOREnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPolycreate.g:1190:3: (enumLiteral_1= '>' )
+                    {
+                    // InternalPolycreate.g:1190:3: (enumLiteral_1= '>' )
+                    // InternalPolycreate.g:1191:4: enumLiteral_1= '>'
+                    {
+                    enumLiteral_1=(Token)match(input,43,FOLLOW_2); 
+
+                    				current = grammarAccess.getOPERATORAccess().getSUPERIOREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getOPERATORAccess().getSUPERIOREnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOPERATOR"
+
+
+    // $ANTLR start "ruleDIRECTION"
+    // InternalPolycreate.g:1201:1: ruleDIRECTION returns [Enumerator current=null] : ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) ) ;
+    public final Enumerator ruleDIRECTION() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalPolycreate.g:1207:2: ( ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) ) )
+            // InternalPolycreate.g:1208:2: ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) )
+            {
+            // InternalPolycreate.g:1208:2: ( (enumLiteral_0= 'FORWARD' ) | (enumLiteral_1= 'BACKWARD' ) )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
+
+            if ( (LA22_0==44) ) {
+                alt22=1;
+            }
+            else if ( (LA22_0==45) ) {
+                alt22=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 22, 0, input);
+
+                throw nvae;
+            }
+            switch (alt22) {
+                case 1 :
+                    // InternalPolycreate.g:1209:3: (enumLiteral_0= 'FORWARD' )
+                    {
+                    // InternalPolycreate.g:1209:3: (enumLiteral_0= 'FORWARD' )
+                    // InternalPolycreate.g:1210:4: enumLiteral_0= 'FORWARD'
+                    {
+                    enumLiteral_0=(Token)match(input,44,FOLLOW_2); 
 
                     				current = grammarAccess.getDIRECTIONAccess().getFORWARDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getDIRECTIONAccess().getFORWARDEnumLiteralDeclaration_0());
@@ -2857,12 +3158,12 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPolycreate.g:1102:3: (enumLiteral_1= 'BACKWARD' )
+                    // InternalPolycreate.g:1217:3: (enumLiteral_1= 'BACKWARD' )
                     {
-                    // InternalPolycreate.g:1102:3: (enumLiteral_1= 'BACKWARD' )
-                    // InternalPolycreate.g:1103:4: enumLiteral_1= 'BACKWARD'
+                    // InternalPolycreate.g:1217:3: (enumLiteral_1= 'BACKWARD' )
+                    // InternalPolycreate.g:1218:4: enumLiteral_1= 'BACKWARD'
                     {
-                    enumLiteral_1=(Token)match(input,43,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,45,FOLLOW_2); 
 
                     				current = grammarAccess.getDIRECTIONAccess().getBACKWARDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getDIRECTIONAccess().getBACKWARDEnumLiteralDeclaration_1());
@@ -2896,7 +3197,7 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCAMERATYPE"
-    // InternalPolycreate.g:1113:1: ruleCAMERATYPE returns [Enumerator current=null] : ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) ) ;
+    // InternalPolycreate.g:1228:1: ruleCAMERATYPE returns [Enumerator current=null] : ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) ) ;
     public final Enumerator ruleCAMERATYPE() throws RecognitionException {
         Enumerator current = null;
 
@@ -2907,33 +3208,33 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalPolycreate.g:1119:2: ( ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) ) )
-            // InternalPolycreate.g:1120:2: ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) )
+            // InternalPolycreate.g:1234:2: ( ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) ) )
+            // InternalPolycreate.g:1235:2: ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) )
             {
-            // InternalPolycreate.g:1120:2: ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) )
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalPolycreate.g:1235:2: ( (enumLiteral_0= 'BACK' ) | (enumLiteral_1= 'FRONT' ) )
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==44) ) {
-                alt22=1;
+            if ( (LA23_0==46) ) {
+                alt23=1;
             }
-            else if ( (LA22_0==45) ) {
-                alt22=2;
+            else if ( (LA23_0==47) ) {
+                alt23=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 23, 0, input);
 
                 throw nvae;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalPolycreate.g:1121:3: (enumLiteral_0= 'BACK' )
+                    // InternalPolycreate.g:1236:3: (enumLiteral_0= 'BACK' )
                     {
-                    // InternalPolycreate.g:1121:3: (enumLiteral_0= 'BACK' )
-                    // InternalPolycreate.g:1122:4: enumLiteral_0= 'BACK'
+                    // InternalPolycreate.g:1236:3: (enumLiteral_0= 'BACK' )
+                    // InternalPolycreate.g:1237:4: enumLiteral_0= 'BACK'
                     {
-                    enumLiteral_0=(Token)match(input,44,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,46,FOLLOW_2); 
 
                     				current = grammarAccess.getCAMERATYPEAccess().getBACKEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getCAMERATYPEAccess().getBACKEnumLiteralDeclaration_0());
@@ -2945,12 +3246,12 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalPolycreate.g:1129:3: (enumLiteral_1= 'FRONT' )
+                    // InternalPolycreate.g:1244:3: (enumLiteral_1= 'FRONT' )
                     {
-                    // InternalPolycreate.g:1129:3: (enumLiteral_1= 'FRONT' )
-                    // InternalPolycreate.g:1130:4: enumLiteral_1= 'FRONT'
+                    // InternalPolycreate.g:1244:3: (enumLiteral_1= 'FRONT' )
+                    // InternalPolycreate.g:1245:4: enumLiteral_1= 'FRONT'
                     {
-                    enumLiteral_1=(Token)match(input,45,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,47,FOLLOW_2); 
 
                     				current = grammarAccess.getCAMERATYPEAccess().getFRONTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getCAMERATYPEAccess().getFRONTEnumLiteralDeclaration_1());
@@ -2982,6 +3283,94 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleCAMERATYPE"
 
+
+    // $ANTLR start "ruleGRIPPER_STATE"
+    // InternalPolycreate.g:1255:1: ruleGRIPPER_STATE returns [Enumerator current=null] : ( (enumLiteral_0= 'Open' ) | (enumLiteral_1= 'Closed' ) ) ;
+    public final Enumerator ruleGRIPPER_STATE() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalPolycreate.g:1261:2: ( ( (enumLiteral_0= 'Open' ) | (enumLiteral_1= 'Closed' ) ) )
+            // InternalPolycreate.g:1262:2: ( (enumLiteral_0= 'Open' ) | (enumLiteral_1= 'Closed' ) )
+            {
+            // InternalPolycreate.g:1262:2: ( (enumLiteral_0= 'Open' ) | (enumLiteral_1= 'Closed' ) )
+            int alt24=2;
+            int LA24_0 = input.LA(1);
+
+            if ( (LA24_0==48) ) {
+                alt24=1;
+            }
+            else if ( (LA24_0==49) ) {
+                alt24=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 24, 0, input);
+
+                throw nvae;
+            }
+            switch (alt24) {
+                case 1 :
+                    // InternalPolycreate.g:1263:3: (enumLiteral_0= 'Open' )
+                    {
+                    // InternalPolycreate.g:1263:3: (enumLiteral_0= 'Open' )
+                    // InternalPolycreate.g:1264:4: enumLiteral_0= 'Open'
+                    {
+                    enumLiteral_0=(Token)match(input,48,FOLLOW_2); 
+
+                    				current = grammarAccess.getGRIPPER_STATEAccess().getOPENEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getGRIPPER_STATEAccess().getOPENEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalPolycreate.g:1271:3: (enumLiteral_1= 'Closed' )
+                    {
+                    // InternalPolycreate.g:1271:3: (enumLiteral_1= 'Closed' )
+                    // InternalPolycreate.g:1272:4: enumLiteral_1= 'Closed'
+                    {
+                    enumLiteral_1=(Token)match(input,49,FOLLOW_2); 
+
+                    				current = grammarAccess.getGRIPPER_STATEAccess().getCLOSEDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getGRIPPER_STATEAccess().getCLOSEDEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleGRIPPER_STATE"
+
     // Delegated rules
 
 
@@ -3000,24 +3389,25 @@ public class InternalPolycreateParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000420002L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x00000000A0000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0003000050000000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000300000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400002L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000800030L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x000003F000000000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000300000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000C00000000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000C0000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000300000040L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x00000C0000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000200000040L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000C00000002L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000100000040L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000300000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000200000040L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000C00000002L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000100000040L});
 
 }

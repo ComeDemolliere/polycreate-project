@@ -274,6 +274,15 @@ ruleAction returns [EObject current=null]
 			$current = $this_TurnAction_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getActionAccess().getGripActionParserRuleCall_2());
+		}
+		this_GripAction_2=ruleGripAction
+		{
+			$current = $this_GripAction_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -689,10 +698,25 @@ ruleDistanceCondition returns [EObject current=null]
 		{
 			newLeafNode(otherlv_5, grammarAccess.getDistanceConditionAccess().getDistanceKeyword_5());
 		}
-		otherlv_6='<'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getDistanceConditionAccess().getLessThanSignKeyword_6());
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDistanceConditionAccess().getOperatorOPERATOREnumRuleCall_6_0());
+				}
+				lv_operator_6_0=ruleOPERATOR
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDistanceConditionRule());
+					}
+					set(
+						$current,
+						"operator",
+						lv_operator_6_0,
+						"fr.unice.polytech.si5.webots.Polycreate.OPERATOR");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				{
@@ -773,10 +797,25 @@ ruleAngleCondition returns [EObject current=null]
 		{
 			newLeafNode(otherlv_5, grammarAccess.getAngleConditionAccess().getAngleKeyword_5());
 		}
-		otherlv_6='<'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getAngleConditionAccess().getLessThanSignKeyword_6());
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAngleConditionAccess().getOperatorOPERATOREnumRuleCall_6_0());
+				}
+				lv_operator_6_0=ruleOPERATOR
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAngleConditionRule());
+					}
+					set(
+						$current,
+						"operator",
+						lv_operator_6_0,
+						"fr.unice.polytech.si5.webots.Polycreate.OPERATOR");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		(
 			(
 				{
@@ -947,6 +986,55 @@ ruleTurnAction returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleGripAction
+entryRuleGripAction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGripActionRule()); }
+	iv_ruleGripAction=ruleGripAction
+	{ $current=$iv_ruleGripAction.current; }
+	EOF;
+
+// Rule GripAction
+ruleGripAction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getGripActionAccess().getGripActionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGripActionAccess().getStateGRIPPER_STATEEnumRuleCall_1_0());
+				}
+				lv_state_1_0=ruleGRIPPER_STATE
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGripActionRule());
+					}
+					set(
+						$current,
+						"state",
+						lv_state_1_0,
+						"fr.unice.polytech.si5.webots.Polycreate.GRIPPER_STATE");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='gripper'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getGripActionAccess().getGripperKeyword_2());
+		}
+	)
+;
+
 // Entry rule entryRuleEDouble
 entryRuleEDouble returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getEDoubleRule()); }
@@ -1082,6 +1170,33 @@ ruleDETECTION returns [Enumerator current=null]
 	)
 ;
 
+// Rule OPERATOR
+ruleOPERATOR returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='<'
+			{
+				$current = grammarAccess.getOPERATORAccess().getINFERIOREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getOPERATORAccess().getINFERIOREnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='>'
+			{
+				$current = grammarAccess.getOPERATORAccess().getSUPERIOREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getOPERATORAccess().getSUPERIOREnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
 // Rule DIRECTION
 ruleDIRECTION returns [Enumerator current=null]
 @init {
@@ -1131,6 +1246,33 @@ ruleCAMERATYPE returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getCAMERATYPEAccess().getFRONTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getCAMERATYPEAccess().getFRONTEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule GRIPPER_STATE
+ruleGRIPPER_STATE returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='Open'
+			{
+				$current = grammarAccess.getGRIPPER_STATEAccess().getOPENEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getGRIPPER_STATEAccess().getOPENEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='Closed'
+			{
+				$current = grammarAccess.getGRIPPER_STATEAccess().getCLOSEDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getGRIPPER_STATEAccess().getCLOSEDEnumLiteralDeclaration_1());
 			}
 		)
 	)

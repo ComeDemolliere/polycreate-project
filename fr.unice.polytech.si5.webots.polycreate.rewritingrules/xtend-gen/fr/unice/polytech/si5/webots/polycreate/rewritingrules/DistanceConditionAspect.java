@@ -7,6 +7,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspectDistanceConditionAspectProperties;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect;
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
@@ -56,30 +57,29 @@ public class DistanceConditionAspect extends ObjectConditionAspect {
     int _length = backObjs.length;
     boolean _greaterThan = (_length > 0);
     if (_greaterThan) {
-      CameraRecognitionObject obj = backObjs[0];
-      double[] backObjPos = obj.getPosition();
-      double _get = backObjPos[0];
-      String _plus = ("latitude " + Double.valueOf(_get));
-      String _plus_1 = (_plus + " longitude ");
-      double _get_1 = backObjPos[1];
-      String _plus_2 = (_plus_1 + Double.valueOf(_get_1));
-      System.out.println(_plus_2);
-      double _get_2 = backObjPos[0];
-      double dLat = (_get_2 * (Math.PI / 180));
-      double _get_3 = backObjPos[1];
-      double dLong = (_get_3 * (Math.PI / 180));
-      double _sin = Math.sin((dLat / 2));
-      double _sin_1 = Math.sin((dLat / 2));
-      double _multiply = (_sin * _sin_1);
-      double _cos = Math.cos(0);
-      double _cos_1 = Math.cos(dLat);
-      double _multiply_1 = (_cos * _cos_1);
-      double _sin_2 = Math.sin((dLong / 2));
-      double _multiply_2 = (_multiply_1 * _sin_2);
-      double _sin_3 = Math.sin((dLong / 2));
-      double _multiply_3 = (_multiply_2 * _sin_3);
-      double angle = (_multiply + _multiply_3);
-      System.out.println(("angle " + Double.valueOf(angle)));
+      double distance = controler.getObjectDistanceToGripper();
+      System.out.println("");
+      double _distance = _self.getDistance();
+      String _plus = ("my distance  " + Double.valueOf(_distance));
+      System.out.println(_plus);
+      double _objectDistanceToGripper = controler.getObjectDistanceToGripper();
+      String _plus_1 = ("gripper distance  " + Double.valueOf(_objectDistanceToGripper));
+      System.out.println(_plus_1);
+      OPERATOR _operator = _self.getOperator();
+      if (_operator != null) {
+        switch (_operator) {
+          case INFERIOR:
+            double _distance_1 = _self.getDistance();
+            return (distance < _distance_1);
+          case SUPERIOR:
+            double _distance_2 = _self.getDistance();
+            return (distance > _distance_2);
+          default:
+            return false;
+        }
+      } else {
+        return false;
+      }
     }
     return false;
   }

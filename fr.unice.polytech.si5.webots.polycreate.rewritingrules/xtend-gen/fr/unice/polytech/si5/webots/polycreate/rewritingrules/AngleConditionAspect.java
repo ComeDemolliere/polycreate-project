@@ -7,6 +7,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspectAngleConditionAspectProperties;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect;
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
@@ -58,15 +59,25 @@ public class AngleConditionAspect extends ObjectConditionAspect {
     if (_greaterThan) {
       CameraRecognitionObject obj = backObjs[0];
       double[] backObjPos = obj.getPosition();
-      double _get = backObjPos[0];
-      String _plus = ("latitude " + Double.valueOf(_get));
-      String _plus_1 = (_plus + " longitude ");
-      double _get_1 = backObjPos[1];
-      String _plus_2 = (_plus_1 + Double.valueOf(_get_1));
-      System.out.println(_plus_2);
       double rad = Math.atan2(backObjPos[0], backObjPos[1]);
       double angle = (rad * (180 / Math.PI));
+      angle = (angle + 180);
       System.out.println(("angle " + Double.valueOf(angle)));
+      OPERATOR _operator = _self.getOperator();
+      if (_operator != null) {
+        switch (_operator) {
+          case INFERIOR:
+            double _angle = _self.getAngle();
+            return (angle < _angle);
+          case SUPERIOR:
+            double _angle_1 = _self.getAngle();
+            return (angle > _angle_1);
+          default:
+            return false;
+        }
+      } else {
+        return false;
+      }
     }
     return false;
   }

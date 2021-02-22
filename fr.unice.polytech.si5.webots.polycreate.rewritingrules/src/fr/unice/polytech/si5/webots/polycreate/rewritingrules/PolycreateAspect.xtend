@@ -27,6 +27,8 @@ import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectC
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition
 import com.cyberbotics.webots.controller.Camera
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction
 
 @Aspect(className=Action)
 abstract class ActionAspect {
@@ -61,6 +63,21 @@ class TurnActionAspect extends ActionAspect {
 	def void execute(PolyCreateControler controler) {
 		controler.turn(Math.PI * (_self.angle / 180));
 		controler.passiveWait(_self.duration);
+	}
+}
+
+@Aspect(className=GripAction)
+class GripActionAspect extends ActionAspect {
+	
+	@Step
+	@OverrideAspectMethod
+	def void execute(PolyCreateControler controler) {
+		switch(_self.state) {
+			case OPEN:
+				controler.openGripper()
+			case CLOSED:
+				controler.closeGripper()
+		}
 	}
 }
 
@@ -130,27 +147,23 @@ class AngleConditionAspect extends ObjectConditionAspect {
 		if (backObjs.length > 0) {
 			var obj = backObjs.get(0);
 			var backObjPos = obj.getPosition();
-			
-			System.out.println("latitude " + backObjPos.get(0) + " longitude " + backObjPos.get(1));
-			
-			/*var dLat = backObjPos.get(0) * (Math.PI/180);
-			var dLong = backObjPos.get(1) * (Math.PI/180);
-			
-			var angle = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(0) * Math.cos(dLat) * Math.sin(dLong/2) *
-			Math.sin(dLong/2); 
-			
-			System.out.println("angle " + angle); */
+	
 			
 			var rad = Math.atan2(backObjPos.get(0), backObjPos.get(1));
 			var angle = rad * (180 / Math.PI);
+			angle = angle + 180;
+			
 			System.out.println("angle "+ angle);
+	
 			
-			//return _self.angle < angle;
-			
-			/*var distance = 2 * Math.atan2(Math.sqrt(rad), Math.sqrt(1 - rad));
-			System.out.println("distance  "+ distance);
-			System.out.println("gripper " + controler.objectDistanceToGripper);*/
-			
+			switch(_self.operator) {
+				case INFERIOR:
+					return angle < _self.angle
+				case SUPERIOR:
+					return angle > _self.angle
+				default:
+					return false
+			}		
 		}
 		
 		return false;
@@ -172,17 +185,20 @@ class DistanceConditionAspect extends ObjectConditionAspect {
 		
 		var backObjs = _self.camera.getCameraRecognitionObjects();
 		if (backObjs.length > 0) {
-			var obj = backObjs.get(0);
-			var backObjPos = obj.getPosition();
-			System.out.println("latitude " + backObjPos.get(0) + " longitude " + backObjPos.get(1));
+
+			var distance = controler.getObjectDistanceToGripper(); 
+			System.out.println("");
+			System.out.println("my distance  "+ _self.distance);
+			System.out.println("gripper distance  "+ controler.getObjectDistanceToGripper());
 			
-			var dLat = backObjPos.get(0) * (Math.PI/180);
-			var dLong = backObjPos.get(1) * (Math.PI/180);
-			
-			var angle = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(0) * Math.cos(dLat) * Math.sin(dLong/2) *
-			Math.sin(dLong/2);
-			
-			System.out.println("angle " + angle);
+			switch(_self.operator) {
+				case INFERIOR:
+					return distance < _self.distance
+				case SUPERIOR:
+					return distance > _self.distance
+				default:
+					return false
+			}
 		}
 		
 		return false;
@@ -207,7 +223,8 @@ class StateAspect {
 	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {	
 		for (Action c : _self.actions) {
 			c.execute(controler);
-			controler.passiveWait(0.5);
+			controler.passiveWait(0.2);
+			controler.step(controler.timestep);
 		}
 		
 		for (Transition t : globalTransitions) {

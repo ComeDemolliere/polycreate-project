@@ -28,6 +28,14 @@
       <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//CAMERATYPE/FRONT"/>
       <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//CAMERATYPE/BACK"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="polycreate.ecore#//OPERATOR">
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//OPERATOR/INFERIOR"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//OPERATOR/SUPERIOR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="polycreate.ecore#//GRIPPER_STATE">
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//GRIPPER_STATE/OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="polycreate.ecore#//GRIPPER_STATE/CLOSED"/>
+    </genEnums>
     <genClasses ecoreClass="polycreate.ecore#//RobotProgram">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/globalTransitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference polycreate.ecore#//RobotProgram/ownedStates"/>
@@ -63,9 +71,14 @@
     </genClasses>
     <genClasses ecoreClass="polycreate.ecore#//DistanceCondition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//DistanceCondition/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//DistanceCondition/operator"/>
     </genClasses>
     <genClasses ecoreClass="polycreate.ecore#//AngleCondition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//AngleCondition/angle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//AngleCondition/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="polycreate.ecore#//GripAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute polycreate.ecore#//GripAction/state"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

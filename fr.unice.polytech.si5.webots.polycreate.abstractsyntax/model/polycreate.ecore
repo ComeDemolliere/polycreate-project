@@ -59,8 +59,21 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DistanceCondition" eSuperTypes="#//ObjectCondition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//OPERATOR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AngleCondition" eSuperTypes="#//ObjectCondition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//OPERATOR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OPERATOR">
+    <eLiterals name="INFERIOR"/>
+    <eLiterals name="SUPERIOR" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GripAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//GRIPPER_STATE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GRIPPER_STATE">
+    <eLiterals name="OPEN"/>
+    <eLiterals name="CLOSED" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -23,7 +23,12 @@ public abstract class ActionAspect {
     			fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction)_self,controler);
     		} else
     		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect
-    // #DispatchPointCut_before# void execute(PolyCreateControler)
+    	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction){
+			fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect
+// #DispatchPointCut_before# void execute(PolyCreateControler)
     if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action){
     	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     		@Override

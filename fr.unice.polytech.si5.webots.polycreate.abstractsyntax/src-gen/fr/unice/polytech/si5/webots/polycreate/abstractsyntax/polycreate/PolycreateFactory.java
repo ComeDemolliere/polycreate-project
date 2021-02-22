@@ -95,6 +95,15 @@ public interface PolycreateFactory extends EFactory {
 	AngleCondition createAngleCondition();
 
 	/**
+	 * Returns a new object of class '<em>Grip Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Grip Action</em>'.
+	 * @generated
+	 */
+	GripAction createGripAction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

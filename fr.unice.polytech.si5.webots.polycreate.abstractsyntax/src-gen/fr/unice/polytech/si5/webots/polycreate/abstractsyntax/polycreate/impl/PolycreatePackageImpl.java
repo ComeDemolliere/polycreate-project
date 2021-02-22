@@ -6,6 +6,7 @@ import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Condition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.NamedElement;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition;
@@ -122,6 +123,13 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass gripActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum detectionEEnum = null;
 
 	/**
@@ -137,6 +145,20 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * @generated
 	 */
 	private EEnum cameratypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum grippeR_STATEEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -441,6 +463,15 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDistanceCondition_Operator() {
+		return (EAttribute) distanceConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAngleCondition() {
 		return angleConditionEClass;
 	}
@@ -452,6 +483,33 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 */
 	public EAttribute getAngleCondition_Angle() {
 		return (EAttribute) angleConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAngleCondition_Operator() {
+		return (EAttribute) angleConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGripAction() {
+		return gripActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGripAction_State() {
+		return (EAttribute) gripActionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -479,6 +537,24 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 	 */
 	public EEnum getCAMERATYPE() {
 		return cameratypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOPERATOR() {
+		return operatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getGRIPPER_STATE() {
+		return grippeR_STATEEEnum;
 	}
 
 	/**
@@ -546,14 +622,21 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 
 		distanceConditionEClass = createEClass(DISTANCE_CONDITION);
 		createEAttribute(distanceConditionEClass, DISTANCE_CONDITION__DISTANCE);
+		createEAttribute(distanceConditionEClass, DISTANCE_CONDITION__OPERATOR);
 
 		angleConditionEClass = createEClass(ANGLE_CONDITION);
 		createEAttribute(angleConditionEClass, ANGLE_CONDITION__ANGLE);
+		createEAttribute(angleConditionEClass, ANGLE_CONDITION__OPERATOR);
+
+		gripActionEClass = createEClass(GRIP_ACTION);
+		createEAttribute(gripActionEClass, GRIP_ACTION__STATE);
 
 		// Create enums
 		detectionEEnum = createEEnum(DETECTION);
 		directionEEnum = createEEnum(DIRECTION);
 		cameratypeEEnum = createEEnum(CAMERATYPE);
+		operatorEEnum = createEEnum(OPERATOR);
+		grippeR_STATEEEnum = createEEnum(GRIPPER_STATE);
 	}
 
 	/**
@@ -593,6 +676,7 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 		objectConditionEClass.getESuperTypes().add(this.getCondition());
 		distanceConditionEClass.getESuperTypes().add(this.getObjectCondition());
 		angleConditionEClass.getESuperTypes().add(this.getObjectCondition());
+		gripActionEClass.getESuperTypes().add(this.getAction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(robotProgramEClass, RobotProgram.class, "RobotProgram", !IS_ABSTRACT, !IS_INTERFACE,
@@ -665,10 +749,20 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 		initEAttribute(getDistanceCondition_Distance(), ecorePackage.getEDouble(), "distance", null, 0, 1,
 				DistanceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDistanceCondition_Operator(), this.getOPERATOR(), "operator", null, 0, 1,
+				DistanceCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(angleConditionEClass, AngleCondition.class, "AngleCondition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAngleCondition_Angle(), ecorePackage.getEDouble(), "angle", null, 0, 1, AngleCondition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAngleCondition_Operator(), this.getOPERATOR(), "operator", null, 0, 1, AngleCondition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gripActionEClass, GripAction.class, "GripAction", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGripAction_State(), this.getGRIPPER_STATE(), "state", null, 0, 1, GripAction.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
@@ -700,6 +794,20 @@ public class PolycreatePackageImpl extends EPackageImpl implements PolycreatePac
 				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE.FRONT);
 		addEEnumLiteral(cameratypeEEnum,
 				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE.BACK);
+
+		initEEnum(operatorEEnum, fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR.class,
+				"OPERATOR");
+		addEEnumLiteral(operatorEEnum,
+				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR.INFERIOR);
+		addEEnumLiteral(operatorEEnum,
+				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR.SUPERIOR);
+
+		initEEnum(grippeR_STATEEEnum,
+				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE.class, "GRIPPER_STATE");
+		addEEnumLiteral(grippeR_STATEEEnum,
+				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE.OPEN);
+		addEEnumLiteral(grippeR_STATEEEnum,
+				fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE.CLOSED);
 
 		// Create resource
 		createResource(eNS_URI);

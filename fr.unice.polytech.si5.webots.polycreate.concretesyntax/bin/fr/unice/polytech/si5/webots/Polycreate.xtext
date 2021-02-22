@@ -20,7 +20,7 @@ Condition returns Condition:
 	SimpleCondition | ObjectCondition;
 
 Action returns Action:
-	MoveAction | TurnAction;
+	MoveAction | TurnAction | GripAction;
 
 Transition returns Transition:
 	{Transition}
@@ -45,11 +45,11 @@ ObjectCondition returns ObjectCondition:
 
 DistanceCondition returns DistanceCondition:
 	{DistanceCondition}
-	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' '<' distance=EDouble;
+	'detect' 'object' cameraType=CAMERATYPE 'with' 'distance' operator=OPERATOR distance=EDouble;
 	
 AngleCondition returns AngleCondition:
 	{AngleCondition}
-	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' '<' angle=EDouble;
+	'detect' 'object' cameraType=CAMERATYPE 'with' 'angle' operator=OPERATOR angle=EDouble;
 
 enum DETECTION returns DETECTION:
 				COLLISION_LEFT = 'COLLISION_LEFT' | COLLISION_RIGHT = 'COLLISION_RIGHT' | VIRTUAL_WALL = 'VIRTUAL_WALL' | CLIFF_LEFT = 'CLIFF_LEFT' | CLIFF_RIGHT = 'CLIFF_RIGHT' | CLIFF_FRONT = 'CLIFF_FRONT';
@@ -61,12 +61,22 @@ MoveAction returns MoveAction:
 TurnAction returns TurnAction:
 	{TurnAction}
 	'turn' angle=EDouble ('during' duration=EDouble)?;
+	
+GripAction returns GripAction:
+	{GripAction}
+	state=GRIPPER_STATE 'gripper';
+	
+enum OPERATOR returns OPERATOR:
+				INFERIOR = '<' | SUPERIOR = '>';
 
 enum DIRECTION returns DIRECTION:
 				FORWARD = 'FORWARD' | BACKWARD = 'BACKWARD';
 				
 enum CAMERATYPE returns CAMERATYPE:
 				BACK = 'BACK' | FRONT = 'FRONT';
+				
+enum GRIPPER_STATE returns GRIPPER_STATE:
+				OPEN = 'Open' | CLOSED = 'Closed';
 
 EDouble returns ecore::EDouble:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;

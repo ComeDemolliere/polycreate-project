@@ -6,6 +6,7 @@ package fr.unice.polytech.si5.webots.serializer;
 import com.google.inject.Inject;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.PolycreatePackage;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram;
@@ -45,6 +46,9 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case PolycreatePackage.DISTANCE_CONDITION:
 				sequence_DistanceCondition(context, (DistanceCondition) semanticObject); 
 				return; 
+			case PolycreatePackage.GRIP_ACTION:
+				sequence_GripAction(context, (GripAction) semanticObject); 
+				return; 
 			case PolycreatePackage.MOVE_ACTION:
 				sequence_MoveAction(context, (MoveAction) semanticObject); 
 				return; 
@@ -75,17 +79,20 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     AngleCondition returns AngleCondition
 	 *
 	 * Constraint:
-	 *     (cameraType=CAMERATYPE angle=EDouble)
+	 *     (cameraType=CAMERATYPE operator=OPERATOR angle=EDouble)
 	 */
 	protected void sequence_AngleCondition(ISerializationContext context, AngleCondition semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.OBJECT_CONDITION__CAMERA_TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.OBJECT_CONDITION__CAMERA_TYPE));
+			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.ANGLE_CONDITION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.ANGLE_CONDITION__OPERATOR));
 			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.ANGLE_CONDITION__ANGLE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.ANGLE_CONDITION__ANGLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAngleConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0(), semanticObject.getCameraType());
+		feeder.accept(grammarAccess.getAngleConditionAccess().getOperatorOPERATOREnumRuleCall_6_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getAngleConditionAccess().getAngleEDoubleParserRuleCall_7_0(), semanticObject.getAngle());
 		feeder.finish();
 	}
@@ -98,18 +105,40 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     DistanceCondition returns DistanceCondition
 	 *
 	 * Constraint:
-	 *     (cameraType=CAMERATYPE distance=EDouble)
+	 *     (cameraType=CAMERATYPE operator=OPERATOR distance=EDouble)
 	 */
 	protected void sequence_DistanceCondition(ISerializationContext context, DistanceCondition semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.OBJECT_CONDITION__CAMERA_TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.OBJECT_CONDITION__CAMERA_TYPE));
+			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.DISTANCE_CONDITION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.DISTANCE_CONDITION__OPERATOR));
 			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.DISTANCE_CONDITION__DISTANCE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.DISTANCE_CONDITION__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDistanceConditionAccess().getCameraTypeCAMERATYPEEnumRuleCall_3_0(), semanticObject.getCameraType());
+		feeder.accept(grammarAccess.getDistanceConditionAccess().getOperatorOPERATOREnumRuleCall_6_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getDistanceConditionAccess().getDistanceEDoubleParserRuleCall_7_0(), semanticObject.getDistance());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Action returns GripAction
+	 *     GripAction returns GripAction
+	 *
+	 * Constraint:
+	 *     state=GRIPPER_STATE
+	 */
+	protected void sequence_GripAction(ISerializationContext context, GripAction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.GRIP_ACTION__STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.GRIP_ACTION__STATE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGripActionAccess().getStateGRIPPER_STATEEnumRuleCall_1_0(), semanticObject.getState());
 		feeder.finish();
 	}
 	

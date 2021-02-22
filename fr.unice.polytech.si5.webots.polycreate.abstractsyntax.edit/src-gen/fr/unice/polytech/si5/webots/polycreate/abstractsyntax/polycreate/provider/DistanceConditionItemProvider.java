@@ -46,6 +46,7 @@ public class DistanceConditionItemProvider extends ObjectConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addDistancePropertyDescriptor(object);
+			addOperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,6 +65,22 @@ public class DistanceConditionItemProvider extends ObjectConditionItemProvider {
 								"_UI_DistanceCondition_type"),
 						PolycreatePackage.Literals.DISTANCE_CONDITION__DISTANCE, true, false, false,
 						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Operator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_DistanceCondition_operator_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_DistanceCondition_operator_feature",
+								"_UI_DistanceCondition_type"),
+						PolycreatePackage.Literals.DISTANCE_CONDITION__OPERATOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -114,6 +131,7 @@ public class DistanceConditionItemProvider extends ObjectConditionItemProvider {
 
 		switch (notification.getFeatureID(DistanceCondition.class)) {
 		case PolycreatePackage.DISTANCE_CONDITION__DISTANCE:
+		case PolycreatePackage.DISTANCE_CONDITION__OPERATOR:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

@@ -23,6 +23,11 @@
 			result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect.checkCondition((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition)_self,controler);
 		} else
 		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect
+	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect
+		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction){
+			fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction)_self,controler);
+		} else
+		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect
 	// BeginInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect#void execute(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect
 		if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction){
 			fr.unice.polytech.si5.webots.polycreate.rewritingrules.TurnActionAspect.execute((fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction)_self,controler);

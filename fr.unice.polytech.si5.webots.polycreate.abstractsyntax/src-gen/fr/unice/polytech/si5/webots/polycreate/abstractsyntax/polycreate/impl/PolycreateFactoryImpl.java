@@ -73,6 +73,8 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 			return createDistanceCondition();
 		case PolycreatePackage.ANGLE_CONDITION:
 			return createAngleCondition();
+		case PolycreatePackage.GRIP_ACTION:
+			return createGripAction();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +94,10 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 			return createDIRECTIONFromString(eDataType, initialValue);
 		case PolycreatePackage.CAMERATYPE:
 			return createCAMERATYPEFromString(eDataType, initialValue);
+		case PolycreatePackage.OPERATOR:
+			return createOPERATORFromString(eDataType, initialValue);
+		case PolycreatePackage.GRIPPER_STATE:
+			return createGRIPPER_STATEFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -111,6 +117,10 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 			return convertDIRECTIONToString(eDataType, instanceValue);
 		case PolycreatePackage.CAMERATYPE:
 			return convertCAMERATYPEToString(eDataType, instanceValue);
+		case PolycreatePackage.OPERATOR:
+			return convertOPERATORToString(eDataType, instanceValue);
+		case PolycreatePackage.GRIPPER_STATE:
+			return convertGRIPPER_STATEToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -201,6 +211,16 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GripAction createGripAction() {
+		GripActionImpl gripAction = new GripActionImpl();
+		return gripAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DETECTION createDETECTIONFromString(EDataType eDataType, String initialValue) {
 		DETECTION result = DETECTION.get(initialValue);
 		if (result == null)
@@ -259,6 +279,50 @@ public class PolycreateFactoryImpl extends EFactoryImpl implements PolycreateFac
 	 * @generated
 	 */
 	public String convertCAMERATYPEToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OPERATOR createOPERATORFromString(EDataType eDataType, String initialValue) {
+		OPERATOR result = OPERATOR.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOPERATORToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GRIPPER_STATE createGRIPPER_STATEFromString(EDataType eDataType, String initialValue) {
+		GRIPPER_STATE result = GRIPPER_STATE.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGRIPPER_STATEToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

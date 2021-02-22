@@ -43,3 +43,16 @@
 /.ObjectConditionAspect.java._trace
 /.ObjectConditionAspectObjectConditionAspectContext.java._trace
 /.ObjectConditionAspectObjectConditionAspectProperties.java._trace
+/AngleConditionAspect.java
+/AngleConditionAspectAngleConditionAspectContext.java
+/AngleConditionAspectAngleConditionAspectProperties.java
+/DistanceConditionAspect.java
+/DistanceConditionAspectDistanceConditionAspectContext.java
+/DistanceConditionAspectDistanceConditionAspectProperties.java
+/ObjectConditionAspect.java
+/ObjectConditionAspectObjectConditionAspectContext.java
+/ObjectConditionAspectObjectConditionAspectProperties.java
+/.TransitionAspect.java._trace
+/.GripActionAspect.java._trace
+/.GripActionAspectGripActionAspectContext.java._trace
+/.GripActionAspectGripActionAspectProperties.java._trace

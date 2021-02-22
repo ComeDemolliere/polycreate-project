@@ -257,6 +257,29 @@ public class PolycreateItemProviderAdapterFactory extends PolycreateAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GripActionItemProvider gripActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGripActionAdapter() {
+		if (gripActionItemProvider == null) {
+			gripActionItemProvider = new GripActionItemProvider(this);
+		}
+
+		return gripActionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,6 +394,8 @@ public class PolycreateItemProviderAdapterFactory extends PolycreateAdapterFacto
 			distanceConditionItemProvider.dispose();
 		if (angleConditionItemProvider != null)
 			angleConditionItemProvider.dispose();
+		if (gripActionItemProvider != null)
+			gripActionItemProvider.dispose();
 	}
 
 }

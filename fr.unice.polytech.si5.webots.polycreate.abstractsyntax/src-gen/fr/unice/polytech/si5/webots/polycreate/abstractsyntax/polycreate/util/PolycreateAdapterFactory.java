@@ -127,6 +127,11 @@ public class PolycreateAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseGripAction(GripAction object) {
+			return createGripActionAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -310,6 +315,20 @@ public class PolycreateAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAngleConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction <em>Grip Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction
+	 * @generated
+	 */
+	public Adapter createGripActionAdapter() {
 		return null;
 	}
 

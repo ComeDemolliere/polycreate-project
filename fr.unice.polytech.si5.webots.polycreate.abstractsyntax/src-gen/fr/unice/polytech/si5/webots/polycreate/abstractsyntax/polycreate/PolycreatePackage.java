@@ -530,13 +530,22 @@ public interface PolycreatePackage extends EPackage {
 	int DISTANCE_CONDITION__DISTANCE = OBJECT_CONDITION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTANCE_CONDITION__OPERATOR = OBJECT_CONDITION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Distance Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTANCE_CONDITION_FEATURE_COUNT = OBJECT_CONDITION_FEATURE_COUNT + 1;
+	int DISTANCE_CONDITION_FEATURE_COUNT = OBJECT_CONDITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Distance Condition</em>' class.
@@ -576,13 +585,22 @@ public interface PolycreatePackage extends EPackage {
 	int ANGLE_CONDITION__ANGLE = OBJECT_CONDITION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANGLE_CONDITION__OPERATOR = OBJECT_CONDITION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Angle Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANGLE_CONDITION_FEATURE_COUNT = OBJECT_CONDITION_FEATURE_COUNT + 1;
+	int ANGLE_CONDITION_FEATURE_COUNT = OBJECT_CONDITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Angle Condition</em>' class.
@@ -594,6 +612,52 @@ public interface PolycreatePackage extends EPackage {
 	int ANGLE_CONDITION_OPERATION_COUNT = OBJECT_CONDITION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.GripActionImpl <em>Grip Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.GripActionImpl
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getGripAction()
+	 * @generated
+	 */
+	int GRIP_ACTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRIP_ACTION__DURATION = ACTION__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRIP_ACTION__STATE = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Grip Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRIP_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Grip Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRIP_ACTION_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DETECTION <em>DETECTION</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -601,7 +665,7 @@ public interface PolycreatePackage extends EPackage {
 	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getDETECTION()
 	 * @generated
 	 */
-	int DETECTION = 12;
+	int DETECTION = 13;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DIRECTION <em>DIRECTION</em>}' enum.
@@ -611,7 +675,7 @@ public interface PolycreatePackage extends EPackage {
 	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getDIRECTION()
 	 * @generated
 	 */
-	int DIRECTION = 13;
+	int DIRECTION = 14;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE <em>CAMERATYPE</em>}' enum.
@@ -621,7 +685,27 @@ public interface PolycreatePackage extends EPackage {
 	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getCAMERATYPE()
 	 * @generated
 	 */
-	int CAMERATYPE = 14;
+	int CAMERATYPE = 15;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR <em>OPERATOR</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getOPERATOR()
+	 * @generated
+	 */
+	int OPERATOR = 16;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE <em>GRIPPER STATE</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getGRIPPER_STATE()
+	 * @generated
+	 */
+	int GRIPPER_STATE = 17;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram <em>Robot Program</em>}'.
@@ -898,6 +982,17 @@ public interface PolycreatePackage extends EPackage {
 	EAttribute getDistanceCondition_Distance();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DistanceCondition#getOperator()
+	 * @see #getDistanceCondition()
+	 * @generated
+	 */
+	EAttribute getDistanceCondition_Operator();
+
+	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition <em>Angle Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +1012,38 @@ public interface PolycreatePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAngleCondition_Angle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition#getOperator()
+	 * @see #getAngleCondition()
+	 * @generated
+	 */
+	EAttribute getAngleCondition_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction <em>Grip Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Grip Action</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction
+	 * @generated
+	 */
+	EClass getGripAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction#getState()
+	 * @see #getGripAction()
+	 * @generated
+	 */
+	EAttribute getGripAction_State();
 
 	/**
 	 * Returns the meta object for enum '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DETECTION <em>DETECTION</em>}'.
@@ -947,6 +1074,26 @@ public interface PolycreatePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getCAMERATYPE();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR <em>OPERATOR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>OPERATOR</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR
+	 * @generated
+	 */
+	EEnum getOPERATOR();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE <em>GRIPPER STATE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>GRIPPER STATE</em>'.
+	 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE
+	 * @generated
+	 */
+	EEnum getGRIPPER_STATE();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1202,6 +1349,14 @@ public interface PolycreatePackage extends EPackage {
 		EAttribute DISTANCE_CONDITION__DISTANCE = eINSTANCE.getDistanceCondition_Distance();
 
 		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISTANCE_CONDITION__OPERATOR = eINSTANCE.getDistanceCondition_Operator();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.AngleConditionImpl <em>Angle Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1218,6 +1373,32 @@ public interface PolycreatePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANGLE_CONDITION__ANGLE = eINSTANCE.getAngleCondition_Angle();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANGLE_CONDITION__OPERATOR = eINSTANCE.getAngleCondition_Operator();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.GripActionImpl <em>Grip Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.GripActionImpl
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getGripAction()
+		 * @generated
+		 */
+		EClass GRIP_ACTION = eINSTANCE.getGripAction();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRIP_ACTION__STATE = eINSTANCE.getGripAction_State();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.DETECTION <em>DETECTION</em>}' enum.
@@ -1248,6 +1429,26 @@ public interface PolycreatePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum CAMERATYPE = eINSTANCE.getCAMERATYPE();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR <em>OPERATOR</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getOPERATOR()
+		 * @generated
+		 */
+		EEnum OPERATOR = eINSTANCE.getOPERATOR();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE <em>GRIPPER STATE</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER_STATE
+		 * @see fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.impl.PolycreatePackageImpl#getGRIPPER_STATE()
+		 * @generated
+		 */
+		EEnum GRIPPER_STATE = eINSTANCE.getGRIPPER_STATE();
 
 	}
 
