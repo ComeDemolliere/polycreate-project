@@ -82,7 +82,7 @@ class GripActionAspect extends ActionAspect {
 }
 
 @Aspect(className=Condition)
-abstract class ConditionAspect {
+abstract class ConditionAspect {	
 	@Step
 	def boolean checkCondition(PolyCreateControler controler) {
 		return false;
