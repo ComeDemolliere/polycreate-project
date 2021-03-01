@@ -2,67 +2,8 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="polycreate" version="12.0.0.2017041100">
   <ownedViewpoints name="PolyViewpoint" modelFileExtension="poly">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="program" initialisation="true" showOnStartup="true" domainClass="polycreate::RobotProgram" enablePopupBars="true">
+      <layout xsi:type="description_1:OrderedTreeLayout"/>
       <defaultLayer name="Default">
-        <nodeMappings name="state" semanticCandidatesExpression="[self.ownedStates/]" domainClass="polycreate::State">
-          <borderedNodeMappings name="actions" semanticCandidatesExpression="[self.actions/]" domainClass="polycreate::Action">
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MoveAction)/]">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Move" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/move.png" labelPosition="node" resizeKind="NSEW" width="10" height="5">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(TurnAction)/]">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Turn" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/turn-right-arrow.png" labelPosition="node" resizeKind="NSEW" width="10" height="5">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(GripAction)/]">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Grip" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/sewing-scissors.png" labelPosition="node" resizeKind="NSEW" width="10" height="5">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </conditionnalStyles>
-          </borderedNodeMappings>
-          <style xsi:type="style:EllipseNodeDescription" labelSize="12" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="initialState" semanticCandidatesExpression="[self.initialState/]" domainClass="polycreate::State">
-          <borderedNodeMappings name="actions" semanticCandidatesExpression="[self.actions/]" domainClass="polycreate::Action">
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MoveAction)/]">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Move" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/move.png" labelPosition="node" resizeKind="NSEW" width="10" height="5">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(TurnAction)/]">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Turn" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/turn-right-arrow.png" labelPosition="node" resizeKind="NSEW" width="10" height="5">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(GripAction)/]">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Grip" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/sewing-scissors.png" labelPosition="node" resizeKind="NSEW" width="10" height="5">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </conditionnalStyles>
-          </borderedNodeMappings>
-          <style xsi:type="style:EllipseNodeDescription" labelSize="12" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="program" semanticCandidatesExpression="[self/]" domainClass="polycreate::RobotProgram">
           <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelExpression="Program" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -70,82 +11,86 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="transitionSquare" semanticCandidatesExpression="[self.ownedStates.transitions/]" domainClass="polycreate::Transition">
-          <borderedNodeMappings name="conditions" semanticCandidatesExpression="[self.conditions/]" domainClass="polycreate::Condition">
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(SimpleCondition)/]">
-              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="SimpleCondition" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(DistanceCondition)/]">
-              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="DistanceCondition" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(AngleCondition)/]">
-              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="angle condition" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </style>
-            </conditionnalStyles>
-          </borderedNodeMappings>
-          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Transition to + [self.nextState.name/]" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="globalTransitionsSquare" semanticCandidatesExpression="[self.globalTransitions/]" domainClass="polycreate::Transition">
-          <borderedNodeMappings name="conditions" semanticCandidatesExpression="[self.conditions/]" domainClass="polycreate::Condition">
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(SimpleCondition)/]">
-              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="simplecondition" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(DistanceCondition)/]">
-              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="distance condition" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(AngleCondition)/]">
-              <style xsi:type="style:DotDescription" labelSize="12" labelExpression="angle condition" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </style>
-            </conditionnalStyles>
-          </borderedNodeMappings>
-          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="Transition to [self.nextState.name/]" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="transitionToState" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='state'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='initialState']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='state'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='initialState']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(State)/]" domainClass="polycreate::Transition" useDomainElement="true">
+        <edgeMappings name="transitionToState" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@subNodeMappings[name='stateNode'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@subNodeMappings[name='stateNode']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@subNodeMappings[name='stateNode'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@subNodeMappings[name='stateNode']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(State)/]" domainClass="polycreate::Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
+            <centerLabelStyleDescription labelSize="12" labelExpression="[self.printTransition()/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="globalTransitions" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='program']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='initialState'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='state']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(RobotProgram)/]" domainClass="polycreate::Transition" useDomainElement="true">
+        <edgeMappings name="globalTransitions" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='program']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@subNodeMappings[name='stateNode'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@subNodeMappings[name='stateNode']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(RobotProgram)/]" domainClass="polycreate::Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
-            <centerLabelStyleDescription labelSize="12">
+            <centerLabelStyleDescription labelSize="12" labelExpression="[self.printTransition()/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <containerMappings name="State" semanticCandidatesExpression="[self.ownedStates/]" domainClass="polycreate::State">
+          <subNodeMappings name="stateNode" semanticCandidatesExpression="[self/]" domainClass="polycreate::State">
+            <style xsi:type="style:EllipseNodeDescription" labelSize="12" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="action" semanticCandidatesExpression="[self.actions/]" domainClass="polycreate::Action">
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MoveAction)/]">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printMoveAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/move.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(TurnAction)/]">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printTurnAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/turn-right-arrow.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(GripAction)/]">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printGripAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/sewing-scissors.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+        </containerMappings>
+        <containerMappings name="InitialState" semanticCandidatesExpression="[self.initialState/]" domainClass="polycreate::State">
+          <subNodeMappings name="stateNode" semanticCandidatesExpression="[self/]" domainClass="polycreate::State">
+            <style xsi:type="style:EllipseNodeDescription" labelSize="12" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="action" semanticCandidatesExpression="[self.actions/]" domainClass="polycreate::Action">
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MoveAction)/]">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printMoveAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/move.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(TurnAction)/]">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printTurnAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/turn-right-arrow.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.oclIsTypeOf(GripAction)/]">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printGripAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/sewing-scissors.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+        </containerMappings>
       </defaultLayer>
       <additionalLayers name="Animation" activeByDefault="true">
         <customization>
@@ -180,8 +125,8 @@
           </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" preconditionExpression="service:self.hasEnabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_enabled.gif" mappings="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='state'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='state']/@borderedNodeMappings[name='actions'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='initialState']"/>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" preconditionExpression="service:self.hasDisabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_disabled.gif" mappings="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='state'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='state']/@borderedNodeMappings[name='actions'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='initialState']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" preconditionExpression="service:self.hasEnabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_enabled.gif"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" preconditionExpression="service:self.hasDisabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_disabled.gif"/>
         </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
