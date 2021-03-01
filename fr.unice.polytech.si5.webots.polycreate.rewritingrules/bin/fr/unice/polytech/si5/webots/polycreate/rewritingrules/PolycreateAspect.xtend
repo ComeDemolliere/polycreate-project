@@ -32,10 +32,14 @@ import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAct
 
 @Aspect(className=Action)
 abstract class ActionAspect {
-	protected Timer timer;
+	protected boolean isStarted = false;
+	protected int timeWasted = 0;
 	
 	@Step
-	def void execute(PolyCreateControler controler) {}
+	def boolean execute(PolyCreateControler controler) { return false;}
+	
+	@Step
+	def void stop() { _self.isStarted = false;}
 }
 
 @Aspect(className=MoveAction)
@@ -43,15 +47,28 @@ class MoveActionAspect extends ActionAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def void execute(PolyCreateControler controler) {
-		if (_self.direction == DIRECTION.BACKWARD) {
+	def boolean execute(PolyCreateControler controler) {
+		if (_self.isStarted) {
+			System.out.println(_self.timeWasted);
+			_self.timeWasted(_self.timeWasted + controler.timestep);
+			if (_self.timeWasted > (_self.duration * 1000)) {
+				_self.isStarted = false;
+				System.out.println("end");
+				return true;
+			}
+			controler.step(controler.timestep);
+		} else {
+			_self.timeWasted = 0;
+			_self.isStarted = true;
+			if (_self.direction == DIRECTION.BACKWARD) {
 			controler.goBackward();
+			}
+			if (_self.direction == DIRECTION.FORWARD) {
+				controler.goForward();
+			}
+			controler.step(controler.timestep);
 		}
-		if (_self.direction == DIRECTION.FORWARD) {
-			controler.goForward();
-		}
-		
-		controler.passiveWait(_self.duration);
+		return false;
 	}
 }
 
@@ -60,9 +77,21 @@ class TurnActionAspect extends ActionAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def void execute(PolyCreateControler controler) {
-		controler.turn(Math.PI * (_self.angle / 180));
-		controler.passiveWait(_self.duration);
+	def boolean execute(PolyCreateControler controler) {
+		if (_self.isStarted) {
+			_self.timeWasted(_self.timeWasted + controler.timestep);
+			if (_self.timeWasted > (_self.duration * 1000)) {
+				_self.isStarted = false;
+				System.out.println("end");
+				return true;
+			}
+		} else {
+			_self.timeWasted = 0;
+			_self.isStarted = true;
+			controler.turn(Math.PI * (_self.angle / 180));
+			controler.step(controler.timestep);
+		}
+		return false;
 	}
 }
 
@@ -71,13 +100,14 @@ class GripActionAspect extends ActionAspect {
 	
 	@Step
 	@OverrideAspectMethod
-	def void execute(PolyCreateControler controler) {
+	def boolean execute(PolyCreateControler controler) {
 		switch(_self.state) {
 			case OPEN:
 				controler.openGripper()
 			case CLOSED:
 				controler.closeGripper()
 		}
+		return true;
 	}
 }
 
@@ -151,10 +181,7 @@ class AngleConditionAspect extends ObjectConditionAspect {
 			
 			var rad = Math.atan2(backObjPos.get(0), backObjPos.get(1));
 			var angle = rad * (180 / Math.PI);
-			angle = angle + 180;
-			
-			System.out.println("angle "+ angle);
-	
+			angle = angle + 180;	
 			
 			switch(_self.operator) {
 				case INFERIOR:
@@ -187,10 +214,7 @@ class DistanceConditionAspect extends ObjectConditionAspect {
 		if (backObjs.length > 0) {
 
 			var distance = controler.getObjectDistanceToGripper(); 
-			System.out.println("");
-			System.out.println("my distance  "+ _self.distance);
-			System.out.println("gripper distance  "+ controler.getObjectDistanceToGripper());
-			
+
 			switch(_self.operator) {
 				case INFERIOR:
 					return distance < _self.distance
@@ -223,10 +247,23 @@ class StateAspect {
 	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {
 		(_self.eContainer() as RobotProgram).currentState = _self;
 		
-		for (Action c : _self.actions) {
-			c.execute(controler);
-			controler.passiveWait(0.2);
-			controler.step(controler.timestep);
+		var index = 0;
+		
+		while (index < _self.actions.size) {
+			System.out.println("index " + index);
+			
+			if (_self.actions.get(index).execute(controler)) {
+			index += 1;
+			}
+			
+			for (Transition t : globalTransitions) {
+				if (t.canTransit(controler)) {
+					_self.actions.get(index).stop();
+					System.out.println("can transit to " + t.toString());
+					t.nextState.doActions(controler, globalTransitions);
+					return;
+				}
+			}
 		}
 		
 		for (Transition t : globalTransitions) {
@@ -235,13 +272,13 @@ class StateAspect {
 				return;
 			}
 		}
-			
+		
 		for (Transition t : _self.transitions) {
 			if (t.canTransit(controler)) {
 				t.nextState.doActions(controler, globalTransitions);
 				return;
 			}
-		}
+		}	
 		_self.doActions(controler, globalTransitions);
 	}
 }
@@ -255,6 +292,7 @@ class RobotProgramAspect {
 	def void start() {
 		_self.currentState = _self.initialState;
 		_self.controler.openGripper();
+		_self.controler.step(_self.controler.timestep);
 		_self.initialState.doActions(_self.controler, _self.globalTransitions);
 	}
 }

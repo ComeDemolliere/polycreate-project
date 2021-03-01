@@ -2,7 +2,6 @@ package fr.unice.polytech.si5.webots.polycreate.rewritingrules;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Action;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition;
@@ -40,12 +39,26 @@ public class StateAspect {
   protected static void _privk3_doActions(final StateAspectStateAspectProperties _self_, final State _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
     EObject _eContainer = _self.eContainer();
     ((RobotProgram) _eContainer).setCurrentState(_self);
-    EList<Action> _actions = _self.getActions();
-    for (final Action c : _actions) {
+    int index = 0;
+    while ((index < _self.getActions().size())) {
       {
-        ActionAspect.execute(c, controler);
-        controler.passiveWait(0.2);
-        controler.step(controler.timestep);
+        System.out.println(("index " + Integer.valueOf(index)));
+        boolean _execute = ActionAspect.execute(_self.getActions().get(index), controler);
+        if (_execute) {
+          int _index = index;
+          index = (_index + 1);
+        }
+        for (final Transition t : globalTransitions) {
+          boolean _canTransit = TransitionAspect.canTransit(t, controler);
+          if (_canTransit) {
+            ActionAspect.stop(_self.getActions().get(index));
+            String _string = t.toString();
+            String _plus = ("can transit to " + _string);
+            System.out.println(_plus);
+            StateAspect.doActions(t.getNextState(), controler, globalTransitions);
+            return;
+          }
+        }
       }
     }
     for (final Transition t : globalTransitions) {

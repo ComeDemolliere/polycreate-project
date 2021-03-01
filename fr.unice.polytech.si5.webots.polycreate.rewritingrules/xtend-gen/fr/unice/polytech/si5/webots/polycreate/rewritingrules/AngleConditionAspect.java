@@ -62,7 +62,6 @@ public class AngleConditionAspect extends ObjectConditionAspect {
       double rad = Math.atan2(backObjPos[0], backObjPos[1]);
       double angle = (rad * (180 / Math.PI));
       angle = (angle + 180);
-      System.out.println(("angle " + Double.valueOf(angle)));
       OPERATOR _operator = _self.getOperator();
       if (_operator != null) {
         switch (_operator) {

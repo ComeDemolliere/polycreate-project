@@ -11,7 +11,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="transitionToState" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@subNodeMappings[name='stateNode'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@subNodeMappings[name='stateNode']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@subNodeMappings[name='stateNode'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@subNodeMappings[name='stateNode']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(State)/]" domainClass="polycreate::Transition" useDomainElement="true">
+        <edgeMappings name="transitionToState" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(State)/]" domainClass="polycreate::Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12" labelExpression="[self.printTransition()/]">
@@ -19,7 +19,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="globalTransitions" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='program']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@subNodeMappings[name='stateNode'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@subNodeMappings[name='stateNode']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(RobotProgram)/]" domainClass="polycreate::Transition" useDomainElement="true">
+        <edgeMappings name="globalTransitions" sourceMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='program']" targetMapping="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState'] //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']" targetFinderExpression="[self.nextState/]" sourceFinderExpression="[self.oclAsType(Transition).eContainer().oclAsType(RobotProgram)/]" domainClass="polycreate::Transition" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             <centerLabelStyleDescription labelSize="12" labelExpression="[self.printTransition()/]">
@@ -27,14 +27,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="State" semanticCandidatesExpression="[self.ownedStates/]" domainClass="polycreate::State">
-          <subNodeMappings name="stateNode" semanticCandidatesExpression="[self/]" domainClass="polycreate::State">
-            <style xsi:type="style:EllipseNodeDescription" labelSize="12" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-            </style>
-          </subNodeMappings>
+        <containerMappings name="State" semanticCandidatesExpression="[self.ownedStates/]" domainClass="polycreate::State" childrenPresentation="List">
           <subNodeMappings name="action" semanticCandidatesExpression="[self.actions/]" domainClass="polycreate::Action">
             <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MoveAction)/]">
               <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printMoveAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/move.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
@@ -58,15 +51,14 @@
               </style>
             </conditionnalStyles>
           </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
         </containerMappings>
-        <containerMappings name="InitialState" semanticCandidatesExpression="[self.initialState/]" domainClass="polycreate::State">
-          <subNodeMappings name="stateNode" semanticCandidatesExpression="[self/]" domainClass="polycreate::State">
-            <style xsi:type="style:EllipseNodeDescription" labelSize="12" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
-            </style>
-          </subNodeMappings>
+        <containerMappings name="InitialState" semanticCandidatesExpression="[self.initialState/]" domainClass="polycreate::State" childrenPresentation="List">
           <subNodeMappings name="action" semanticCandidatesExpression="[self.actions/]" domainClass="polycreate::Action">
             <conditionnalStyles predicateExpression="[self.oclIsTypeOf(MoveAction)/]">
               <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="[self.printMoveAction()/]" iconPath="/fr.unice.polytech.si5.webots.polycreate.abstractsyntax.edit/icons/full/obj16/move.png" labelPosition="node" resizeKind="NSEW" width="20" height="7">
@@ -90,12 +82,21 @@
               </style>
             </conditionnalStyles>
           </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
         </containerMappings>
       </defaultLayer>
       <additionalLayers name="Animation" activeByDefault="true">
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.oclIsTypeOf(State) and self.oclAsType(State).eContainer().oclAsType(RobotProgram).currentState = self/]">
-            <featureCustomizations xsi:type="description:EReferenceCustomization" referenceName="color">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@style //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@style" referenceName="backgroundColor">
+              <value href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </featureCustomizations>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='InitialState']/@style //@ownedViewpoints[name='PolyViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='State']/@style" referenceName="foregroundColor">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </featureCustomizations>
           </vsmElementCustomizations>

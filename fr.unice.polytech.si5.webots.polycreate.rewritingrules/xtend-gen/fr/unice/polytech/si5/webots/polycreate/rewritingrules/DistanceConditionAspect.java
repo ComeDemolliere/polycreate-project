@@ -58,22 +58,15 @@ public class DistanceConditionAspect extends ObjectConditionAspect {
     boolean _greaterThan = (_length > 0);
     if (_greaterThan) {
       double distance = controler.getObjectDistanceToGripper();
-      System.out.println("");
-      double _distance = _self.getDistance();
-      String _plus = ("my distance  " + Double.valueOf(_distance));
-      System.out.println(_plus);
-      double _objectDistanceToGripper = controler.getObjectDistanceToGripper();
-      String _plus_1 = ("gripper distance  " + Double.valueOf(_objectDistanceToGripper));
-      System.out.println(_plus_1);
       OPERATOR _operator = _self.getOperator();
       if (_operator != null) {
         switch (_operator) {
           case INFERIOR:
-            double _distance_1 = _self.getDistance();
-            return (distance < _distance_1);
+            double _distance = _self.getDistance();
+            return (distance < _distance);
           case SUPERIOR:
-            double _distance_2 = _self.getDistance();
-            return (distance > _distance_2);
+            double _distance_1 = _self.getDistance();
+            return (distance > _distance_1);
           default:
             return false;
         }

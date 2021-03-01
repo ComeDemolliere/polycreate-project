@@ -14,14 +14,15 @@ import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 public class GripActionAspect extends ActionAspect {
   @Step
   @OverrideAspectMethod
-  public static void execute(final GripAction _self, final PolyCreateControler controler) {
+  public static boolean execute(final GripAction _self, final PolyCreateControler controler) {
     final fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspectGripActionAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspectGripActionAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void execute(PolyCreateControler)
+    Object result = null;
+    // #DispatchPointCut_before# boolean execute(PolyCreateControler)
     if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction){
     	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     		@Override
     		public void execute() {
-    			fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect._privk3_execute(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction)_self,controler);
+    			addToResult(fr.unice.polytech.si5.webots.polycreate.rewritingrules.GripActionAspect._privk3_execute(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction)_self,controler));
     		}
     	};
     	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
@@ -30,16 +31,18 @@ public class GripActionAspect extends ActionAspect {
     	} else {
     		command.execute();
     	}
+    	result = command.getResult();
     	;
     };
+    return (boolean)result;
   }
   
-  private static void super_execute(final GripAction _self, final PolyCreateControler controler) {
+  private static boolean super_execute(final GripAction _self, final PolyCreateControler controler) {
     final fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspectActionAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspectActionAspectContext.getSelf(_self);
-     fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect._privk3_execute(_self_, _self,controler);
+    return  fr.unice.polytech.si5.webots.polycreate.rewritingrules.ActionAspect._privk3_execute(_self_, _self,controler);
   }
   
-  protected static void _privk3_execute(final GripActionAspectGripActionAspectProperties _self_, final GripAction _self, final PolyCreateControler controler) {
+  protected static boolean _privk3_execute(final GripActionAspectGripActionAspectProperties _self_, final GripAction _self, final PolyCreateControler controler) {
     GRIPPER_STATE _state = _self.getState();
     if (_state != null) {
       switch (_state) {
@@ -53,5 +56,6 @@ public class GripActionAspect extends ActionAspect {
           break;
       }
     }
+    return true;
   }
 }
