@@ -54,7 +54,7 @@ public class RobotProgramAspect {
   protected static void _privk3_start(final RobotProgramAspectRobotProgramAspectProperties _self_, final RobotProgram _self) {
     _self.setCurrentState(_self.getInitialState());
     RobotProgramAspect.controler(_self).openGripper();
-    RobotProgramAspect.controler(_self).step(RobotProgramAspect.controler(_self).timestep);
+    RobotProgramAspect.controler(_self).passiveWait(1);
     StateAspect.doActions(_self.getInitialState(), RobotProgramAspect.controler(_self), _self.getGlobalTransitions());
   }
   

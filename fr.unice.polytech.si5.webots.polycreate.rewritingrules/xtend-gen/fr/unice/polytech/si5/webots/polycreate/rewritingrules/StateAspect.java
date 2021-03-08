@@ -40,6 +40,9 @@ public class StateAspect {
     EObject _eContainer = _self.eContainer();
     ((RobotProgram) _eContainer).setCurrentState(_self);
     int index = 0;
+    String _name = _self.getName();
+    String _plus = ("name " + _name);
+    System.out.println(_plus);
     while ((index < _self.getActions().size())) {
       {
         System.out.println(("index " + Integer.valueOf(index)));
@@ -53,8 +56,8 @@ public class StateAspect {
           if (_canTransit) {
             ActionAspect.stop(_self.getActions().get(index));
             String _string = t.toString();
-            String _plus = ("can transit to " + _string);
-            System.out.println(_plus);
+            String _plus_1 = ("can transit to " + _string);
+            System.out.println(_plus_1);
             StateAspect.doActions(t.getNextState(), controler, globalTransitions);
             return;
           }

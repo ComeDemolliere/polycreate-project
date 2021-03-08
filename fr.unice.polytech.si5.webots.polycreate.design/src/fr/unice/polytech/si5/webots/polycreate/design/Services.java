@@ -9,6 +9,7 @@ import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GRIPPER
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.GripAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.MoveAction;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.SimpleCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.TurnAction;
@@ -24,6 +25,32 @@ public class Services {
     public EObject myService(EObject self, String arg) {
        // TODO Auto-generated code
       return self;
+    }
+    
+    public String printAllGlobalTransitions(RobotProgram robot) {
+    	String res = "";
+    	for (int i = 0; i < robot.getGlobalTransitions().size() ; i++) {
+    		for (Condition condition : robot.getGlobalTransitions().get(i).getConditions()) {
+        		if (condition instanceof SimpleCondition) {
+        			res += "if there is a " + ((SimpleCondition) condition).getDetectionType().toString() + "\n";
+        		}
+        		if (condition instanceof AngleCondition) {
+        			res += "if angle ";
+        			res += ((AngleCondition) condition).getOperator().equals(OPERATOR.INFERIOR) ? "< " : "> ";
+        			res += ((AngleCondition) condition).getAngle();
+        			res += " on camera " + ((AngleCondition) condition).getCameraType() + "\n";
+        		}
+        		if (condition instanceof DistanceCondition) {
+        			res += "if distance ";
+        			res += ((DistanceCondition) condition).getOperator().equals(OPERATOR.INFERIOR) ? "< " : "> ";
+        			res += ((DistanceCondition) condition).getDistance();
+        			res += " on camera " + ((DistanceCondition) condition).getCameraType() + "\n";
+        		}
+    			if (i < robot.getGlobalTransitions().size() - 1) res += "OR ";
+    		}
+    	}
+    	return res;
+    	
     }
     
     public String printTransition(Transition transition) {

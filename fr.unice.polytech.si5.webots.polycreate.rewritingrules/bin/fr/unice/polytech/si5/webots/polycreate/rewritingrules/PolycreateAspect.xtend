@@ -248,6 +248,7 @@ class StateAspect {
 		(_self.eContainer() as RobotProgram).currentState = _self;
 		
 		var index = 0;
+		System.out.println("name " +_self.name);
 		
 		while (index < _self.actions.size) {
 			System.out.println("index " + index);
@@ -292,7 +293,7 @@ class RobotProgramAspect {
 	def void start() {
 		_self.currentState = _self.initialState;
 		_self.controler.openGripper();
-		_self.controler.step(_self.controler.timestep);
+		_self.controler.passiveWait(1);
 		_self.initialState.doActions(_self.controler, _self.globalTransitions);
 	}
 }
