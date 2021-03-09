@@ -42,7 +42,9 @@ public class AngleConditionAspect extends ObjectConditionAspect {
     int _length = backObjs.length;
     boolean _greaterThan = (_length > 0);
     if (_greaterThan) {
-      CameraRecognitionObject obj = backObjs[0];
+      int _length_1 = backObjs.length;
+      int _minus = (_length_1 - 1);
+      CameraRecognitionObject obj = backObjs[_minus];
       double[] backObjPos = obj.getPosition();
       double rad = Math.atan2(backObjPos[0], backObjPos[1]);
       double angle = (rad * (180 / Math.PI));
