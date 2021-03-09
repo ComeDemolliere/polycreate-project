@@ -40,12 +40,8 @@ public class StateAspect {
     EObject _eContainer = _self.eContainer();
     ((RobotProgram) _eContainer).setCurrentState(_self);
     int index = 0;
-    String _name = _self.getName();
-    String _plus = ("name " + _name);
-    System.out.println(_plus);
     while ((index < _self.getActions().size())) {
       {
-        System.out.println(("index " + Integer.valueOf(index)));
         boolean _execute = ActionAspect.execute(_self.getActions().get(index), controler);
         if (_execute) {
           int _index = index;
@@ -55,11 +51,21 @@ public class StateAspect {
           boolean _canTransit = TransitionAspect.canTransit(t, controler);
           if (_canTransit) {
             ActionAspect.stop(_self.getActions().get(index));
-            String _string = t.toString();
-            String _plus_1 = ("can transit to " + _string);
-            System.out.println(_plus_1);
-            StateAspect.doActions(t.getNextState(), controler, globalTransitions);
+            TransitionAspect.transitToNextState(t, controler, globalTransitions);
             return;
+          }
+        }
+        EList<Transition> _transitions = _self.getTransitions();
+        for (final Transition t_1 : _transitions) {
+          int _size = t_1.getConditions().size();
+          boolean _greaterThan = (_size > 0);
+          if (_greaterThan) {
+            boolean _canTransit_1 = TransitionAspect.canTransit(t_1, controler);
+            if (_canTransit_1) {
+              ActionAspect.stop(_self.getActions().get(index));
+              TransitionAspect.transitToNextState(t_1, controler, globalTransitions);
+              return;
+            }
           }
         }
       }
@@ -67,7 +73,7 @@ public class StateAspect {
     for (final Transition t : globalTransitions) {
       boolean _canTransit = TransitionAspect.canTransit(t, controler);
       if (_canTransit) {
-        StateAspect.doActions(t.getNextState(), controler, globalTransitions);
+        TransitionAspect.transitToNextState(t, controler, globalTransitions);
         return;
       }
     }
@@ -75,7 +81,7 @@ public class StateAspect {
     for (final Transition t_1 : _transitions) {
       boolean _canTransit_1 = TransitionAspect.canTransit(t_1, controler);
       if (_canTransit_1) {
-        StateAspect.doActions(t_1.getNextState(), controler, globalTransitions);
+        TransitionAspect.transitToNextState(t_1, controler, globalTransitions);
         return;
       }
     }

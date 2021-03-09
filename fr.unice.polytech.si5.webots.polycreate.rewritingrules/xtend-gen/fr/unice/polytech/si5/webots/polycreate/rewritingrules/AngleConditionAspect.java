@@ -4,7 +4,6 @@ import com.cyberbotics.webots.controller.CameraRecognitionObject;
 import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
-import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.CAMERATYPE;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.OPERATOR;
@@ -15,27 +14,13 @@ import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 @Aspect(className = AngleCondition.class)
 @SuppressWarnings("all")
 public class AngleConditionAspect extends ObjectConditionAspect {
-  @Step
   @OverrideAspectMethod
   public static boolean checkCondition(final AngleCondition _self, final PolyCreateControler controler) {
     final fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspectAngleConditionAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspectAngleConditionAspectContext.getSelf(_self);
     Object result = null;
     // #DispatchPointCut_before# boolean checkCondition(PolyCreateControler)
     if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition){
-    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    		@Override
-    		public void execute() {
-    			addToResult(fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect._privk3_checkCondition(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition)_self,controler));
-    		}
-    	};
-    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    	if (stepManager != null) {
-    		stepManager.executeStep(_self, new Object[] {controler}, command, "AngleCondition", "checkCondition");
-    	} else {
-    		command.execute();
-    	}
-    	result = command.getResult();
-    	;
+    	result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.AngleConditionAspect._privk3_checkCondition(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.AngleCondition)_self,controler);
     };
     return (boolean)result;
   }

@@ -46,7 +46,6 @@ public class MoveActionAspect extends ActionAspect {
   protected static boolean _privk3_execute(final MoveActionAspectMoveActionAspectProperties _self_, final MoveAction _self, final PolyCreateControler controler) {
     boolean _isStarted = ActionAspect.isStarted(_self);
     if (_isStarted) {
-      System.out.println(ActionAspect.timeWasted(_self));
       int _timeWasted = ActionAspect.timeWasted(_self);
       int _plus = (_timeWasted + controler.timestep);
       ActionAspect.timeWasted(_self, _plus);
@@ -56,7 +55,6 @@ public class MoveActionAspect extends ActionAspect {
       boolean _greaterThan = (_timeWasted_1 > _multiply);
       if (_greaterThan) {
         ActionAspect.isStarted(_self, false);
-        System.out.println("end");
         return true;
       }
       controler.step(controler.timestep);

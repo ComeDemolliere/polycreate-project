@@ -3,7 +3,6 @@ package fr.unice.polytech.si5.webots.polycreate.rewritingrules;
 import com.cyberbotics.webots.controller.Camera;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
-import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspectObjectConditionAspectProperties;
@@ -12,7 +11,6 @@ import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 @Aspect(className = ObjectCondition.class)
 @SuppressWarnings("all")
 public abstract class ObjectConditionAspect extends ConditionAspect {
-  @Step
   @OverrideAspectMethod
   public static boolean checkCondition(final ObjectCondition _self, final PolyCreateControler controler) {
     final fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspectObjectConditionAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspectObjectConditionAspectContext.getSelf(_self);
@@ -29,20 +27,7 @@ public abstract class ObjectConditionAspect extends ConditionAspect {
     		// EndInjectInto fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect#boolean checkCondition(PolyCreateControler) from fr.unice.polytech.si5.webots.polycreate.rewritingrules.DistanceConditionAspect
     // #DispatchPointCut_before# boolean checkCondition(PolyCreateControler)
     if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition){
-    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    		@Override
-    		public void execute() {
-    			addToResult(fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect._privk3_checkCondition(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition)_self,controler));
-    		}
-    	};
-    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    	if (stepManager != null) {
-    		stepManager.executeStep(_self, new Object[] {controler}, command, "ObjectCondition", "checkCondition");
-    	} else {
-    		command.execute();
-    	}
-    	result = command.getResult();
-    	;
+    	result = fr.unice.polytech.si5.webots.polycreate.rewritingrules.ObjectConditionAspect._privk3_checkCondition(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.ObjectCondition)_self,controler);
     };
     return (boolean)result;
   }

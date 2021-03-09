@@ -10,7 +10,7 @@ RobotProgram returns RobotProgram:
 	name=EString
 		'->' initialState=State
 		(ownedStates+=State)*
-		(globalTransitions+=Transition)*	
+		(globalTransitions+=GlobalTransitions)*	
 	;
 
 EString returns ecore::EString:
@@ -25,6 +25,11 @@ Action returns Action:
 Transition returns Transition:
 	{Transition}
 	(conditions+=Condition ('and' conditions+=Condition)* '=>')? nextState=[State|EString]
+	;
+	
+GlobalTransitions returns Transition:
+	{Transition}
+	conditions+=Condition ('and' conditions+=Condition)* '=>' nextState=[State|EString]
 	;
 
 State returns State:
@@ -56,7 +61,7 @@ enum DETECTION returns DETECTION:
 
 MoveAction returns MoveAction:
 	{MoveAction}
-	'move' direction=DIRECTION ('during' duration=EDouble)?;
+	'move' direction=DIRECTION 'during' duration=EDouble;
 
 TurnAction returns TurnAction:
 	{TurnAction}

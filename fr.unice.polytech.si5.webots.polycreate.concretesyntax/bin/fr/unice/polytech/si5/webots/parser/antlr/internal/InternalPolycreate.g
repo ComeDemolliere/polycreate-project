@@ -152,9 +152,9 @@ ruleRobotProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRobotProgramAccess().getGlobalTransitionsTransitionParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getRobotProgramAccess().getGlobalTransitionsGlobalTransitionsParserRuleCall_6_0());
 				}
-				lv_globalTransitions_6_0=ruleTransition
+				lv_globalTransitions_6_0=ruleGlobalTransitions
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRobotProgramRule());
@@ -163,7 +163,7 @@ ruleRobotProgram returns [EObject current=null]
 						$current,
 						"globalTransitions",
 						lv_globalTransitions_6_0,
-						"fr.unice.polytech.si5.webots.Polycreate.Transition");
+						"fr.unice.polytech.si5.webots.Polycreate.GlobalTransitions");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -368,6 +368,96 @@ ruleTransition returns [EObject current=null]
 				}
 				{
 					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateStateCrossReference_2_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleGlobalTransitions
+entryRuleGlobalTransitions returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGlobalTransitionsRule()); }
+	iv_ruleGlobalTransitions=ruleGlobalTransitions
+	{ $current=$iv_ruleGlobalTransitions.current; }
+	EOF;
+
+// Rule GlobalTransitions
+ruleGlobalTransitions returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getGlobalTransitionsAccess().getTransitionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGlobalTransitionsAccess().getConditionsConditionParserRuleCall_1_0());
+				}
+				lv_conditions_1_0=ruleCondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGlobalTransitionsRule());
+					}
+					add(
+						$current,
+						"conditions",
+						lv_conditions_1_0,
+						"fr.unice.polytech.si5.webots.Polycreate.Condition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_2='and'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getGlobalTransitionsAccess().getAndKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getGlobalTransitionsAccess().getConditionsConditionParserRuleCall_2_1_0());
+					}
+					lv_conditions_3_0=ruleCondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getGlobalTransitionsRule());
+						}
+						add(
+							$current,
+							"conditions",
+							lv_conditions_3_0,
+							"fr.unice.polytech.si5.webots.Polycreate.Condition");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_4='=>'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getGlobalTransitionsAccess().getEqualsSignGreaterThanSignKeyword_3());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getGlobalTransitionsRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getGlobalTransitionsAccess().getNextStateStateCrossReference_4_0());
 				}
 				ruleEString
 				{
@@ -884,31 +974,29 @@ ruleMoveAction returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_3='during'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getMoveActionAccess().getDuringKeyword_3());
+		}
 		(
-			otherlv_3='during'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getMoveActionAccess().getDuringKeyword_3_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getMoveActionAccess().getDurationEDoubleParserRuleCall_3_1_0());
+				{
+					newCompositeNode(grammarAccess.getMoveActionAccess().getDurationEDoubleParserRuleCall_4_0());
+				}
+				lv_duration_4_0=ruleEDouble
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMoveActionRule());
 					}
-					lv_duration_4_0=ruleEDouble
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getMoveActionRule());
-						}
-						set(
-							$current,
-							"duration",
-							lv_duration_4_0,
-							"fr.unice.polytech.si5.webots.Polycreate.EDouble");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"duration",
+						lv_duration_4_0,
+						"fr.unice.polytech.si5.webots.Polycreate.EDouble");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
+		)
 	)
 ;
 

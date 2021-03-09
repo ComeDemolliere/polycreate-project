@@ -62,8 +62,15 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_State(context, (State) semanticObject); 
 				return; 
 			case PolycreatePackage.TRANSITION:
-				sequence_Transition(context, (Transition) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getGlobalTransitionsRule()) {
+					sequence_GlobalTransitions(context, (Transition) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTransitionRule()) {
+					sequence_Transition(context, (Transition) semanticObject); 
+					return; 
+				}
+				else break;
 			case PolycreatePackage.TURN_ACTION:
 				sequence_TurnAction(context, (TurnAction) semanticObject); 
 				return; 
@@ -126,6 +133,18 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     GlobalTransitions returns Transition
+	 *
+	 * Constraint:
+	 *     (conditions+=Condition conditions+=Condition* nextState=[State|EString])
+	 */
+	protected void sequence_GlobalTransitions(ISerializationContext context, Transition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Action returns GripAction
 	 *     GripAction returns GripAction
 	 *
@@ -149,10 +168,19 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     MoveAction returns MoveAction
 	 *
 	 * Constraint:
-	 *     (direction=DIRECTION duration=EDouble?)
+	 *     (direction=DIRECTION duration=EDouble)
 	 */
 	protected void sequence_MoveAction(ISerializationContext context, MoveAction semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.MOVE_ACTION__DIRECTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.MOVE_ACTION__DIRECTION));
+			if (transientValues.isValueTransient(semanticObject, PolycreatePackage.Literals.ACTION__DURATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PolycreatePackage.Literals.ACTION__DURATION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMoveActionAccess().getDirectionDIRECTIONEnumRuleCall_2_0(), semanticObject.getDirection());
+		feeder.accept(grammarAccess.getMoveActionAccess().getDurationEDoubleParserRuleCall_4_0(), semanticObject.getDuration());
+		feeder.finish();
 	}
 	
 	
@@ -161,7 +189,7 @@ public class PolycreateSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     RobotProgram returns RobotProgram
 	 *
 	 * Constraint:
-	 *     (name=EString initialState=State ownedStates+=State* globalTransitions+=Transition*)
+	 *     (name=EString initialState=State ownedStates+=State* globalTransitions+=GlobalTransitions*)
 	 */
 	protected void sequence_RobotProgram(ISerializationContext context, RobotProgram semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

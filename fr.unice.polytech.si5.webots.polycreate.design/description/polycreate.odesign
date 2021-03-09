@@ -159,6 +159,6 @@
     <ownedJavaExtensions qualifiedClassName="fr.unice.polytech.si5.webots.polycreate.design.services.ProgramAnimationServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="program Palette">
-    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="0" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="120" blue="0" name="current instruction"/>
   </userColorsPalettes>
 </description:Group>

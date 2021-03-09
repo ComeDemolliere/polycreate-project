@@ -40,7 +40,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cOwnedStatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cOwnedStatesStateParserRuleCall_5_0 = (RuleCall)cOwnedStatesAssignment_5.eContents().get(0);
 		private final Assignment cGlobalTransitionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cGlobalTransitionsTransitionParserRuleCall_6_0 = (RuleCall)cGlobalTransitionsAssignment_6.eContents().get(0);
+		private final RuleCall cGlobalTransitionsGlobalTransitionsParserRuleCall_6_0 = (RuleCall)cGlobalTransitionsAssignment_6.eContents().get(0);
 		
 		//RobotProgram:
 		//	{RobotProgram}
@@ -48,10 +48,11 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//	name=EString
 		//	'->' initialState=State
 		//	ownedStates+=State*
-		//	globalTransitions+=Transition*;
+		//	globalTransitions+=GlobalTransitions*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{RobotProgram} 'RobotProgram' name=EString '->' initialState=State ownedStates+=State* globalTransitions+=Transition*
+		//{RobotProgram} 'RobotProgram' name=EString '->' initialState=State ownedStates+=State*
+		//globalTransitions+=GlobalTransitions*
 		public Group getGroup() { return cGroup; }
 		
 		//{RobotProgram}
@@ -81,11 +82,11 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//State
 		public RuleCall getOwnedStatesStateParserRuleCall_5_0() { return cOwnedStatesStateParserRuleCall_5_0; }
 		
-		//globalTransitions+=Transition*
+		//globalTransitions+=GlobalTransitions*
 		public Assignment getGlobalTransitionsAssignment_6() { return cGlobalTransitionsAssignment_6; }
 		
-		//Transition
-		public RuleCall getGlobalTransitionsTransitionParserRuleCall_6_0() { return cGlobalTransitionsTransitionParserRuleCall_6_0; }
+		//GlobalTransitions
+		public RuleCall getGlobalTransitionsGlobalTransitionsParserRuleCall_6_0() { return cGlobalTransitionsGlobalTransitionsParserRuleCall_6_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.EString");
@@ -206,6 +207,61 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EString
 		public RuleCall getNextStateStateEStringParserRuleCall_2_0_1() { return cNextStateStateEStringParserRuleCall_2_0_1; }
+	}
+	public class GlobalTransitionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.GlobalTransitions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTransitionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cConditionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConditionsConditionParserRuleCall_1_0 = (RuleCall)cConditionsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAndKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cConditionsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cConditionsConditionParserRuleCall_2_1_0 = (RuleCall)cConditionsAssignment_2_1.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNextStateAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cNextStateStateCrossReference_4_0 = (CrossReference)cNextStateAssignment_4.eContents().get(0);
+		private final RuleCall cNextStateStateEStringParserRuleCall_4_0_1 = (RuleCall)cNextStateStateCrossReference_4_0.eContents().get(1);
+		
+		//GlobalTransitions Transition:
+		//	{Transition} conditions+=Condition ('and' conditions+=Condition)* '=>' nextState=[State|EString];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Transition} conditions+=Condition ('and' conditions+=Condition)* '=>' nextState=[State|EString]
+		public Group getGroup() { return cGroup; }
+		
+		//{Transition}
+		public Action getTransitionAction_0() { return cTransitionAction_0; }
+		
+		//conditions+=Condition
+		public Assignment getConditionsAssignment_1() { return cConditionsAssignment_1; }
+		
+		//Condition
+		public RuleCall getConditionsConditionParserRuleCall_1_0() { return cConditionsConditionParserRuleCall_1_0; }
+		
+		//('and' conditions+=Condition)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'and'
+		public Keyword getAndKeyword_2_0() { return cAndKeyword_2_0; }
+		
+		//conditions+=Condition
+		public Assignment getConditionsAssignment_2_1() { return cConditionsAssignment_2_1; }
+		
+		//Condition
+		public RuleCall getConditionsConditionParserRuleCall_2_1_0() { return cConditionsConditionParserRuleCall_2_1_0; }
+		
+		//'=>'
+		public Keyword getEqualsSignGreaterThanSignKeyword_3() { return cEqualsSignGreaterThanSignKeyword_3; }
+		
+		//nextState=[State|EString]
+		public Assignment getNextStateAssignment_4() { return cNextStateAssignment_4; }
+		
+		//[State|EString]
+		public CrossReference getNextStateStateCrossReference_4_0() { return cNextStateStateCrossReference_4_0; }
+		
+		//EString
+		public RuleCall getNextStateStateEStringParserRuleCall_4_0_1() { return cNextStateStateEStringParserRuleCall_4_0_1; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.State");
@@ -496,17 +552,16 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMoveKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cDirectionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDirectionDIRECTIONEnumRuleCall_2_0 = (RuleCall)cDirectionAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDuringKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cDurationAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cDurationEDoubleParserRuleCall_3_1_0 = (RuleCall)cDurationAssignment_3_1.eContents().get(0);
+		private final Keyword cDuringKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cDurationAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDurationEDoubleParserRuleCall_4_0 = (RuleCall)cDurationAssignment_4.eContents().get(0);
 		
 		//MoveAction:
 		//	{MoveAction}
-		//	'move' direction=DIRECTION ('during' duration=EDouble)?;
+		//	'move' direction=DIRECTION 'during' duration=EDouble;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MoveAction} 'move' direction=DIRECTION ('during' duration=EDouble)?
+		//{MoveAction} 'move' direction=DIRECTION 'during' duration=EDouble
 		public Group getGroup() { return cGroup; }
 		
 		//{MoveAction}
@@ -521,17 +576,14 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		//DIRECTION
 		public RuleCall getDirectionDIRECTIONEnumRuleCall_2_0() { return cDirectionDIRECTIONEnumRuleCall_2_0; }
 		
-		//('during' duration=EDouble)?
-		public Group getGroup_3() { return cGroup_3; }
-		
 		//'during'
-		public Keyword getDuringKeyword_3_0() { return cDuringKeyword_3_0; }
+		public Keyword getDuringKeyword_3() { return cDuringKeyword_3; }
 		
 		//duration=EDouble
-		public Assignment getDurationAssignment_3_1() { return cDurationAssignment_3_1; }
+		public Assignment getDurationAssignment_4() { return cDurationAssignment_4; }
 		
 		//EDouble
-		public RuleCall getDurationEDoubleParserRuleCall_3_1_0() { return cDurationEDoubleParserRuleCall_3_1_0; }
+		public RuleCall getDurationEDoubleParserRuleCall_4_0() { return cDurationEDoubleParserRuleCall_4_0; }
 	}
 	public class TurnActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.si5.webots.Polycreate.TurnAction");
@@ -829,6 +881,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConditionElements pCondition;
 	private final ActionElements pAction;
 	private final TransitionElements pTransition;
+	private final GlobalTransitionsElements pGlobalTransitions;
 	private final StateElements pState;
 	private final SimpleConditionElements pSimpleCondition;
 	private final ObjectConditionElements pObjectCondition;
@@ -858,6 +911,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCondition = new ConditionElements();
 		this.pAction = new ActionElements();
 		this.pTransition = new TransitionElements();
+		this.pGlobalTransitions = new GlobalTransitionsElements();
 		this.pState = new StateElements();
 		this.pSimpleCondition = new SimpleConditionElements();
 		this.pObjectCondition = new ObjectConditionElements();
@@ -907,7 +961,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	//	name=EString
 	//	'->' initialState=State
 	//	ownedStates+=State*
-	//	globalTransitions+=Transition*;
+	//	globalTransitions+=GlobalTransitions*;
 	public RobotProgramElements getRobotProgramAccess() {
 		return pRobotProgram;
 	}
@@ -954,6 +1008,16 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTransitionRule() {
 		return getTransitionAccess().getRule();
+	}
+	
+	//GlobalTransitions Transition:
+	//	{Transition} conditions+=Condition ('and' conditions+=Condition)* '=>' nextState=[State|EString];
+	public GlobalTransitionsElements getGlobalTransitionsAccess() {
+		return pGlobalTransitions;
+	}
+	
+	public ParserRule getGlobalTransitionsRule() {
+		return getGlobalTransitionsAccess().getRule();
 	}
 	
 	//State:
@@ -1024,7 +1088,7 @@ public class PolycreateGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MoveAction:
 	//	{MoveAction}
-	//	'move' direction=DIRECTION ('during' duration=EDouble)?;
+	//	'move' direction=DIRECTION 'during' duration=EDouble;
 	public MoveActionElements getMoveActionAccess() {
 		return pMoveAction;
 	}

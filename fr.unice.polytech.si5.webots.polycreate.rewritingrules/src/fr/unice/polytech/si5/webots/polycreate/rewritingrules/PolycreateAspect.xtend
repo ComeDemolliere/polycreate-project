@@ -49,11 +49,9 @@ class MoveActionAspect extends ActionAspect {
 	@OverrideAspectMethod
 	def boolean execute(PolyCreateControler controler) {
 		if (_self.isStarted) {
-			System.out.println(_self.timeWasted);
 			_self.timeWasted(_self.timeWasted + controler.timestep);
 			if (_self.timeWasted > (_self.duration * 1000)) {
 				_self.isStarted = false;
-				System.out.println("end");
 				return true;
 			}
 			controler.step(controler.timestep);
@@ -82,7 +80,6 @@ class TurnActionAspect extends ActionAspect {
 			_self.timeWasted(_self.timeWasted + controler.timestep);
 			if (_self.timeWasted > (_self.duration * 1000)) {
 				_self.isStarted = false;
-				System.out.println("end");
 				return true;
 			}
 		} else {
@@ -113,7 +110,6 @@ class GripActionAspect extends ActionAspect {
 
 @Aspect(className=Condition)
 abstract class ConditionAspect {	
-	@Step
 	def boolean checkCondition(PolyCreateControler controler) {
 		return false;
 	}
@@ -122,7 +118,6 @@ abstract class ConditionAspect {
 @Aspect(className=SimpleCondition)
 class SimpleConditionAspect extends ConditionAspect {
 	
-	@Step
 	@OverrideAspectMethod
 	def boolean checkCondition(PolyCreateControler controler) {
 		switch(_self.detectionType) {
@@ -152,8 +147,7 @@ class SimpleConditionAspect extends ConditionAspect {
 @Aspect(className=ObjectCondition)
 abstract class ObjectConditionAspect extends ConditionAspect {
 	protected Camera camera;
-	
-	@Step
+
 	@OverrideAspectMethod
 	def boolean checkCondition(PolyCreateControler controler) {
 		return false;
@@ -163,7 +157,6 @@ abstract class ObjectConditionAspect extends ConditionAspect {
 @Aspect(className=AngleCondition)
 class AngleConditionAspect extends ObjectConditionAspect {
 	
-	@Step
 	@OverrideAspectMethod
 	def boolean checkCondition(PolyCreateControler controler) {
 		if (_self.cameraType == CAMERATYPE.FRONT) {
@@ -200,7 +193,6 @@ class AngleConditionAspect extends ObjectConditionAspect {
 @Aspect(className=DistanceCondition)
 class DistanceConditionAspect extends ObjectConditionAspect {
 	
-	@Step
 	@OverrideAspectMethod
 	def boolean checkCondition(PolyCreateControler controler) {
 		
@@ -239,6 +231,11 @@ class TransitionAspect {
 		}
 		return true;
 	}
+	
+	@Step
+	def void transitToNextState(PolyCreateControler controler, EList<Transition> globalTransitions) {
+		_self.nextState.doActions(controler, globalTransitions);
+	}
 }
 
 @Aspect(className=State)
@@ -248,10 +245,8 @@ class StateAspect {
 		(_self.eContainer() as RobotProgram).currentState = _self;
 		
 		var index = 0;
-		System.out.println("name " +_self.name);
 		
 		while (index < _self.actions.size) {
-			System.out.println("index " + index);
 			
 			if (_self.actions.get(index).execute(controler)) {
 			index += 1;
@@ -260,23 +255,32 @@ class StateAspect {
 			for (Transition t : globalTransitions) {
 				if (t.canTransit(controler)) {
 					_self.actions.get(index).stop();
-					System.out.println("can transit to " + t.toString());
-					t.nextState.doActions(controler, globalTransitions);
+					t.transitToNextState(controler, globalTransitions);
 					return;
 				}
 			}
+			
+			for (Transition t : _self.transitions) {
+				if (t.conditions.size() > 0) {
+					if (t.canTransit(controler)) {
+						_self.actions.get(index).stop();
+						t.transitToNextState(controler, globalTransitions);
+						return;
+					}
+				}
+			}	
 		}
 		
 		for (Transition t : globalTransitions) {
 			if (t.canTransit(controler)) {
-				t.nextState.doActions(controler, globalTransitions);
+				t.transitToNextState(controler, globalTransitions);
 				return;
 			}
 		}
 		
 		for (Transition t : _self.transitions) {
 			if (t.canTransit(controler)) {
-				t.nextState.doActions(controler, globalTransitions);
+				t.transitToNextState(controler, globalTransitions);
 				return;
 			}
 		}	

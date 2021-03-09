@@ -53,7 +53,6 @@ public class TurnActionAspect extends ActionAspect {
       boolean _greaterThan = (_timeWasted_1 > _multiply);
       if (_greaterThan) {
         ActionAspect.isStarted(_self, false);
-        System.out.println("end");
         return true;
       }
     } else {

@@ -45,6 +45,8 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup_1(), "rule__Transition__Group_1__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup_1_1(), "rule__Transition__Group_1_1__0");
+			builder.put(grammarAccess.getGlobalTransitionsAccess().getGroup(), "rule__GlobalTransitions__Group__0");
+			builder.put(grammarAccess.getGlobalTransitionsAccess().getGroup_2(), "rule__GlobalTransitions__Group_2__0");
 			builder.put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 			builder.put(grammarAccess.getStateAccess().getGroup_4(), "rule__State__Group_4__0");
 			builder.put(grammarAccess.getStateAccess().getGroup_4_4(), "rule__State__Group_4_4__0");
@@ -54,7 +56,6 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDistanceConditionAccess().getGroup(), "rule__DistanceCondition__Group__0");
 			builder.put(grammarAccess.getAngleConditionAccess().getGroup(), "rule__AngleCondition__Group__0");
 			builder.put(grammarAccess.getMoveActionAccess().getGroup(), "rule__MoveAction__Group__0");
-			builder.put(grammarAccess.getMoveActionAccess().getGroup_3(), "rule__MoveAction__Group_3__0");
 			builder.put(grammarAccess.getTurnActionAccess().getGroup(), "rule__TurnAction__Group__0");
 			builder.put(grammarAccess.getTurnActionAccess().getGroup_3(), "rule__TurnAction__Group_3__0");
 			builder.put(grammarAccess.getGripActionAccess().getGroup(), "rule__GripAction__Group__0");
@@ -67,6 +68,9 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTransitionAccess().getConditionsAssignment_1_0(), "rule__Transition__ConditionsAssignment_1_0");
 			builder.put(grammarAccess.getTransitionAccess().getConditionsAssignment_1_1_1(), "rule__Transition__ConditionsAssignment_1_1_1");
 			builder.put(grammarAccess.getTransitionAccess().getNextStateAssignment_2(), "rule__Transition__NextStateAssignment_2");
+			builder.put(grammarAccess.getGlobalTransitionsAccess().getConditionsAssignment_1(), "rule__GlobalTransitions__ConditionsAssignment_1");
+			builder.put(grammarAccess.getGlobalTransitionsAccess().getConditionsAssignment_2_1(), "rule__GlobalTransitions__ConditionsAssignment_2_1");
+			builder.put(grammarAccess.getGlobalTransitionsAccess().getNextStateAssignment_4(), "rule__GlobalTransitions__NextStateAssignment_4");
 			builder.put(grammarAccess.getStateAccess().getNameAssignment_2(), "rule__State__NameAssignment_2");
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_4_3(), "rule__State__ActionsAssignment_4_3");
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_4_4_1(), "rule__State__ActionsAssignment_4_4_1");
@@ -80,7 +84,7 @@ public class PolycreateParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAngleConditionAccess().getOperatorAssignment_6(), "rule__AngleCondition__OperatorAssignment_6");
 			builder.put(grammarAccess.getAngleConditionAccess().getAngleAssignment_7(), "rule__AngleCondition__AngleAssignment_7");
 			builder.put(grammarAccess.getMoveActionAccess().getDirectionAssignment_2(), "rule__MoveAction__DirectionAssignment_2");
-			builder.put(grammarAccess.getMoveActionAccess().getDurationAssignment_3_1(), "rule__MoveAction__DurationAssignment_3_1");
+			builder.put(grammarAccess.getMoveActionAccess().getDurationAssignment_4(), "rule__MoveAction__DurationAssignment_4");
 			builder.put(grammarAccess.getTurnActionAccess().getAngleAssignment_2(), "rule__TurnAction__AngleAssignment_2");
 			builder.put(grammarAccess.getTurnActionAccess().getDurationAssignment_3_1(), "rule__TurnAction__DurationAssignment_3_1");
 			builder.put(grammarAccess.getGripActionAccess().getStateAssignment_1(), "rule__GripAction__StateAssignment_1");
