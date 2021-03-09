@@ -168,7 +168,7 @@ class AngleConditionAspect extends ObjectConditionAspect {
 		
 		var backObjs = _self.camera.getCameraRecognitionObjects();
 		if (backObjs.length > 0) {
-			var obj = backObjs.get(0);
+			var obj = backObjs.get(backObjs.length - 1);
 			var backObjPos = obj.getPosition();
 	
 			
@@ -205,7 +205,7 @@ class DistanceConditionAspect extends ObjectConditionAspect {
 		var backObjs = _self.camera.getCameraRecognitionObjects();
 		if (backObjs.length > 0) {
 
-			var distance = controler.getObjectDistanceToGripper(); 
+			var distance = controler.getObjectDistanceToGripper();
 
 			switch(_self.operator) {
 				case INFERIOR:
