@@ -1,0 +1,19 @@
+RobotProgram myProgram
+-> State goStraight :
+actions = [move FORWARD during 1.0]
+
+State goBack :
+actions = [move BACKWARD during 3.0]
+transitions = [goStraight]
+
+State rotate :
+actions = [move BACKWARD during 2.0, turn 90.0]
+transitions = [goStraight]
+
+State littleRotate :
+actions = [turn 30.0]
+transitions = [goStraight]
+
+detect COLLISION_RIGHT => rotate
+detect COLLISION_LEFT => rotate
+detect object BACK with angle < 90.0 => littleRotate

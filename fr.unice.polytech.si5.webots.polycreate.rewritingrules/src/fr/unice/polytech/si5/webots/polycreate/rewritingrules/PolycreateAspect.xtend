@@ -233,15 +233,15 @@ class TransitionAspect {
 	}
 	
 	@Step
-	def void transitToNextState(PolyCreateControler controler, EList<Transition> globalTransitions) {
-		_self.nextState.doActions(controler, globalTransitions);
+	def State transitToNextState(PolyCreateControler controler, EList<Transition> globalTransitions) {
+		return _self.nextState;
 	}
 }
 
 @Aspect(className=State)
 class StateAspect {	
 	@Step
-	def void doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {
+	def State doActions(PolyCreateControler controler, EList<Transition> globalTransitions) {
 		(_self.eContainer() as RobotProgram).currentState = _self;
 		
 		var index = 0;
@@ -249,14 +249,13 @@ class StateAspect {
 		while (index < _self.actions.size) {
 			
 			if (_self.actions.get(index).execute(controler)) {
-			index += 1;
+				index += 1;
 			}
 			
 			for (Transition t : globalTransitions) {
 				if (t.canTransit(controler)) {
 					_self.actions.get(index).stop();
-					t.transitToNextState(controler, globalTransitions);
-					return;
+					return t.transitToNextState(controler, globalTransitions);
 				}
 			}
 			
@@ -264,8 +263,7 @@ class StateAspect {
 				if (t.conditions.size() > 0) {
 					if (t.canTransit(controler)) {
 						_self.actions.get(index).stop();
-						t.transitToNextState(controler, globalTransitions);
-						return;
+						return t.transitToNextState(controler, globalTransitions);
 					}
 				}
 			}	
@@ -273,18 +271,16 @@ class StateAspect {
 		
 		for (Transition t : globalTransitions) {
 			if (t.canTransit(controler)) {
-				t.transitToNextState(controler, globalTransitions);
-				return;
+				return t.transitToNextState(controler, globalTransitions);
 			}
 		}
 		
 		for (Transition t : _self.transitions) {
 			if (t.canTransit(controler)) {
-				t.transitToNextState(controler, globalTransitions);
-				return;
+				return t.transitToNextState(controler, globalTransitions);
 			}
 		}	
-		_self.doActions(controler, globalTransitions);
+		return _self;
 	}
 }
 
@@ -298,6 +294,10 @@ class RobotProgramAspect {
 		_self.currentState = _self.initialState;
 		_self.controler.openGripper();
 		_self.controler.passiveWait(1);
-		_self.initialState.doActions(_self.controler, _self.globalTransitions);
+		
+		var currentState = _self.initialState;
+		while (true) {
+			currentState = currentState.doActions(_self.controler, _self.globalTransitions);
+		}
 	}
 }

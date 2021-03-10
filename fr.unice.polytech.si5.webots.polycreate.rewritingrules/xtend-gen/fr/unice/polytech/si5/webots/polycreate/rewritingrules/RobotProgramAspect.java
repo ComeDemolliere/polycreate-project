@@ -4,6 +4,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.RobotProgram;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.RobotProgramAspectRobotProgramAspectProperties;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspect;
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
@@ -55,7 +56,10 @@ public class RobotProgramAspect {
     _self.setCurrentState(_self.getInitialState());
     RobotProgramAspect.controler(_self).openGripper();
     RobotProgramAspect.controler(_self).passiveWait(1);
-    StateAspect.doActions(_self.getInitialState(), RobotProgramAspect.controler(_self), _self.getGlobalTransitions());
+    State currentState = _self.getInitialState();
+    while (true) {
+      currentState = StateAspect.doActions(currentState, RobotProgramAspect.controler(_self), _self.getGlobalTransitions());
+    }
   }
   
   protected static PolyCreateControler _privk3_controler(final RobotProgramAspectRobotProgramAspectProperties _self_, final RobotProgram _self) {
