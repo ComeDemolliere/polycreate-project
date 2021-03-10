@@ -3,9 +3,9 @@ package fr.unice.polytech.si5.webots.polycreate.rewritingrules;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Condition;
+import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State;
 import fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.ConditionAspect;
-import fr.unice.polytech.si5.webots.polycreate.rewritingrules.StateAspect;
 import fr.unice.polytech.si5.webots.polycreate.rewritingrules.TransitionAspectTransitionAspectProperties;
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 import org.eclipse.emf.common.util.EList;
@@ -24,14 +24,15 @@ public class TransitionAspect {
   }
   
   @Step
-  public static void transitToNextState(final Transition _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
+  public static State transitToNextState(final Transition _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
     final fr.unice.polytech.si5.webots.polycreate.rewritingrules.TransitionAspectTransitionAspectProperties _self_ = fr.unice.polytech.si5.webots.polycreate.rewritingrules.TransitionAspectTransitionAspectContext.getSelf(_self);
-    // #DispatchPointCut_before# void transitToNextState(PolyCreateControler,EList<Transition>)
+    Object result = null;
+    // #DispatchPointCut_before# State transitToNextState(PolyCreateControler,EList<Transition>)
     if (_self instanceof fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition){
     	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
     		@Override
     		public void execute() {
-    			fr.unice.polytech.si5.webots.polycreate.rewritingrules.TransitionAspect._privk3_transitToNextState(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition)_self,controler,globalTransitions);
+    			addToResult(fr.unice.polytech.si5.webots.polycreate.rewritingrules.TransitionAspect._privk3_transitToNextState(_self_, (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.Transition)_self,controler,globalTransitions));
     		}
     	};
     	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
@@ -40,8 +41,10 @@ public class TransitionAspect {
     	} else {
     		command.execute();
     	}
+    	result = command.getResult();
     	;
     };
+    return (fr.unice.polytech.si5.webots.polycreate.abstractsyntax.polycreate.State)result;
   }
   
   protected static boolean _privk3_canTransit(final TransitionAspectTransitionAspectProperties _self_, final Transition _self, final PolyCreateControler controler) {
@@ -56,7 +59,7 @@ public class TransitionAspect {
     return true;
   }
   
-  protected static void _privk3_transitToNextState(final TransitionAspectTransitionAspectProperties _self_, final Transition _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
-    StateAspect.doActions(_self.getNextState(), controler, globalTransitions);
+  protected static State _privk3_transitToNextState(final TransitionAspectTransitionAspectProperties _self_, final Transition _self, final PolyCreateControler controler, final EList<Transition> globalTransitions) {
+    return _self.getNextState();
   }
 }
