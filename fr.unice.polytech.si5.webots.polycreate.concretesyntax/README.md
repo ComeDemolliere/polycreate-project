@@ -1,7 +1,7 @@
 ## Polycreate - Syntaxe concrète
 
 
-Dans ce module on retrouve la définition de notre syntaxe concrète et plus particulièrement la grammaire de notre language. Cette grammaire est basée sur notre syntaxe abstraite que vous pouvez retrouver dans le module __abstractsyntax__.
+Dans ce module on retrouve la définition de notre syntaxe concrète et plus particulièrement la grammaire de notre language. Cette grammaire est basée sur notre syntaxe abstraite que vous pouvez retrouver dans le module [abstractsyntax](../fr.unice.polytech.si5.webots.polycreate.abstractsyntax/README.md).
 
 Afin d'avoir une grammaire compréhensible par une majorité de personnes avec un minimum de notions en informatique nous avons voulu faire une syntaxe assez littéraire avec quand même une notion de liste sous forme de tableau [] afin d'éviter de la rendre trop verbeuse.
 
