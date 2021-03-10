@@ -2,6 +2,8 @@
 
 Nous avons défini notre syntaxe abstraite à l'aide de l'éditeur UML compris dans GEMOC. Vous pourrez retrouver notre diagramme dans le dossier **fr.unice.polytech.si5.webots.polycreate.abstractsyntax/model/polycreate.ecore**.
 
+![image](../examples/diagram-UML.png)
+
 Comme vous pouvez le voir, nous avons une classe principale qui est la classe _RobotProgram_. Cette classe mère contient une méthode "start()" qui nous permet de lancer notre programme.
 
 Cette classe contient une liste de _State_, un état initial (_State_), un état courant (_State_) et une liste de _Transition_ qui sont des transitions globales à notre système. Nous avons représenté le système du robot sous forme d'une machine à états en reprenant les différents concepts comme les états, les transitions et même les conditions.
